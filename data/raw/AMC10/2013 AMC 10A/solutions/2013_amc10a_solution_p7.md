@@ -1,0 +1,37 @@
+# 2013 AMC 10A Problem 7
+
+## Problem
+
+A student must choose a program of four courses from a menu of courses consisting of English, Algebra, Geometry, History, Art, and Latin. This program must contain English and at least one mathematics course. In how many ways can this program be chosen?
+
+$\textbf{(A)}\ 6\qquad\textbf{(B)}\ 8\qquad\textbf{(C)}\ 9\qquad\textbf{(D)}\ 12\qquad\textbf{(E)}\ 16$
+
+## Solution
+
+## Solution 1
+Let us split this up into two cases.
+Case $1$ : The student chooses both algebra and geometry.
+This means that $3$ courses have already been chosen. We have $3$ more options for the last course, so there are $3$ possibilities here.
+Case $2$ : The student chooses one or the other.
+Here, we simply count how many ways we can do one, multiply by $2$ , and then add to the previous.
+Assume the mathematics course is algebra. This means that we can choose $2$ of History, Art, and Latin, which is simply $\dbinom{3}{2} = 3$ . If it is geometry, we have another $3$ options, so we have a total of $6$ options if only one mathematics course is chosen.
+Thus, overall, we can choose a program in $6 + 3 = \boxed{\textbf{(C) }9}$ ways
+
+## Solution 2
+We can use complementary counting. Since there must be an English class, we will add that to our list of classes leaving $3$ remaining spots for rest of classes. We are also told that there needs to be at least one math class. This calls for complementary counting. The total number of ways of choosing $3$ classes out of the $5$ is $\binom{5}3$ . The total number of ways of choosing only non-mathematical classes is $\binom{3}3$ . Therefore the amount of ways you can pick classes with at least one math class is $\binom{5}3-\binom{3}3=10-1=\boxed{\textbf{(C) }9}$ ways.
+
+## Solution 3
+Similar to Solution 1, note that for Case 1 of solution the answer is simply $\binom{4}2$ and for the second case it is $\binom{3}2$ hence $\boxed{\textbf{(C) }9}$ ways
+
+## Video Solution (CREATIVE THINKING)
+https://youtu.be/ZGTHVQ6ixEo
+~Education, the Study of Everything
+
+## Video Solution
+https://youtu.be/kDA-Yae2GPk
+~savannahsolver
+### See Also
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America .

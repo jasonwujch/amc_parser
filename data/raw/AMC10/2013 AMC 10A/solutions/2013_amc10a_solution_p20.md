@@ -1,0 +1,22 @@
+# 2013 AMC 10A Problem 20
+
+## Problem
+
+A unit square is rotated $45^\circ$ about its center. What is the area of the region swept out by the interior of the square?
+
+$\textbf{(A)}\ 1 - \frac{\sqrt2}{2} + \frac{\pi}{4}\qquad\textbf{(B)}\ \frac{1}{2} + \frac{\pi}{4} \qquad\textbf{(C)}\ 2 - \sqrt2 + \frac{\pi}{4}\qquad\textbf{(D)}\ \frac{\sqrt2}{2} + \frac{\pi}{4} \qquad\textbf{(E)}\ 1 + \frac{\sqrt2}{4} + \frac{\pi}{8}$
+
+## Solution 1
+First, we need to see what this looks like. Below is a diagram.
+[asy] size(200); defaultpen(linewidth(0.8)); path square=shift((-.5,-.5))*unitsquare,square2=rotate(45)*square; fill(square^^square2,grey); for(int i=0;i<=3;i=i+1) { path arcrot=arc(origin,sqrt(2)/2,45+90*i,90*(i+1)); draw(arcrot); fill(arcrot--(0,0)--cycle,grey); draw(arc(origin,sqrt(2)/2+1/8,50+90*i,90*(i+1)-10),EndArrow); } draw(square^^square2);[/asy]
+For this square with side length 1, the distance from center to vertex is $r = \frac{\sqrt{2}}{2}$ , hence the area is composed of a semicircle of radius $r$ , plus $4$ times a parallelogram (or a kite with diagonals of $(\sqrt{2}-1)$ and $r \text{ or} \frac{\sqrt{2}}{2}$ ) with height $\frac{1}{2}$ and base $\frac{\sqrt{2}}{2(1+\sqrt{2})}$ . That is to say, the total area is $\frac{1}{2} \pi \left(\frac{\sqrt{2}}{2}\right)^2 + 4 \frac{\sqrt{2}}{4(1+\sqrt{2})} = \boxed{\textbf{(C) } 2 - \sqrt{2} + \frac{\pi}{4}}$ .
+[asy] size(150);defaultpen(linewidth(0.8)); path square=shift((-.5,-.5))*unitsquare,square2=rotate(45)*square;//fill(square^^square2,grey); for(int i=0;i<=3;i=i+1){path arcrot=arc(origin,sqrt(2)/2,45+90*i,90*(i+1));draw(arcrot); fill(arcrot--(0,0)--cycle,grey);} //draw(arc(origin,sqrt(2)/2+1/8,50+90*i,90*(i+1)-10),EndArrow);} draw(square^^square2); //draw((-.5,.5)--(.5,-.5)^^(0,sqrt(.5))--(0,-sqrt(.5)),dotted);draw((.5,.5)--(-.5,-.5),dotted); [/asy] (To turn each dart-shaped piece into a parallelogram, cut along the dashed line and flip over one half.) [asy] size(150,Aspect);real r=sqrt(2);real b=2-2/r; draw((0,0)--(-1,1)--(b-1,1)--(0,r)--cycle);draw((0,1)--(b-1,1)--(b/2-1,1-b/2));draw((0,0)--(b-1,1),dashed); fill((2,0)--(b+1,1)--(b+2,0)--cycle,lightgray);draw((.5,.5)--(1,.5),EndArrow); draw((2,0)--(1,1)--(b+1,1)--(b+2,0)--(2,0)^^(b+1,1)--(b/2+1,1-b/2)^^(2,0)--(2+b/2,b/2)); draw((2,0)--(b+1,1),dashed); [/asy] Alternatively, you can move the dart-shaped piece to the other side and make a kite. [asy] size(75,Aspect);real r=sqrt(2);real b=2-2/r; draw((r-1,1)--(b-1,1)); draw((0,0)--(b-1,1)--(0,r)--(r-1,1)--cycle); draw((0,r)--(0,0),dashed); [/asy]
+
+## Solution 2
+[asy] size(200); defaultpen(linewidth(0.8)); path square=shift((-.5,-.5))*unitsquare,square2=rotate(45)*square; for(int i=0;i<=6;i=i+1) { path arcrot=arc(origin,sqrt(2)/2,45+270*i,270*(i+1)); draw(arcrot); } draw(square^^square2);[/asy]
+Let $O$ be the center of the square and $C$ be the intersection of $OB$ and $AD$ . The desired area consists of the unit square, plus $4$ regions congruent to the region bounded by arc $AB$ , $\overline{AC}$ , and $\overline{BC}$ , plus $4$ triangular regions congruent to right triangle $BCD$ . The area of the region bounded by arc $AB$ , $\overline{AC}$ , and $\overline{BC}$ is $\frac{\text{Area of Circle}-\text{Area of Square}}{8}$ . Since the circle has radius $\dfrac{1}{\sqrt {2}}$ , the area of the region is $\dfrac{\dfrac{\pi}{2}-1}{8}$ , so 4 times the area of that region is $\dfrac{\pi}{4}-\dfrac{1}{2}$ . Now we find the area of $\triangle BCD$ . $BC=BO-OC=\dfrac{\sqrt {2}}{2}-\dfrac{1}{2}$ . Since $\triangle BCD$ is a $45-45-90$ right triangle, the area of $\triangle BCD$ is $\dfrac{BC^2}{2}=\dfrac {\left (\dfrac {\sqrt {2}}{2}-\dfrac{1}{2} \right)^2}{2}$ , so $4$ times the area of $\triangle BCD$ is $\dfrac{3}{2}-\sqrt {2}$ . Finally, the area of the whole region is $1+ \left(\dfrac {3}{2}-\sqrt {2} \right) + \left(\dfrac{\pi}{4}-\dfrac{1}{2} \right)=\dfrac{\pi}{4}+2-\sqrt {2}$ , which we can rewrite as $\boxed{\textbf{(C) } 2 - \sqrt{2} + \frac{\pi}{4}}$ .
+### See Also
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America .

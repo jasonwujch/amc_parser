@@ -1,0 +1,20 @@
+# 2017 AMC 10A Problem 9
+
+## Problem
+
+Minnie rides on a flat road at $20$ kilometers per hour (kph), downhill at $30$ kph, and uphill at $5$ kph. Penny rides on a flat road at $30$ kph, downhill at $40$ kph, and uphill at $10$ kph. Minnie goes from town $A$ to town $B$ , a distance of $10$ km all uphill, then from town $B$ to town $C$ , a distance of $15$ km all downhill, and then back to town $A$ , a distance of $20$ km on the flat. Penny goes the other way around using the same route. How many more minutes does it take Minnie to complete the $45$ -km ride than it takes Penny?
+
+$\textbf{(A)}\ 45\qquad\textbf{(B)}\ 60\qquad\textbf{(C)}\ 65\qquad\textbf{(D)}\ 90\qquad\textbf{(E)}\ 95$
+
+## Solution
+The distance from town $A$ to town $B$ is $10$ km uphill, and since Minnie rides uphill at a speed of $5$ kph, it will take her $2$ hours. Next, she will ride from town $B$ to town $C$ , a distance of $15$ km all downhill. Since Minnie rides downhill at a speed of $30$ kph, it will take her half an hour. Finally, she rides from town $C$ back to town $A$ , a flat distance of $20$ km. Minnie rides on a flat road at $20$ kph, so this will take her $1$ hour. Her entire trip takes her $3.5$ hours.
+Then, Penny will go from town $A$ to town $C$ , a flat distance of $20$ km. Since Penny rides on a flat road at $30$ kph, it will take her $\frac{2}{3}$ of an hour. Next Penny will go from town $C$ to town $B$ , which is uphill for Penny. Since Penny rides at a speed of $10$ kph uphill, and town $C$ and $B$ are $15$ km apart, it will take her $1.5$ hours. Finally, Penny goes from Town $B$ back to town $A$ , a distance of $10$ km downhill. Since Penny rides downhill at $40$ kph, it will only take her $\frac{1}{4}$ of an hour. In total, it takes her $29/12$ hours, which simplifies to $2$ hours and $25$ minutes. Finally, Penny's $2$ hr $25$ min trip was $\boxed{\textbf{(C)}\ 65}$ minutes less than Minnie's $3$ hr $30$ min trip.
+
+## Video Solution
+https://youtu.be/ZzXmY5mG-rQ
+~savannahsolver
+### See Also
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America .

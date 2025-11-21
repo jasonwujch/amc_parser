@@ -1,0 +1,30 @@
+# 2004 AMC 10B Problem 22
+
+## Problem
+
+A triangle with sides of 5, 12, and 13 has both an inscribed and a circumscribed circle. What is the distance between the centers of those circles?
+
+$\mathrm{(A) \ } \frac{3\sqrt{5}}{2} \qquad \mathrm{(B) \ } \frac{7}{2} \qquad \mathrm{(C) \ } \sqrt{15} \qquad \mathrm{(D) \ } \frac{\sqrt{65}}{2} \qquad \mathrm{(E) \ } \frac{9}{2}$
+
+## Solution 1
+[asy] import geometry; unitsize(0.6 cm); pair A, B, C, D, E, F, I, O; A = (5^2/13,5*12/13); B = (0,0); C = (13,0); I = incenter(A,B,C); D = (I + reflect(B,C)*(I))/2; E = (I + reflect(C,A)*(I))/2; F = (I + reflect(A,B)*(I))/2; O = (B + C)/2; draw(A--B--C--cycle); draw(incircle(A,B,C)); draw(I--D); draw(I--E); draw(I--F); draw(I--O); label("$A$", A, N); label("$B$", B, SW); label("$C$", C, SE); dot("$D$", D, S); dot("$E$", E, NE); dot("$F$", F, NW); dot("$I$", I, N); dot("$O$", O, S); [/asy] This is a right triangle. Pick a coordinate system so that the right angle is at $(0,0)$ and the other two vertices are at $(12,0)$ and $(0,5)$ .
+As this is a right triangle, the center of the circumcircle is in the middle of the hypotenuse, at $(6,2.5)$ .
+The radius $r$ of the inscribed circle can be computed using the well-known identity $\frac{rP}2=S$ , where $S$ is the area of the triangle and $P$ its perimeter. In our case, $S=\frac{5\cdot 12}{2}=30$ and $P=5+12+13=30$ . Thus, $r=2$ . As the inscribed circle touches both legs, its center must be at $(r,r)=(2,2)$ .
+The distance of these two points is then $\sqrt{ (6-2)^2 + (2.5-2)^2 } = \sqrt{16.25} = \sqrt{\frac{65}4} = \boxed{\frac{\sqrt{65}}2}$ .
+
+## Solution 2
+We directly apply Euler’s Theorem, which states that if the circumcenter is $O$ and the incenter $I$ , and the inradius is $r$ and the circumradius is $R$ , then \[OI^2=R(R-2r)\]
+We can see that this is a right triangle, and hence has area $30$ . We then find the inradius with the formula $A=rs$ , where $s$ denotes semiperimeter. We easily see that $s=15$ , so $r=2$ .
+We now find the circumradius with the formula $A=\frac{abc}{4R}$ . Solving for $R$ gives $R=\frac{13}{2}$ . Additionally, we may notice that the side lengths $(5, 12, 13)$ are in a Pythagorean triple, and therefore the triangle is right for a circumradius of $\frac{13}{2}$ .
+Substituting all of this back into our formula gives: \[OI^2= \frac{65}{4}\] So, $OI=\frac{\sqrt{65}}{2}\implies \boxed{D}$
+
+## Solution 3
+[asy] size(15cm); draw((0,0)--(0,5), linewidth(2)); draw((0,0)--(12,0), linewidth(2)); draw((12,0)--(0,5), linewidth(2)); draw((2,0)--(2,2), linewidth(2)); draw((2,2)--(2.770565628817799,3.8455976546592505), linewidth(2)); draw((2,2)--(6.023716614191289,2.4901180774202962), linewidth(2)); draw((2,2)--(0,5), linewidth(2)); draw((2,2)--(12,0), linewidth(2)); draw((0,2)--(2,2), linewidth(2)); label("$A$", (0.14164244785738467,0.25966489738837517), NE); label("$B$", (0.14164244785738467,5.311734560831129), NE); label("$C$", (12.120449134133493,0.3232129434694161), NE); label("$D$", (0.14164244785738467,2.324976395022205), NE); label("$E$", (2.111631876369636,0.3232129434694161), NE); label("$F$", (2.9059824523826405,4.167869731372392), NE); label("$G$", (6.146932802515699,2.801586740630012), NE); label("$I$", (2.1, 2.1), NE); [/asy] Construct $\triangle{ABC}$ such that $AB=5$ , $AC=12$ , and $BC=13$ . Since this is a pythagorean triple, $\angle{A}=90$ . By a property of circumcircles and right triangles, the circumcenter, $G$ , lies on the midpoint of $\overline{BC}$ , so $BG=\frac{13}{2}$ . Turning to the incircle, we find that the inradius is $2$ , using the formula $A=rs$ , where $A$ is the area of the triangle, $r$ is the inradius, and $s$ is the semiperimeter. We then denote the incenter $I$ , along with the points of tangency $D$ , $E$ , and $F$ . Because $\angle{IDA}=\angle{IEA}=90$ by a property of tangency, $\angle{EID}=90$ , and so $IDAE$ is a square. Then, since $IE=2$ , $AD=2$ . As $AB=5$ , $BD=3$ , and because $\triangle{BID}\cong\triangle{BIF}$ by HL, $BD=BF=3$ . Therefore, $FG=\frac{7}{2}$ . Because $IF=2$ , pythagorean theorem gives $IG=\boxed{\frac{\sqrt{65}}{2}}$
+
+## Solution 4 (Coordinate Bash)
+Like Solution 1, this is a right triangle, so use a coordinate system and put the right angle at $(0,0)$ and the other two vertices at $(12,0)$ and $(0,5)$ . Call point A $(0,5)$ , B $(0,0)$ , and C $(12,0)$ . Then you need to find the center of the circumscribed and inscribed circles, or circumcenter and incenter of the triangle. Find the center of the circumcenter using the other methods above, which will be at $(6,2.5)$ . In order to find the incenter, you will use the fact that it is the point where the three bisectors of the interior angles of the triangle intersect. From point B, the bisector is 45 degrees, so the slope is $y=x$ . From point A, draw the angle bisector through the line $(0,0)$ and $(12,0)$ and call it point D. Now you need to find $BD$ . Replacing $BD$ with $x$ and $DC$ with $y$ and using the angle bisector theorem $\frac{x}{y} = \frac{AB}{AC} = \frac{5}{13}$ , so $y=\frac{13}{5}x$ . Substituting $x+y=12$ , we get $x+\frac{13}{5}x = \frac{18}{5}x = 12$ , so $x = \frac{60}{18} = \frac{10}{3}$ . With this information, point D is $(\frac{10}{3}, 0)$ , and the slope of $BD$ is $\frac{rise}{run} = \frac{-5}{\frac{10}{3}} = -\frac{3}{2}$ . This means the equation for $BD$ is $y=-\frac{3}{2}x+5$ . Find the intersection point of $y=\frac{-3}{2}x+5$ and $y=x$ with substitution, which will be $(2,2)$ . Using the distance formula, find the distance between $(2,2)$ and $(6,2.5)$ which will be $\sqrt{16.25}$ , and with some manipulation, $\frac{\sqrt{16.25}\cdot\sqrt{4}}{\sqrt{4}} = \frac{\sqrt{65}}{2}\implies \boxed{D}$ .
+- Someone please draw a diagram and try to make it cleaner to read.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America .

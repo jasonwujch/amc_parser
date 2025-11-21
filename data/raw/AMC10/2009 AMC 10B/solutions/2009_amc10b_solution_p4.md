@@ -1,0 +1,18 @@
+# 2009 AMC 10B Problem 4
+
+## Problem
+
+A rectangular yard contains two flower beds in the shape of congruent isosceles right triangles. The remainder of the yard has a trapezoidal shape, as shown. The parallel sides of the trapezoid have lengths $15$ and $25$ meters. What fraction of the yard is occupied by the flower beds?
+
+$\mathrm{(A)}\frac {1}{8}\qquad \mathrm{(B)}\frac {1}{6}\qquad \mathrm{(C)}\frac {1}{5}\qquad \mathrm{(D)}\frac {1}{4}\qquad \mathrm{(E)}\frac {1}{3}$
+
+## Solution 1
+Each triangle has leg length $\frac 12 \cdot (25 - 15) = 5$ meters and area $\frac 12 \cdot 5^2 = \frac {25}{2}$ square meters. Thus the flower beds have a total area of $25$ square meters. The entire yard has length $25$ m and width $5$ m, so its area is $125$ square meters. The fraction of the yard occupied by the flower beds is $\frac {25}{125} = \boxed{\frac15}$ . The answer is $\mathrm{(C)}$ .
+
+## Solution 2
+The length of each triangle is $\frac{25-15}{2}=5$ meters. By translating then rotating the top right triangle so that it forms a square with the top left triangle, the ratio we desire is literally the ratio of the $5*5=25$ and the total area, which is $5*25=125$ . Alternatively we can use side length ratios, but each way we get $\frac{25}{125}=\frac{1}{5}$ . Select $\mathrm{(C)}$ .
+~hastapasta
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America .

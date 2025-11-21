@@ -1,0 +1,20 @@
+# 2002 AMC 10B Problem 18
+
+## Problem
+
+Four distinct circles are drawn in a plane . What is the maximum number of points where at least two of the circles intersect?
+
+$\mathrm{(A)}\ 8 \qquad\mathrm{(B)}\ 9 \qquad\mathrm{(C)}\ 10 \qquad\mathrm{(D)}\ 12 \qquad\mathrm{(E)}\ 16$
+
+## Solution 1
+For any given pair of circles, they can intersect at most $2$ times. Since there are ${4\choose 2} = 6$ pairs of circles, the maximum number of possible intersections is $6 \cdot 2 = 12$ . We can construct such a situation as below, so the answer is $\boxed{\mathrm{(D)}\ 12}$ .
+
+## Solution 2
+Because a pair or circles can intersect at most $2$ times, the first circle can intersect the second at $2$ points, the third can intersect the first two at $4$ points, and the fourth can intersect the first three at $6$ points. This means that our answer is $2+4+6=\boxed{\mathrm{(D)}\ 12}.$
+
+## Solution
+Pick a circle any circle- $4$ ways. Then, pick any other circle- $3$ ways. For each of these circles, there will be $2$ intersections for a total of $4*3*2$ = $24$ intersections. However, we have counted each intersection twice, so we divide for overcounting. Therefore, we reach a total of $\frac{24}{2}=\boxed{12}$ , which corresponds to $\text{(D)}$ .
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America .
