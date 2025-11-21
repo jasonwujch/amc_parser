@@ -1,0 +1,16 @@
+# 2002 AIME II Problem 7
+
+## Problem
+
+It is known that, for all positive integers $k$ ,
+
+Find the smallest positive integer $k$ such that $1^2+2^2+3^2+\ldots+k^2$ is a multiple of $200$ .
+
+## Solution
+Using the given formula, we require $\frac{k(k+1)(2k+1)}{6}$ to be a multiple of $200$ , i.e. $k(k+1)(2k+1)$ to be a multiple of $200 \cdot 6 = 1200 = 2^4 \cdot 3 \cdot 5^2$ . This is equivalent to $k(k+1)(2k+1)$ being divisible by each of these factors ( $2^4 = 16$ , $3$ , and $5^2 = 25$ ) separately, since they are coprime.
+Thus, for divisibility by $16$ , we observe that $(2k+1)$ is necessarily odd, while exactly one of $k$ and $(k+1)$ is even. It follows that the (at least) $4$ factors of $2$ must be either all contained in $k$ , or all contained in $(k+1)$ , yielding $k \equiv 0 \pmod{16}$ or $k+1 \equiv 0 \pmod{16}$ respectively. This reduces to $k \in \left\{0,15\right\} \pmod{16}$ .
+Next, if $k \equiv 0 \pmod{3}$ , then obviously $k(k+1)(2k+1)$ will be divisible by 3; otherwise, we will have either $k \equiv 1 \pmod{3}$ , giving $2k+1 \equiv 2 \cdot 1 + 1 \equiv 3 \equiv 0 \pmod{3}$ , or $k \equiv 2 \pmod{3}$ , giving $k+1 \equiv 2+1 \equiv 3 \equiv 0 \pmod{3}$ . Hence $k(k+1)(2k+1)$ is in fact always divisible by $3$ , regardless of the value of $k$ .
+Similarly, considering the cases $k \equiv 0,1,2,3,4 \pmod{5}$ in turn, the residues modulo $5$ of $k$ , $(k+1)$ , and $(2k+1)$ respectively are $0,1,1$ ; $1,2,3$ ; $2,3,0$ ; $3,4,2$ ; and $4,0,4$ . As $0$ never appears more than once in any of these cases, we deduce that at most one of $k$ , $(k+1)$ , and $(2k+1)$ is divisible by 5. Analogously to above, it follows that the (at least) $2$ factors of $5$ must be either all contained in $k$ , all contained in $(k+1)$ , or all contained in $(2k+1)$ . These respectively give $k,k+1,2k+1 \equiv 0 \pmod{25}$ , which reduces to $k \in \left\{0,12,24\right\} \pmod{25}$ .
+Accordingly, as there are $2$ possible residues for $k$ modulo $16$ and $3$ possible residues modulo $25$ , we obtain a total of $2 \cdot 3 = 6$ pairs of simultaneous congruences. By the Chinese remainder theorem , as $16$ and $25$ are coprime, each pair has a unique solution modulo $16 \cdot 25 = 400$ , which we can easily calculate by simply writing out the solutions of the first congruence, then checking whether each of them also satisfies the second congruence.
+For instance, to solve $k \equiv 0 \pmod{16}$ , $k \equiv 12 \pmod{25}$ , we can write out the positive multiples of $16$ (to satisfy the first congruence, together with the fact that $k > 0$ ), then subtract $12$ from each, until we find a multiple of $16$ for which this subtraction gives a multiple of $25$ . As it turns out, $16 \cdot 7 = 112$ and $112-12 = 100 = 25 \cdot 4$ , so the solution of this pair is precisely $k \equiv 112 \pmod{400}$ . By applying this algorithm to each of the remaining pairs of congruences, we eventually obtain the complete solution $k \in \left\{0,112,175,224,287,399\right\} \pmod{400}$ , so the smallest possible positive value of $k$ is $\boxed{112}$ .
+These problems are copyrighted © by the Mathematical Association of America.

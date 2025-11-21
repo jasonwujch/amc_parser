@@ -1,0 +1,20 @@
+# 2006 AIME I Problem 8
+
+## Problem
+
+Hexagon $ABCDEF$ is divided into five rhombuses , $\mathcal{P, Q, R, S,}$ and $\mathcal{T,}$ as shown. Rhombuses $\mathcal{P, Q, R,}$ and $\mathcal{S}$ are congruent , and each has area $\sqrt{2006}.$ Let $K$ be the area of rhombus $\mathcal{T}$ . Given that $K$ is a positive integer , find the number of possible values for $K$ .
+
+[asy] //TheMathGuyd size(8cm); pair A=(0,0), B=(4.2,0), C=(5.85,-1.6), D=(4.2,-3.2), EE=(0,-3.2), F=(-1.65,-1.6), G=(0.45,-1.6), H=(3.75,-1.6), I=(2.1,0), J=(2.1,-3.2), K=(2.1,-1.6); draw(A--B--C--D--EE--F--cycle); draw(F--G--(2.1,0)); draw(C--H--(2.1,0)); draw(G--(2.1,-3.2)); draw(H--(2.1,-3.2)); label("$\mathcal{T}$",(2.1,-1.6)); label("$\mathcal{P}$",(0,-1),NE); label("$\mathcal{Q}$",(4.2,-1),NW); label("$\mathcal{R}$",(0,-2.2),SE); label("$\mathcal{S}$",(4.2,-2.2),SW); [/asy]
+
+## Solution 1
+Let $x$ denote the common side length of the rhombi, and let $y$ denote one of the smaller interior angles of rhombus $\mathcal{P}$ . Then $x^2\sin(y)=\sqrt{2006}$ . We also see that $K=x^2\sin(2y) \implies K=2x^2\sin y \cdot \cos y \implies K = 2\sqrt{2006}\cdot \cos y$ . Thus $K$ can be any positive integer in the interval $(0, 2\sqrt{2006})$ . Since $2\sqrt{2006} = \sqrt{8024}$ and $89^2 = 7921 < 8024 < 8100 = 90^2$ , $K$ can be any integer between $1$ and $89$ , inclusive, so the number of positive values for $K$ is $\boxed{089}$ .
+
+## Solution 2
+Call the side length of each rhombus $w$ . $w$ is the width of the rhombus. Call the height h, where $wh=\sqrt{2006}$ . The height of rhombus T would be 2h, and the width would be $\sqrt{w^2-h^2}$ . Substitute the first equation to get $\sqrt{\frac{2006}{h^2}-h^2}$ . Then the area of the rhombus would be $2h * \sqrt{\frac{2006}{h^2}-h^2}$ . Combine like terms to get $2 * \sqrt{2006-h^4}$ . This expression equals an integer K. $2006-h^4$ specifically must be in the form $n^2/4$ . There is no restriction on h as long as it is a positive real number, so all we have to do is find all the positive possible values of $n^2$ for $2006-h^4$ . Now, quick testing shows that $44^2 < 2006$ and $45^2>2006$ , but we must also test $44.5^2$ , because the product of two will make it an integer. $44.5^2$ is also less than $2006$ , so we have numbers 1-44, times two because 0.5 can be added to each of time, plus 1, because 0.5 is also a valid value. (notice 0 is not valid because the height must be a positive number) That gives us $44*2+1=$ $\boxed{089}$
+-jackshi2006
+
+## Solution 3
+[asy] size(8cm); pair A=(0,0), B=(4.2,0), C=(5.85,-1.6), D=(4.2,-3.2), EE=(0,-3.2), F=(-1.65,-1.6), G=(0.45,-1.6), H=(3.75,-1.6), I=(2.1,0), J=(2.1,-3.2), K=(2.1,-1.6); draw(A--B--C--D--EE--F--cycle); label("$A$",A,2*N); label("$B$",B,2*N); label("$C$",C,2*E); label("$D$",D,2*S); label("$E$",EE,2*S); label("$F$",F,2*W); label("$G$",(0.47,-1.55),NW); label("$H$",(3.73,-1.55),NE); label("$I$",I,2*N); label("$J$",J,2*S); label("$K$",K,2*SW); draw(F--C); draw(F--G--(2.1,0)); draw(C--H--(2.1,0)); draw(G--(2.1,-3.2)); draw(H--(2.1,-3.2)); draw((2.1,0)--(2.1,-3.2)); [/asy] To determine the possible values of $[GIHJ],$ we must determine the maximum and minimum possible areas.
+In the case where the $4$ rhombi are squares, we have $[GIHJ]=0,$ implying the minimum possible positive-integer-valued area is $1.$
+Denote the length $HC=a$ and $KH=b.$ We have \[KI=\sqrt{a^2-b^2}\] by the Pythagorean Theorem, which implies \[[IBCH]=a\sqrt{a^2-b^2}=\sqrt{2006}\] and \[[GIHJ]=2b\sqrt{a^2-b^2}.\] The first equation yields \[\sqrt{a^2-b^2}=\frac{\sqrt{2006}}{a}.\] Plugging into the second, we have \[[GIHJ]=2\sqrt{2006}\frac{b}{a}.\] The maximal value of $\frac{b}{a}$ occurs when the height of $ABCDEF$ is minimized, which means \[\frac{b}{a}\leq 1.\] Plugging back up, we have \[[GIHJ]\leq 2\sqrt{2006}=\sqrt{8024}.\] We have \[\lfloor \sqrt{8024} \rfloor = 89,\] thus our answer is \[89-1+1=\boxed{089}.\]
+These problems are copyrighted © by the Mathematical Association of America.
