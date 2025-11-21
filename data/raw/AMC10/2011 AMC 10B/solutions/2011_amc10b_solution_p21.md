@@ -1,0 +1,30 @@
+# 2011 AMC 10B Problem 21
+
+## Problem
+
+Brian writes down four integers $w > x > y > z$ whose sum is $44$ . The pairwise positive differences of these numbers are $1, 3, 4, 5, 6,$ and $9$ . What is the sum of the possible values for $w$ ?
+
+$\textbf{(A)}\ 16 \qquad\textbf{(B)}\ 31 \qquad\textbf{(C)}\ 48 \qquad\textbf{(D)}\ 62 \qquad\textbf{(E)}\ 93$
+
+## Solution 1
+The largest difference, $9,$ must be between $w$ and $z.$
+The smallest difference, $1,$ must be directly between two integers. This also means the differences directly between the other two should add up to $8.$ The only remaining differences that would make this possible are $3$ and $5.$ However, those two differences can't be right next to each other because they would make a difference of $8,$ which isn't given as a possibility in the problem. This means $1$ must be the difference between $y$ and $x.$ We can express the possible configurations as the lines.
+If we look at the first number line, you can express $x$ as $w-5,$ $y$ as $w-6,$ and $z$ as $w-9.$ Since the sum of all these integers equal $44$ , \begin{align*} w+w-5+w-6+w-9&=44\\ 4w&=64\\ w&=16 \end{align*} You can do something similar to this with the second number line to find the other possible value of $w.$ \begin{align*} w+w-3+w-4+w-9&=44\\ 4w&=60\\ w&=15 \end{align*} The sum of the possible values of $w$ is $16+15 = \boxed{\textbf{(B) }31}$
+
+## Solution 2
+First, like Solution 1, we know that $w-z=9 \ \text{(1)}$ , because no two numbers could have a larger difference. Next, we find the sum of all the differences; since $w$ is in the positive part of a difference 3 times, and has no differences where it contributes as the negative part, the sum of the differences includes $3w$ . Continuing in this way, we find that \[3w+x-y-3z=28 \ \text{(2)}\] . Now, we can subtract $3w-3z=27$ from (2) to get $x-y=1 \ \text{(3)}$ . Also, adding (2) with $w+x+y+z=44$ gives $4w+2x-2z=72$ , or $2w+x-z=36$ . Subtracting (1) from this gives $w+x=27$ . Since we know $w-z$ and $x-y$ , we find that \[(w-z)+(x-y)=(w-y)+(x-z)=9+1=10\] . This means that $w-y$ and $x-z$ must be 4 and 6, in some order. If $w-y=6$ , then subtracting this from (3) gives $(w-y)-(x-y)=6-1=5$ , so $w-x=5$ . This means that $(w-x)+(w+x)=2w=27+5=32$ , so $w=16$ . Similarly, $w$ can also equal $15$ .
+Now if you are in a rush, you most likely would have answered $16+15=\boxed{\textbf{(B) }31}$ . But we do have to check if these work. In fact, they do, giving solutions $(w,x,y,z)=(16, 11, 10, 7)$ and $(w,x,y,z)=(15, 12, 11, 6)$ .
+
+## Solution 3
+Let $w - x = a$ , $w - y = b$ , $w - z = c$ . As above, we know that $c = 9$ . Thus, $a < b < c$ . So, we have $w + x + y + z = w + (w - a) + (w - b) + (w - 9) = 4w - a - b - 9 = 44$ . This means $a + b + 9$ is a multiple of $4$ . Testing values of $a$ and $b$ , we find $(a, b, c) = (1, 6, 9), (3, 4, 9),$ and $(5, 6, 9)$ all satisfy this relation. The corresponding $(w, x, y, z)$ sets are $(15, 14, 9, 6), (15, 12, 11, 6),$ and $(16, 11, 10, 7)$ . The first set does not satisfy the given conditions, but the other two do. Thus, $w = 15$ and $w = 16$ are both possible solutions so the answer is $16+15=\boxed{\textbf{(B) }31}$ .
+
+## Solution 4
+From the problem, we know that $w+x+y+z=44$ . Since it is said that the pairwise positive differences between numbers are 1, 3, 4, 5, 6, 9, and we can figure that the pairwise positive differences are $(w-x)$ , $(w-y)$ , $(w-z)$ , $(x-y)$ , $(x-z)$ , $(y-z)$ , the sum of $(w-x), (w-y), (w-z), (x-y), (x-z), (y-z)$ is equal to the sum of 1, 3, 4, 5, 6, 9, so $(w-x)+(w-y)+(w-z)+(x-y)+(x-z)+(y-z)=28$ . Simplifying, we get $3w-3z+x-y=28$ . Adding $w+x+y+z=44$ and $(w-x)+(w-y)+(w-z)+(x-y)+(x-z)+(y-z)=28$ , we get $4w+2x-2z=72$ , and simplifying we get $2w+x-z=36$ . Since $x-z$ is one of our positive differences, we can start guessing values for $w$ , and if the equation simplifies to one of our numerical positive differences, that value of $w$ should work. We can start at $w=18$ and keep going down, because our sum has to be positive. For $w=18$ , $x-z=0$ , which is not one of our sums. For $w=17$ , $x-z=2$ ,which is not one of our sums. For $w=16$ , $x-z=4$ , which is one of our sums, so 16 works. For $w=15$ , $x-z=6$ , which is one of our sums, so 15 works. For $w=14$ , $x-z=8$ , which is not one of our sums. If we keep going, $x-z$ will soon exceed 10 and exceed all our sums, so any value below $w=14$ will not work. Therefore, our only solutions for $w$ are 15 and 16, which means our sum is $\boxed{\textbf{(B) }31}$ . You can check that 15 and 16 work by forming a string of 4 numbers as shown above.
+
+## Solution 5
+Because we know that $w>x>y>z$ and that the positive differences are $1, 3, 4, 5, 6, 9$ , we can immediately come to the conclusion that $w-z= 9$ (because w is the largest integer and z is the smallest integer, so their difference must be the greatest). With this we have $3$ equations, we have that $x+y+z+w=44$ (from the problem), $w-z=9$ and because we can add up all the possible possible differences (as shown in the previous solutions), we get that $3w+x-y-3z=28$ . With these equations, we eventually manipulate these equations by doing the first equation minus 3 times the second to get $x-y=1$ . We can also add the first and third equation and subtract the second equation to get $w+x=27$ thus we know that $w-x$ can be $3, 4, 5,$ and $6$ (note: 1 and 9 are not possible because we know that $x-y=1$ and $w-z=9$ and the remaining differences can only be taken by 1 pair, so $w-x$ cannot be equal to 1 or 9). However, in order to get an integer value for x and z, we find that $w-z$ can only be equal to 3 and 5. Thus, by solving these, we see that $w= 15$ and $w=16$ . $15+16=\boxed{\textbf{(B) }31}$ .
+### See Also
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America .

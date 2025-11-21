@@ -1,0 +1,25 @@
+# 2015 AMC 10B Problem 9
+
+## Problem
+
+The shaded region below is called a shark's fin falcata, a figure studied by Leonardo da Vinci. It is bounded by the portion of the circle of radius $3$ and center $(0,0)$ that lies in the first quadrant, the portion of the circle with radius $\tfrac{3}{2}$ and center $(0,\tfrac{3}{2})$ that lies in the first quadrant, and the line segment from $(0,0)$ to $(3,0)$ . What is the area of the shark's fin falcata?
+
+[asy] import cse5;pathpen=black;pointpen=black; size(1.5inch); D(MP("x",(3.5,0),S)--(0,0)--MP("\frac{3}{2}",(0,3/2),W)--MP("y",(0,3.5),W)); path P=(0,0)--MP("3",(3,0),S)..(3*dir(45))..MP("3",(0,3),W)--(0,3)..(3/2,3/2)..cycle; draw(P,linewidth(2)); fill(P,gray); [/asy]
+
+$\textbf{(A) } \dfrac{4\pi}{5} \qquad\textbf{(B) } \dfrac{9\pi}{8} \qquad\textbf{(C) } \dfrac{4\pi}{3} \qquad\textbf{(D) } \dfrac{7\pi}{5} \qquad\textbf{(E) } \dfrac{3\pi}{2}$
+
+## Solution
+The area of the shark's fin falcata is just the area of the quarter-circle minus the area of the semicircle. The quarter-circle has radius $3$ so it has area $\dfrac{9\pi}{4}$ . The semicircle has radius $\dfrac{3}{2}$ so it has area $\dfrac{9\pi}{8}$ . Thus, the shaded area is $\dfrac{9\pi}{4}-\dfrac{9\pi}{8}=\boxed{\mathbf{(B)}\ \dfrac{9\pi}{8}}$
+
+## Video Solution 1
+https://youtu.be/4fTjISCoRlU
+~Education, the Study of Everything
+
+## Video Solution
+https://youtu.be/22AUHebZNyk
+~savannahsolver
+### See Also
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America .
