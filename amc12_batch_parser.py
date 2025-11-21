@@ -12,7 +12,7 @@ import time
 import os
 import random
 
-def fetch_page_content(url, retry_count=3):
+def fetch_page_content(url, retry_count=5):
     """Fetch the webpage content with retry logic."""
     user_agents = [
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
@@ -21,51 +21,54 @@ def fetch_page_content(url, retry_count=3):
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0',
         'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/119.0'
     ]
-    
+
     for attempt in range(retry_count):
         headers = {
             'User-Agent': random.choice(user_agents),
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
             'Accept-Language': 'en-US,en;q=0.9',
-            'Accept-Encoding': 'gzip, deflate, br',
             'DNT': '1',
             'Connection': 'keep-alive',
             'Upgrade-Insecure-Requests': '1',
-            'Sec-Fetch-Dest': 'document',
-            'Sec-Fetch-Mode': 'navigate',
-            'Sec-Fetch-Site': 'none',
-            'Sec-Fetch-User': '?1',
             'Cache-Control': 'max-age=0',
-            'Referer': 'https://artofproblemsolving.com/wiki/index.php/AMC_12_Problems_and_Solutions'
         }
-        
+
         session = requests.Session()
-        
+
         try:
-            # Add random delay to appear more human-like
             if attempt > 0:
-                delay = random.uniform(5, 10)
+                # Exponential backoff: 5, 10, 20, 40, 80 seconds
+                delay = min(5 * (2 ** attempt), 80) + random.uniform(0, 5)
                 print(f"  Retry {attempt + 1}/{retry_count} after {delay:.1f}s delay...")
                 time.sleep(delay)
-            
+
             response = session.get(url, headers=headers, timeout=30, allow_redirects=True)
-            
+
             if response.status_code == 200:
-                return response.text
+                # Accept valid HTML responses
+                if len(response.text) > 5000:  # Real pages are large
+                    return response.text
+                else:
+                    print(f"  Got 200 but page too small ({len(response.text)} bytes) (attempt {attempt + 1}/{retry_count})")
+                    continue
             elif response.status_code == 403:
                 print(f"  Received 403 Forbidden (attempt {attempt + 1}/{retry_count})")
                 continue
+            elif response.status_code == 503:
+                print(f"  Received 503 Service Unavailable (attempt {attempt + 1}/{retry_count})")
+                continue
             else:
+                print(f"  Received {response.status_code} (attempt {attempt + 1}/{retry_count})")
                 response.raise_for_status()
-                
+
         except requests.RequestException as e:
             print(f"  Error on attempt {attempt + 1}: {e}")
             if attempt == retry_count - 1:
                 print(f"  Failed after {retry_count} attempts for URL: {url}")
-        
+
         finally:
             session.close()
-    
+
     return None
 
 def extract_paragraph_content_inline(paragraph):
@@ -411,10 +414,19 @@ def clean_final_output(content):
     
     return result
 
-def parse_amc12_variant(year, variant=None):
-    """Parse AMC 12 problems for a specific year and variant (A or B)."""
-    # Construct URL based on year and variant
-    if variant:
+def parse_amc12_variant(year, variant=None, season=None):
+    """Parse AMC 12 problems for a specific year and variant (A or B).
+
+    Args:
+        year: Contest year
+        variant: A, B, or P
+        season: Optional season like "Fall" for 2021 Fall variants
+    """
+    # Construct URL based on year, season, and variant
+    if season:
+        url = f"https://artofproblemsolving.com/wiki/index.php/{year}_{season}_AMC_12{variant}_Problems"
+        name = f"{year} {season} AMC 12{variant}"
+    elif variant:
         url = f"https://artofproblemsolving.com/wiki/index.php/{year}_AMC_12{variant}_Problems"
         name = f"{year} AMC 12{variant}"
     else:
@@ -460,87 +472,79 @@ def parse_amc12_variant(year, variant=None):
     return True
 
 def main():
-    """Parse AMC 12 problems with improved error handling."""
+    """Parse AMC 12 problems from 2002-2025 (all A and B variants, plus special variants)."""
     print("=" * 60)
     print("AMC 12 Batch Parser")
+    print("Parsing AMC 12A and AMC 12B from 2002 to 2025")
+    print("Note: Includes 2002P and 2021 Fall A/B variants")
     print("=" * 60)
-    print("\nThis script will download AMC 12 problems from AoPS.")
-    print("Note: The website may block automated requests.")
-    print("The script includes retry logic and delays.\n")
-    
+
     success_count = 0
     failed_items = []
-    
-    # Current year (adjust as needed)
-    current_year = 2024
-    
-    # Start with a small test
-    print("Testing connection with recent exams...")
-    test_years = [(2024, 'A'), (2024, 'B'), (2023, 'A')]
-    
-    for year, variant in test_years:
-        if parse_amc12_variant(year, variant):
-            success_count += 1
-            print(f"  ✓ Successfully parsed {year} AMC 12{variant}")
-            break
-        else:
-            failed_items.append(f"{year} AMC 12{variant}")
-            print(f"  ✗ Failed to parse {year} AMC 12{variant}")
-    
-    if success_count == 0:
-        print("\n⚠ Unable to connect to AoPS. The website may be blocking requests.")
-        print("Try:")
-        print("  1. Running the script later")
-        print("  2. Using a VPN or proxy")
-        print("  3. Downloading pages manually")
-        return
-    
+
+    # Years to parse: 2002-2025
+    start_year = 2002
+    end_year = 2025
+
+    # Build list of contests to parse: (year, variant, season)
+    contests = []
+    for year in range(start_year, end_year + 1):
+        contests.append((year, 'A', None))
+        contests.append((year, 'B', None))
+
+    # Add 2002 AMC 12P (special variant)
+    contests.append((2002, 'P', None))
+
+    # Add 2021 Fall AMC 12A and 12B
+    contests.append((2021, 'A', 'Fall'))
+    contests.append((2021, 'B', 'Fall'))
+
+    # Wait for any rate limiting to clear
+    print("\nWaiting 15s for rate limit to clear...")
+    time.sleep(15)
+
+    # Test connection first
+    print("\nTesting connection...")
+    test_year, test_variant, test_season = 2024, 'A', None
+    if parse_amc12_variant(test_year, test_variant, test_season):
+        success_count += 1
+        print("  Connection successful!")
+    else:
+        print("  Initial test failed, waiting 30s before continuing...")
+        time.sleep(30)
+
     print("\n" + "-" * 40)
-    print("Connection successful! Continuing with full download...")
+    print("Starting full download...")
     print("-" * 40)
-    
-    # Parse years with A and B variants (2002-present)
-    print("\nParsing AMC 12A and 12B (2002-2024)...")
-    for year in range(current_year, 2001, -1):
-        for variant in ['A', 'B']:
-            try:
-                # Add longer delay between requests to avoid blocking
-                delay = random.uniform(3, 7)
-                print(f"  Waiting {delay:.1f}s before next request...")
-                time.sleep(delay)
-                
-                if parse_amc12_variant(year, variant):
-                    success_count += 1
-                else:
-                    failed_items.append(f"{year} AMC 12{variant}")
-            except Exception as e:
-                print(f"  Error parsing {year} AMC 12{variant}: {e}")
-                failed_items.append(f"{year} AMC 12{variant}")
-    
-    # Parse years with single version (2000-2001)
-    print("\nParsing AMC 12 (2000-2001, single version)...")
-    for year in range(2001, 1999, -1):
+
+    # Parse all contests
+    for year, variant, season in contests:
+        # Skip if already parsed in test
+        if year == test_year and variant == test_variant and season == test_season:
+            continue
+
         try:
-            delay = random.uniform(3, 7)
+            # Longer delays to avoid rate limiting
+            delay = random.uniform(8, 15)
             print(f"  Waiting {delay:.1f}s before next request...")
             time.sleep(delay)
-            
-            if parse_amc12_variant(year):
+
+            if parse_amc12_variant(year, variant, season):
                 success_count += 1
             else:
-                failed_items.append(f"{year} AMC 12")
+                name = f"{year} {season + ' ' if season else ''}AMC 12{variant}"
+                failed_items.append(name)
         except Exception as e:
-            print(f"  Error parsing {year} AMC 12: {e}")
-            failed_items.append(f"{year} AMC 12")
-    
+            name = f"{year} {season + ' ' if season else ''}AMC 12{variant}"
+            print(f"  Error parsing {name}: {e}")
+            failed_items.append(name)
+
     print("\n" + "=" * 60)
     print(f"Completed! Successfully parsed {success_count} AMC 12 exams.")
     if failed_items:
         print(f"\nFailed items ({len(failed_items)}):")
-        for item in failed_items[:10]:  # Show first 10 failures
+        for item in failed_items:
             print(f"  - {item}")
-        if len(failed_items) > 10:
-            print(f"  ... and {len(failed_items) - 10} more")
     else:
         print("All items parsed successfully!")
     print("=" * 60)

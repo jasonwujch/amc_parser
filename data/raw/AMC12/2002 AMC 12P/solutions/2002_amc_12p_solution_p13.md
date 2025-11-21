@@ -1,0 +1,27 @@
+# 2002 AMC 12P Problem 13
+
+## Problem
+
+What is the maximum value of $n$ for which there is a set of distinct positive integers $k_1, k_2, ... k_n$ for which
+
+\[k^2_1 + k^2_2 + ... + k^2_n = 2002?\]
+
+$\text{(A) }14 \qquad \text{(B) }15 \qquad \text{(C) }16 \qquad \text{(D) }17 \qquad \text{(E) }18$
+
+## Solution
+Note that $k^2_1 + k^2_2 + ... + k^2_n = 2002 \geq \frac{n(n+1)(2n+1)}{6}$
+When $n = 17$ , $\frac{n(n+1)(2n+1)}{6} = \frac{(17)(18)(35)}{6} = 1785 < 2002$ .
+When $n = 18$ , $\frac{n(n+1)(2n+1)}{6} = 1785 + 18^2 = 2109 > 2002$ .
+Therefore, we know $n \leq 17$ .
+Now we must show that $n = 17$ works. We replace some integer $b$ within the set $\{1, 2, ... 17\}$ with an integer $a > 17$ to account for the amount under $2002$ , which is $2002-1785 = 217$ .
+Essentially, this boils down to writing $217$ as a difference of squares. Assume there exist positive integers $a$ and $b$ where $a > 17$ and $b \leq 17$ such that $a^2 - b^2 = 217$ .
+We can rewrite this as $(a+b)(a-b) = 217$ . Since $217 = 7 \cdot 31$ , either $a+b = 217$ and $a-b = 1$ or $a+b = 31$ and $a-b = 7$ . We analyze each case separately.
+Case 1: $a+b = 217$ and $a-b = 1$
+Solving this system of equations gives $a = 109$ and $b = 108$ . However, $108 > 17$ , so this case does not yield a solution.
+Case 2: $a+b = 31$ and $a-b = 7$
+Solving this system of equations gives $a = 19$ and $b = 12$ . This satisfies all the requirements of the problem.
+The list $1, 2 ... 11, 13, 14 ... 17, 19$ has $17$ terms whose sum of squares equals $2002$ . Since $n \geq 18$ is impossible, the answer is $\boxed {\textbf{(D) }17}$ .
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America .

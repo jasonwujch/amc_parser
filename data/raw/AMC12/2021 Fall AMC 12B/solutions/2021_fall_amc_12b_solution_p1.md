@@ -1,0 +1,53 @@
+# 2021 Fall AMC 12B Problem 1
+
+## Problem
+
+What is the value of $1234 + 2341 + 3412 + 4123$
+
+$\textbf{(A)}\: 10{,}000\qquad\textbf{(B)} \: 10{,}010\qquad\textbf{(C)} \: 10{,}110\qquad\textbf{(D)} \: 11{,}000\qquad\textbf{(E)} \: 11{,}110$
+
+## Solution 1
+We see that $1, 2, 3,$ and $4$ each appear in the ones, tens, hundreds, and thousands digit exactly once. Since $1+2+3+4=10$ , we find that the sum is equal to \[10\cdot(1+10+100+1000)=\boxed{\textbf{(E)} \: 11{,}110}.\] Note that it is equally valid to manually add all four numbers together to get the answer.
+~kingofpineapplz
+
+## Solution 2
+We have \[1234 + 2341 + 3412 + 4123 = 1111 \left( 1 + 2 + 3 + 4 \right) = \boxed{\textbf{(E)} \: 11{,}110}.\] ~Steven Chen (www.professorchenedu.com)
+
+## Solution 3
+We see that the units digit must be $0$ , since $4+3+2+1$ is $0$ . But every digit from there, will be a $1$ since we have that each time afterwards, we must carry the $1$ from the previous sum. The answer choice that satisfies these conditions is $\boxed{\textbf{(E)} \: 11{,}110}$ .
+~stjwyl
+
+## Solution 4 (Brute Force)
+We can simply add the numbers. $1234 + 2341 + 3412 + 4123 = 11110 \implies \boxed{\textbf{(E)}}$ .
+Note: Although this would not take terribly long, it is not recommended to do this in a real contest.
+~ cxsmi
+
+## Solution 5 (Primary School But Also Similar to Solution 4)
+We can simply just add each place value.
+$1000+2000+3000+4000=10,000$
+$+200+300+400+100=1,000$
+$+30+40+10+20=100$
+$+4+1+2+3=10$
+$10,000+1,000+100+10=\boxed{\textbf{(E)} \: 11{,}110}$ .
+~ Coin1
+
+## Video Solution by Interstigation
+https://youtu.be/p9_RH4s-kBA
+
+## Video Solution
+https://youtu.be/I9lSM0hO39M
+~Education, the Study of Everything
+
+## Video Solution by WhyMath
+https://youtu.be/3UZHiV65WXU
+~savannahsolver
+
+## Video Solution by TheBeautyofMath
+For AMC 10: https://youtu.be/lC7naDZ1Eu4
+For AMC 12: https://youtu.be/yaE5aAmeesc
+~IceMatrix
+### See Also
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America .
