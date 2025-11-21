@@ -1,0 +1,13 @@
+# 2009 AMC 8 Problem 24
+
+## Problem
+
+The letters $A$ , $B$ , $C$ and $D$ represent digits. If $\begin{tabular}{ccc}&A&B\\ +&C&A\\ \hline &D&A\end{tabular}$ and $\begin{tabular}{ccc}&A&B\\ -&C&A\\ \hline &&A\end{tabular}$ ,what digit does $D$ represent?
+
+$\textbf{(A)}\ 5\qquad\textbf{(B)}\ 6\qquad\textbf{(C)}\ 7\qquad\textbf{(D)}\ 8\qquad\textbf{(E)}\ 9$
+
+## Solution
+Because $B+A=A$ , $B$ must be $0$ . Next, because $B-A=A\implies0-A=A,$ we get $A=5$ as the "0" mentioned above is actually 10 in this case.
+Now we can rewrite $\begin{tabular}{ccc}&A&0\\ +&C&A\\ \hline &D&A\end{tabular}$ as $\begin{tabular}{ccc}&5&0\\ +&C&5\\ \hline &D&5\end{tabular}$ . Therefore, $D=5+C.$
+Finally, $A-1-C=0\implies{A=C+1}\implies{C=4}$ , So we have $D=5+C\implies{D=5+4}=\boxed{\textbf{(E)}\ 9 }$ .
+### See Also

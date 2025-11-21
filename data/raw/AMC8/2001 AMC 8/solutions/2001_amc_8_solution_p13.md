@@ -1,0 +1,14 @@
+# 2001 AMC 8 Problem 13
+
+## Problem
+
+Of the 36 students in Richelle's class, 12 prefer chocolate pie, 8 prefer apple, and 6 prefer blueberry. Half of the remaining students prefer cherry pie and half prefer lemon. For Richelle's pie graph showing this data, how many degrees should she use for cherry pie?
+
+$\text{(A)}\ 10 \qquad \text{(B)}\ 20 \qquad \text{(C)}\ 30 \qquad \text{(D)}\ 50 \qquad \text{(E)}\ 72$
+
+## Solution
+There are $36$ students in the class: $12$ prefer chocolate pie, $8$ prefer apple pie, and $6$ prefer blueberry pie. Therefore, $36-12-8-6=10$ students prefer cherry pie or lemon pie. Half of these prefer each, so $5$ students prefer cherry pie. This means that $\frac{5}{36}$ of the students prefer cherry pie, so $\frac{5}{36}$ of the full $360^\circ$ should be used for cherry pie. This is $(\frac{5}{36})(360^\circ)=50^\circ, \boxed{\text{D}}$
+
+## Video Solution
+https://youtu.be/4dhUeOdXvUk Soo, DRMS, NM
+### See Also

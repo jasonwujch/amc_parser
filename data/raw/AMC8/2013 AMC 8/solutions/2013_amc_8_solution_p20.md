@@ -1,0 +1,16 @@
+# 2013 AMC 8 Problem 20
+
+## Problem
+
+A $1\times 2$ rectangle is inscribed in a semicircle with the longer side on the diameter. What is the area of the semicircle?
+
+$\textbf{(A)}\ \frac\pi2 \qquad \textbf{(B)}\ \frac{2\pi}3 \qquad \textbf{(C)}\ \pi \qquad \textbf{(D)}\ \frac{4\pi}3 \qquad \textbf{(E)}\ \frac{5\pi}3$
+
+## Solution
+[asy] /* Geogebra to Asymptote conversion, documentation at artofproblemsolving.com/Wiki, go to User:Azjps/geogebra */ import graph; usepackage("amsmath"); real labelscalefactor = 0.5; /* changes label-to-point distance */ pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ real xmin = 2.392515856236789, xmax = 4.844947145877386, ymin = 6.070697674418619, ymax = 8.062241014799170; /* image dimensions */ pen zzttqq = rgb(0.6000000000000006,0.2000000000000002,0.000000000000000); draw((3.119707204019531,7.403678646934482)--(4.119707204019532,7.403678646934476)--(4.119707204019532,6.903678646934476)--(3.119707204019531,6.903678646934476)--cycle, zzttqq); /* draw figures */ draw((2.912600422832983,6.903678646934476)--(4.326813985206080,6.903678646934476)); draw(shift((3.619707204019532,6.903678646934476))*xscale(0.7071067811865487)*yscale(0.7071067811865487)*arc((0,0),1,0.000000000000000,180.0000000000000)); draw((3.619707204019532,6.903678646934476)--(4.119707204019532,6.903678646934476)); draw((3.619707204019532,6.903678646934476)--(3.119707204019531,6.903678646934476)); draw((3.119707204019531,7.403678646934482)--(4.119707204019532,7.403678646934476), zzttqq); draw((4.119707204019532,7.403678646934476)--(4.119707204019532,6.903678646934476), zzttqq); draw((4.119707204019532,6.903678646934476)--(3.119707204019531,6.903678646934476), zzttqq); draw((3.119707204019531,6.903678646934476)--(3.119707204019531,7.403678646934482), zzttqq); label("$1$",(3.847061310782247,6.924820295983102),SE*labelscalefactor); label("$1$",(4.155729386892184,7.208118393234687),SE*labelscalefactor); draw((3.619707204019532,6.903678646934476)--(4.119707204019532,7.403678646934476)); label("$\sqrt{2}$",(3.711754756871041,7.288456659619466),SE*labelscalefactor); label("$2$",(3.563763213530660,7.563298097251601),SE*labelscalefactor); /* dots and labels */ dot((2.912600422832983,6.903678646934476)); dot((4.326813985206080,6.903678646934476)); dot((3.619707204019532,6.903678646934476)); dot((4.119707204019532,6.903678646934476),blue); dot((3.619707204019532,6.903678646934476)); dot((3.119707204019531,6.903678646934476),blue); dot((3.119707204019531,7.403678646934482),blue); dot((4.119707204019532,7.403678646934476),blue); clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle);[/asy]
+A semicircle has symmetry, so the center is exactly at the midpoint of the 2 side on the rectangle, making the radius, by the Pythagorean Theorem, $\sqrt{1^2+1^2}=\sqrt{2}$ . The area is $\frac{2\pi}{2}=\boxed{\textbf{(C)}\ \pi}$ .
+
+## Video Solution
+https://youtu.be/tdh0u9_xjN0 ~savannahsolver
+### See Also
+Thank You for reading these answers by the followers of AoPS.

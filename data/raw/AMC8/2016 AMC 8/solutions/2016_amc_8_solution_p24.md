@@ -1,0 +1,30 @@
+# 2016 AMC 8 Problem 24
+
+## Problem
+
+The digits $1$ , $2$ , $3$ , $4$ , and $5$ are each used once to write a five-digit number $PQRST$ . The three-digit number $PQR$ is divisible by $4$ , the three-digit number $QRS$ is divisible by $5$ , and the three-digit number $RST$ is divisible by $3$ . What is $P$ ?
+
+$\textbf{(A) }1\qquad\textbf{(B) }2\qquad\textbf{(C) }3\qquad\textbf{(D) }4\qquad \textbf{(E) }5$
+
+## Solutions
+
+## Solution 1 (Modular Arithmetic)
+We see that since $QRS$ is divisible by $5$ , $S$ must equal either $0$ or $5$ , but it cannot equal $0$ , so $S=5$ . We notice that since $PQR$ must be even, $R$ must be either $2$ or $4$ . However, when $R=2$ , we see that $T \equiv 2 \pmod{3}$ , which cannot happen because $2$ and $5$ are already used up; so $R=4$ . This gives $T \equiv 3 \pmod{4}$ , meaning $T=3$ . Now, we see that $Q$ could be either $1$ or $2$ , but $14$ is not divisible by $4$ , but $24$ is. This means that $Q=2$ and $P=\boxed{\textbf{(A)}\ 1}$ .
+~CHECKMATE2021
+
+## Solution 2
+We know that out of $PQRST,$ $QRS$ is divisible by $5$ . Therefore $S$ is obviously 5 because $QRS$ is divisible by 5. So we now have $PQR5T$ as our number. Next, let's move on to the second piece of information that was given to us. $RST$ is divisible by 3. So, according to the divisibility by 3 rule, the sum of $RST$ has to be a multiple of 3. The only 2 big enough are 9 and 12 and since 5 is already given. The possible sums of $RT$ are 4 and 7. So, the possible values for $R$ are 1,3,4,3 and the possible values of $T$ are 3,1,3,4. So, using this we can move on to the fact that $PQR$ is divisible by 4. So, using that we know that $R$ has to be even so 4 is the only possible value for $R$ . Using that we also know that 3 is the only possible value for 3. So, we have $PQRST$ = $PQ453$ so the possible values are 1 and 2 for $P$ and $Q$ . Using the divisibility rule of 4 we know that $QR$ has to be divisible by 4. So, either 14 or 24 are the possibilities, and 24 is divisible by 4. So the only value left for $P$ is 1. $P=\boxed{\textbf{(A)}\ 1}$ .
+~CHECKMATE2021
+
+## Solution 3
+We can simply try each of the answer choices, and we will see which one works. Trying $P=\boxed{\textbf{(A) }1}$ , if $PQR$ is divisible by $4$ , $QR$ must be divisible by four. Therefore, $QR$ can only be $24$ , $52$ , or $32$ . However, since $QRS$ is divisible by $5$ , $S = 5$ , so $QR$ cannot be $52$ . When $QR = 32$ , $R = 2$ , the last requirement cannot be satisfied because $R + S + T = 2 + 4 + 5 = 11$ , and $11$ is not divisible by $3$ . However, when $QR = 24$ , $R = 4$ , the last requirement can be satisfied. Hence, we can see that when $P=\boxed{\textbf{(A) }1}$ , there is one way to satisfy all three requirements, leading to a conclusion that $P$ is $\boxed{\textbf{(A) }1}$ .
+~ Bloggish
+~Minor Edits by Wrenmath
+
+## Video Solution (CREATIVE THINKING + ANALYSIS!!!)
+https://youtu.be/mDB6tbjl3fw
+~Education, the Study of Everything
+
+## Video Solution by OmegaLearn
+https://youtu.be/6xNkyDgIhEE?t=2905
+### See Also

@@ -1,0 +1,43 @@
+# 2025 AMC 8 Problem 19
+
+## Problem
+
+Two towns, $A$ and $B$ , are connected by a straight road, $15$ miles long. Traveling from town $A$ to town $B$ , the speed limit changes every $5$ miles: from $25$ to $40$ to $20$ miles per hour (mph). Two cars, one at town $A$ and one at town $B$ , start moving toward each other at the same time. They drive at exactly the speed limit in each portion of the road. How far from town $A$ , in miles, will the two cars meet?
+
+[asy] // Asymptote code by aoum size(10cm); real h = 0.1; real s = 0.07; path b = brace((1,0),(0,0),amplitude=s); filldraw((0,0)--(3,0)--(3,h)--(0,h)--cycle,lightgray,black+1bp); draw((1,0)--(1,h),dashed); draw((2,0)--(2,h),dashed); label("$A$",(0,h/2),W); label("$B$",(3,h/2),E); draw(scale(0.7)*"$25\,\textrm{mph}$",(1,h+s)--(0,h+s),Bars); draw(scale(0.7)*"$40\,\textrm{mph}$",(2,h+s)--(1,h+s),Bars); draw(scale(0.7)*"$20\,\textrm{mph}$",(3,h+s)--(2,h+s),Bars); draw(b); draw(shift(1,0)*b); draw(shift(2,0)*b); label(scale(0.7)*"$5\,\textrm{mi}$",(0.5,-s),S); label(scale(0.7)*"$5\,\textrm{mi}$",(1.5,-s),S); label(scale(0.7)*"$5\,\textrm{mi}$",(2.5,-s),S); [/asy]
+
+$\textbf{(A)}\ 7.75\qquad \textbf{(B)}\ 8\qquad \textbf{(C)}\ 8.25\qquad \textbf{(D)}\ 8.5\qquad \textbf{(E)}\ 8.75$
+
+## Solution 1
+The first car, moving from town $A$ at $25$ miles per hour, takes $\frac{5}{25} = \frac{1}{5} \text{hours} = 12$ minutes. The second car, traveling another $5$ miles from town $B$ , takes $\frac{5}{20} = \frac{1}{4} \text{hours} = 15$ minutes. The first car has traveled for 3 minutes or $\frac{1}{20}$ th of an hour at $40$ miles per hour when the second car has traveled 5 miles. The first car has traveled $40 \cdot \frac{1}{20} = 2$ miles from the previous $5$ miles it traveled at $25$ miles per hour. They have $3$ miles left, and they travel at the same speed, so they meet $1.5$ miles through, so they are $5 + 2 + 1.5 = \boxed{\textbf{(D) }8.5}$ miles from town $A$ .
+~alwaysgonnagiveyouup
+
+## Solution 2
+From the answer choices, the cars will meet somewhere along the $40$ mph stretch. Car $A$ travels $25$ mph for $5$ miles, so we can use dimensional analysis to see that it will be $\frac{1\ \text{hr}}{25\ \text{mi}}\cdot 5\ \text{mi} = \frac{1}{5}$ of an hour for this portion. Similarly, car $B$ spends $\frac{1}{4}$ of an hour on the $20$ mph portion.
+Suppose that car $A$ travels $x$ miles along the $40$ mph portion-- then car $B$ travels $5-x$ miles along the $40$ mph portion. By identical methods, car $A$ travels for $\frac{1}{40}\cdot x = \frac{x}{40}$ hours, and car $B$ travels for $\frac{5-x}{40}$ hours.
+At their meeting point, cars $A$ and $B$ will have traveled for the same amount of time, so we have \begin{align*} \frac{1}{5} + \frac{x}{40} &= \frac{1}{4} + \frac{5-x}{40}\\ 8 + x &= 10 + 5-x, \end{align*} so $2x = 7$ , and $x = 3.5$ miles. This means that car $A$ will have traveled $5 + 3.5= \boxed{\textbf{(D)\ 8.5}}$ miles.
+-Benedict T (countmath1)
+
+## Solution 3
+Instead of using algebra, we can visualize how far each car has traveled every hour. Let us divide each portion of the road into distances traveled each hour: For the $25$ mph portion, we divide it up into 5 sections, because $\frac{25\ \text{mph}}{5\ \text{mi}} = 5\ \text{hr}$ . Similarly, we divide the $40$ mph portion into 8 sections ( $\frac{40\ \text{mph}}{5\ \text{mi}} = 8\ \text{hr}$ ) and the $20$ mph portion into 4 sections ( $\frac{20\ \text{mph}}{5\ \text{mi}} = 4\ \text{hr}$ ). Thus, we have the following diagram.
+[asy] // Asymptote code by aoum size(10cm); real h = 0.1; real s = 0.07; path b = brace((1,0),(0,0),amplitude=s); // Draw the background and labeled bars filldraw((0,0)--(3,0)--(3,h)--(0,h)--cycle,lightgray,black+1bp); draw((1,0)--(1,h),dashed); draw((2,0)--(2,h),dashed); label("$A$",(0,h/2),W); label("$B$",(3,h/2),E); draw(scale(0.7)*"$25\,\textrm{mph}$",(1,h+s)--(0,h+s),Bars); draw(scale(0.7)*"$40\,\textrm{mph}$",(2,h+s)--(1,h+s),Bars); draw(scale(0.7)*"$20\,\textrm{mph}$",(3,h+s)--(2,h+s),Bars); draw(b); draw(shift(1,0)*b); draw(shift(2,0)*b); // Labels for the 5-mile segments label(scale(0.7)*"$5\,\textrm{mi}$",(0.5,-s),S); label(scale(0.7)*"$5\,\textrm{mi}$",(1.5,-s),S); label(scale(0.7)*"$5\,\textrm{mi}$",(2.5,-s),S); // Divisions for the 25 mph section (5 parts of 1 mile each) for (int i = 1; i < 5; ++i) { draw((i/5.0,0)--(i/5.0,h), dashed); } // Divisions for the 40 mph section (8 parts of 0.625 miles each) for (int i = 1; i < 8; ++i) { draw((i/8.0 + 1,0)--(i/8.0 + 1,h), dashed); } // Divisions for the 20 mph section (4 parts of 1.25 miles each) for (int i = 1; i < 4; ++i) { draw((i/4.0 + 2,0)--(i/4.0 + 2,h), dashed); } [/asy]
+After four hours, car A has reached the end of the $20$ mph portion, while car B has traveled $\frac{4}{5}$ of the $25$ mph portion. We can plot the amount of distance traveled, with the red dot representing car A and the blue dot representing car B.
+[asy] // Asymptote code by aoum size(10cm); real h = 0.1; real s = 0.07; path b = brace((1,0),(0,0),amplitude=s); // Draw the background and labeled bars filldraw((0,0)--(3,0)--(3,h)--(0,h)--cycle,lightgray,black+1bp); draw((1,0)--(1,h),dashed); draw((2,0)--(2,h),dashed); label("$A$",(0,h/2),W); label("$B$",(3,h/2),E); draw(scale(0.7)*"$25\,\textrm{mph}$",(1,h+s)--(0,h+s),Bars); draw(scale(0.7)*"$40\,\textrm{mph}$",(2,h+s)--(1,h+s),Bars); draw(scale(0.7)*"$20\,\textrm{mph}$",(3,h+s)--(2,h+s),Bars); draw(b); draw(shift(1,0)*b); draw(shift(2,0)*b); // Labels for the 5-mile segments label(scale(0.7)*"$5\,\textrm{mi}$",(0.5,-s),S); label(scale(0.7)*"$5\,\textrm{mi}$",(1.5,-s),S); label(scale(0.7)*"$5\,\textrm{mi}$",(2.5,-s),S); // Divisions for the 25 mph section (5 parts of 1 mile each) for (int i = 1; i < 5; ++i) { draw((i/5.0,0)--(i/5.0,h), dashed); } // Divisions for the 40 mph section (8 parts of 0.625 miles each) for (int i = 1; i < 8; ++i) { draw((i/8.0 + 1,0)--(i/8.0 + 1,h), dashed); } // Divisions for the 20 mph section (4 parts of 1.25 miles each) for (int i = 1; i < 4; ++i) { draw((i/4.0 + 2,0)--(i/4.0 + 2,h), dashed); } // Red dot in the middle of the 4th line in the 25 mph portion dot((4/5.0, h/2), red); // Blue dot in the middle of the line between the 40 mph and 20 mph portions dot((2, h/2), blue); [/asy]
+If we keep moving the dots, they will eventually meet at segment 3.5 of the $40$ mph portion of the road (note that each segment represents 1 hour of time traveled):
+[asy] // Asymptote code by aoum size(10cm); real h = 0.1; real s = 0.07; path b = brace((1,0),(0,0),amplitude=s); // Draw the background and labeled bars filldraw((0,0)--(3,0)--(3,h)--(0,h)--cycle,lightgray,black+1bp); draw((1,0)--(1,h),dashed); draw((2,0)--(2,h),dashed); label("$A$",(0,h/2),W); label("$B$",(3,h/2),E); draw(scale(0.7)*"$25\,\textrm{mph}$",(1,h+s)--(0,h+s),Bars); draw(scale(0.7)*"$40\,\textrm{mph}$",(2,h+s)--(1,h+s),Bars); draw(scale(0.7)*"$20\,\textrm{mph}$",(3,h+s)--(2,h+s),Bars); draw(b); draw(shift(1,0)*b); draw(shift(2,0)*b); // Labels for the 5-mile segments label(scale(0.7)*"$5\,\textrm{mi}$",(0.5,-s),S); label(scale(0.7)*"$5\,\textrm{mi}$",(1.5,-s),S); label(scale(0.7)*"$5\,\textrm{mi}$",(2.5,-s),S); // Divisions for the 25 mph section (5 parts of 1 mile each) for (int i = 1; i < 5; ++i) { draw((i/5.0,0)--(i/5.0,h), dashed); } // Divisions for the 40 mph section (8 parts of 0.625 miles each) for (int i = 1; i < 8; ++i) { draw((i/8.0 + 1,0)--(i/8.0 + 1,h), dashed); } // Divisions for the 20 mph section (4 parts of 1.25 miles each) for (int i = 1; i < 4; ++i) { draw((i/4.0 + 2,0)--(i/4.0 + 2,h), dashed); } // Red dot slightly to the left of the 3.5th segment in the 40 mph portion dot((1 + 3.5/8.0 - 0.02, h/2), red); // Blue dot slightly to the right of the 3.5th segment in the 40 mph portion dot((1 + 3.5/8.0 + 0.02, h/2), blue); // Dashed line at segment 3.5 in the 40 mph section draw((1 + 3.5/8.0, 0)--(1 + 3.5/8.0, h), dashed); [/asy]
+Now, we must account for the $5$ miles in the $25$ mph portion. Since the two cars meet at segment 3.5 of the $40$ mph portion, we add the $5$ miles traveled in the $25$ mph section:
+\[5\ \text{mi} + 3.5\ \text{mi} = \boxed{\textbf{(D) 8.5}}\] miles. $\square$
+~ aoum
+
+## Video Solution by Pi Academy
+https://youtu.be/Iv_a3Rz725w?si=E0SI_h1XT8msWgkK
+
+## Video Solution 1 by SpreadTheMathLove
+https://www.youtube.com/watch?v=jTTcscvcQmI
+
+## Video Solution (A Clever Explanation You’ll Get Instantly)
+https://youtu.be/VP7g-s8akMY?si=Y7swThPvf2WCCGxM&t=2394 ~hsnacademy
+
+## Video Solution by Thinking Feet
+https://youtu.be/PKMpTS6b988
+### See Also

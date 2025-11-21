@@ -1,0 +1,11 @@
+# 2009 AMC 8 Problem 17
+
+## Problem
+
+The positive integers $x$ and $y$ are the two smallest positive integers for which the product of $360$ and $x$ is a square and the product of $360$ and $y$ is a cube. What is the sum of $x$ and $y$ ?
+
+$\textbf{(A)}\ 80 \qquad \textbf{(B)}\ 85 \qquad \textbf{(C)}\ 115 \qquad \textbf{(D)}\ 165 \qquad \textbf{(E)}\ 610$
+
+## Video Solution (XXX)
+https://www.youtube.com/watch?v=ZuSJdf1zWYw ~David
+### See Also

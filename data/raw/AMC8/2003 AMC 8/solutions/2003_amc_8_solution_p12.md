@@ -1,0 +1,10 @@
+# 2003 AMC 8 Problem 12
+
+## Problem
+
+When a fair six-sided dice is tossed on a table top, the bottom face cannot be seen. What is the probability that the product of the faces that can be seen is divisible by $6$ ?
+
+$\textbf{(A)}\ 1/3\qquad\textbf{(B)}\ 1/2\qquad\textbf{(C)}\ 2/3\qquad\textbf{(D)}\ 5/6\qquad\textbf{(E)}\ 1$
+
+## Solution
+We have six cases: each different case, every one where a different number cannot be seen. The rolls that omit numbers one through five are all something times six: an example would be where the number you cannot see is one, so the product should be 2 x 3 x 4 x 5 x 6, and so product should be divisible by six. The roll that omits six on the other hand is 1 x 2 x 3 x 4 x 5, which has 2 x 3, also equal to six. We can see that all of them have a factor of 6 and therefore are divisible by six, so the solution should be $\textbf{(E)}\ 1$ .

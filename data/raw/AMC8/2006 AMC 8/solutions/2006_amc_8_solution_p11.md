@@ -1,0 +1,19 @@
+# 2006 AMC 8 Problem 11
+
+## Problem
+
+How many two-digit numbers have digits whose sum is a perfect square?
+
+$\textbf{(A)}\ 13\qquad\textbf{(B)}\ 16\qquad\textbf{(C)}\ 17\qquad\textbf{(D)}\ 18\qquad\textbf{(E)}\ 19$
+
+## Solution
+There is $1$ integer whose digits sum to $1$ : $10$ .
+There are $4$ integers whose digits sum to $4$ : $13, 22, 31, \text{and } 40$ .
+There are $9$ integers whose digits sum to $9$ : $18, 27, 36, 45, 54, 63, 72, 81, \text{and } 90$ .
+There are $3$ integers whose digits sum to $16$ : $79, 88, \text{and } 97$ .
+Two digits cannot sum to $25$ or any greater square since the greatest sum of digits of a two-digit number is $9 + 9 = 18$ .
+Thus, the answer is $1 + 4 + 9 + 3 = \boxed{\textbf{(C)} 17}$ .
+
+## Video Solution by WhyMath
+https://youtu.be/Ke78CmjlqgM
+### See Also

@@ -1,0 +1,14 @@
+# 2002 AMC 8 Problem 6
+
+## Problem
+
+A birdbath is designed to overflow so that it will be self-cleaning. Water flows in at the rate of 20 milliliters per minute and drains at the rate of 18 milliliters per minute. Which one of these graphs shows the volume of water in the birdbath during the filling time and continuing into the overflow time? [asy] size(450); defaultpen(linewidth(0.8)); path[] p={origin--(8,8)--(14,8), (0,10)--(4,10)--(14,0), origin--(14,14), (0,14)--(14,14), origin--(7,7)--(14,0)}; int i; for(i=0; i<5; i=i+1) { draw(shift(21i,0)*((0,16)--origin--(14,0))); draw(shift(21i,0)*(p[i])); label("Time", (7+21i,0), S); label(rotate(90)*"Volume", (21i,8), W); } label("$A$", (0*21 + 7,-5), S); label("$B$", (1*21 + 7,-5), S); label("$C$", (2*21 + 7,-5), S); label("$D$", (3*21 + 7,-5), S); label("$E$", (4*21 + 7,-5), S); [/asy]
+
+$\text{(A)}\ \text{A} \qquad \text{(B)}\ \text{B} \qquad \text{(C)}\ \text{C} \qquad \text{(D)}\ \text{D} \qquad \text{(E)}\ \text{E}$
+
+## Solution
+The change in the water volume has a net gain of $20-18=2$ millimeters per minute. The birdbath's volume increases at a constant rate until it reaches its maximum and starts overflowing to keep a constant volume. This is best represented by graph $\boxed{\text{(A)}\ A}$ .
+
+## Video Solution by WhyMath
+https://youtu.be/00QQlJHSGxc
+### See Also
