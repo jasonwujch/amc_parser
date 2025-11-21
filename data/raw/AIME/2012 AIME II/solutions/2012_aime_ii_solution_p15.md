@@ -1,0 +1,61 @@
+# 2012 AIME II Problem 15
+
+## Problem
+
+Triangle $ABC$ is inscribed in circle $\omega$ with $AB=5$ , $BC=7$ , and $AC=3$ . The bisector of angle $A$ meets side $\overline{BC}$ at $D$ and circle $\omega$ at a second point $E$ . Let $\gamma$ be the circle with diameter $\overline{DE}$ . Circles $\omega$ and $\gamma$ meet at $E$ and a second point $F$ . Then $AF^2 = \frac mn$ , where $m$ and $n$ are relatively prime positive integers. Find $m+n$ .
+
+## Quick Solution using Olympiad Terms
+Take a force-overlaid inversion about $A$ and note $D$ and $E$ map to each other. As $DE$ was originally the diameter of $\gamma$ , $DE$ is still the diameter of $\gamma$ . Thus $\gamma$ is preserved. Note that the midpoint $M$ of $BC$ lies on $\gamma$ , and $BC$ and $\omega$ are swapped. Thus points $F$ and $M$ map to each other, and are isogonal. It follows that $AF$ is a symmedian of $\triangle{ABC}$ , or that $ABFC$ is harmonic. Then $(AB)(FC)=(BF)(CA)$ , and thus we can let $BF=5x, CF=3x$ for some $x$ . By the LoC, it is easy to see $\angle{BAC}=120^\circ$ so $(5x)^2+(3x)^2-2\cos{60^\circ}(5x)(3x)=49$ . Solving gives $x^2=\frac{49}{19}$ , from which by Ptolemy's we see $AF=\frac{30}{\sqrt{19}}$ . We conclude the answer is $900+19=\boxed{919}$ .
+- Emathmaster
+Side Note: You might be wondering what the motivation for this solution is. Most of the people who've done EGMO Chapter 8 should recognize this as problem 8.32 (2009 Russian Olympiad) with the computational finish afterwards. Now if you haven't done this, but still know what inversion is, here's the motivation. We'd see that it's kinda hard to angle chase, and if we could, it would still be a bit hard to apply (you could use trig, but it won't be so clean most likely). If you give up after realizing that angle chasing won't work, you'd likely go in a similar approach to Solution 1 (below) or maybe be a bit more insightful and go with the elementary solution above.
+Finally, we notice there's circles! Classic setup for inversion! Since we're involving an angle-bisector, the first thing that comes to mind is a force overlaid inversion described in Lemma 8.16 of EGMO (where we invert with radius $\sqrt{AB \cdot AC}$ and center $A$ , then reflect over the $A$ -angle bisector, which fixes $B, C$ ). We try applying this to the problem, and it's fruitful - we end up with this solution. -MSC
+
+## Solution 1
+Use the angle bisector theorem to find $CD=\tfrac{21}{8}$ , $BD=\tfrac{35}{8}$ , and use Stewart's Theorem to find $AD=\tfrac{15}{8}$ . Use Power of Point $D$ to find $DE=\tfrac{49}{8}$ , and so $AE=8$ . Use law of cosines to find $\angle CAD = \tfrac{\pi} {3}$ , hence $\angle BAD = \tfrac{\pi}{3}$ as well, and $\triangle BCE$ is equilateral, so $BC=CE=BE=7$ . [asy] size(150); defaultpen(fontsize(9pt)); picture pic; pair A,B,C,D,E,F,W; B=MP("B",origin,dir(180)); C=MP("C",(7,0),dir(0)); A=MP("A",IP(CR(B,5),CR(C,3)),N); D=MP("D",extension(B,C,A,bisectorpoint(C,A,B)),dir(220)); path omega=circumcircle(A,B,C); E=MP("E",OP(omega,A--(A+20*(D-A))),S); path gamma=CR(midpoint(D--E),length(D-E)/2); F=MP("F",OP(omega,gamma),SE); draw(omega^^A--B--C--cycle^^gamma); draw(pic, A--E--F--cycle, gray); add(pic); dot("$W$",circumcenter(A,B,C),dir(180)); label("$\gamma$",gamma,dir(180)); [/asy] In triangle $AEF$ , let $X$ be the foot of the altitude from $A$ ; then $EF=EX+XF$ , where we use signed lengths. Writing $EX=AE \cdot \cos \angle AEF$ and $XF=AF \cdot \cos \angle AFE$ , we get \begin{align}\tag{1} EF = AE \cdot \cos \angle AEF + AF \cdot \cos \angle AFE. \end{align} Note $\angle AFE = \angle ACE$ , and the Law of Cosines in $\triangle ACE$ gives $\cos \angle ACE = -\tfrac 17$ . Also, $\angle AEF = \angle DEF$ , and $\angle DFE = \tfrac{\pi}{2}$ ( $DE$ is a diameter), so $\cos \angle AEF = \tfrac{EF}{DE} = \tfrac{8}{49}\cdot EF$ .
+Plugging in all our values into equation $(1)$ , we get: \[EF = \tfrac{64}{49} EF -\tfrac{1}{7} AF \quad \Longrightarrow \quad EF = \tfrac{7}{15} AF.\] The Law of Cosines in $\triangle AEF$ , with $EF=\tfrac 7{15}AF$ and $\cos\angle AFE = -\tfrac 17$ gives \[8^2 = AF^2 + \tfrac{49}{225} AF^2 + \tfrac 2{15} AF^2 = \tfrac{225+49+30}{225}\cdot AF^2\] Thus $AF^2 = \frac{900}{19}$ . The answer is $\boxed{919}$ . ~Shen Kislay Kai
+
+## Solution 2
+Let $a = BC$ , $b = CA$ , $c = AB$ for convenience. Let $M$ be the midpoint of segment $BC$ . We claim that $\angle MAD=\angle DAF$ .
+$\textit{Proof}$ . Since $AE$ is the angle bisector, it follows that $EB = EC$ and consequently $EM\perp BC$ . Therefore, $M\in \gamma$ . Now let $X = FD\cap \omega$ . Since $\angle EFX=90^\circ$ , $EX$ is a diameter, so $X$ lies on the perpendicular bisector of $BC$ ; hence $E$ , $M$ , $X$ are collinear. From $\angle DAG = \angle DMX = 90^\circ$ , quadrilateral $ADMX$ is cyclic. Therefore, $\angle MAD = \angle MXD$ . But $\angle MXD$ and $\angle EAF$ are both subtended by arc $EF$ in $\omega$ , so they are equal. Thus $\angle MAD=\angle DAF$ , as claimed. [asy] size(175); defaultpen(fontsize(10pt)); picture pic; pair A,B,C,D,E,F,W; B=MP("B",origin,dir(180)); C=MP("C",(7,0),dir(0)); A=MP("A",IP(CR(B,5),CR(C,3)),N); D=MP("D",extension(B,C,A,bisectorpoint(C,A,B)),dir(220)); path omega=circumcircle(A,B,C); E=MP("E",OP(omega,A--(A+20*(D-A))),S); path gamma=CR(midpoint(D--E),length(D-E)/2); F=MP("F",OP(omega,gamma),SE); pair X=MP("X",IP(omega,F--(F+2*(D-F))),N); pair M=MP("M",midpoint(B--C),dir(220)); draw(omega^^A--B--C--cycle^^gamma); draw(A--E--F--cycle, gray); draw(E--X--F, gray); draw(pic, A--M--C--cycle^^A--B--F--cycle); draw(A--M, royalblue); dot("$W$",circumcenter(A,B,C),dir(180)); dot(circumcenter(D,E,F)); label("$\gamma$",gamma,dir(180)); draw(A--B--F--cycle, black+1); [/asy] As a result, $\angle CAM = \angle FAB$ . Combined with $\angle BFA=\angle MCA$ , we get $\triangle ABF\sim\triangle AMC$ and therefore \[\frac c{AM}=\frac {AF}b\qquad \Longrightarrow \qquad AF^2=\frac{b^2c^2}{AM^2} = \frac{15^2}{AM^2}\] By Stewart's Theorem on $\triangle ABC$ (with cevian $AM$ ), we get \[AM^2 = \tfrac 12 (b^2+c^2)-\tfrac 14 a^2 = \tfrac{19}{4},\] so $AF^2 = \tfrac{900}{19}$ , so the answer is $900+19=\boxed{919}$ .
+-Solution by thecmd999
+
+## Solution 3
+Use the angle bisector theorem to find $CD=\tfrac{21}{8}$ , $BD=\tfrac{35}{8}$ , and use Stewart's Theorem to find $AD=\tfrac{15}{8}$ . Use Power of Point $D$ to find $DE=\tfrac{49}{8}$ , and so $AE=8$ . Then use the Extended Law of Sine to find that the length of the circumradius of $\triangle ABC$ is $\tfrac{7\sqrt{3}}{3}$ . [asy] size(175); defaultpen(fontsize(9pt)); pair A,B,C,D,E,F,W; B=MP("B",origin,dir(180)); C=MP("C",(7,0),dir(0)); A=MP("A",IP(CR(B,5),CR(C,3)),N); D=MP("D",extension(B,C,A,bisectorpoint(C,A,B)),dir(220)); path omega=circumcircle(A,B,C); E=MP("E",OP(omega,A--(A+20*(D-A))),S); path gamma=CR(midpoint(D--E),length(D-E)/2); F=MP("F",OP(omega,gamma),SE); pair X=MP("X",IP(omega,F--(F+2*(D-F))),N); draw(omega^^A--B--C--cycle^^gamma); draw(A--E--F--cycle, gray); draw(E--X--F, royalblue); dot("$W$",circumcenter(A,B,C),dir(180)); dot(circumcenter(D,E,F)); label("$\gamma$",gamma,dir(180)); label("$u$",X--D,dir(60)); label("$v$",D--F,dir(70)); [/asy] Since $DE$ is the diameter of circle $\gamma$ , $\angle DFE$ is $90^\circ$ . Extending $DF$ to intersect circle $\omega$ at $X$ , we find that $XE$ is the diameter of $\omega$ (since $\angle DFE$ is $90^\circ$ ). Therefore, $XE=\tfrac{14\sqrt{3}}{3}$ .
+Let $EF=x$ , $XD=u$ , and $DF=v$ . Then $XE^2-XF^2=EF^2=DE^2-DF^2$ , so we get \[(u+v)^2-v^2=\frac{196}{3}-\frac{2401}{64}\] which simplifies to \[u^2+2uv = \frac{5341}{192}.\] By Power of Point $D$ , $uv=BD \cdot DC=735/64$ . Combining with above, we get \[XD^2=u^2=\frac{931}{192}.\] Note that $\triangle XDE\sim \triangle ADF$ and the ratio of similarity is $\rho = AD : XD = \tfrac{15}{8}:u$ . Then $AF=\rho\cdot XE = \tfrac{15}{8u}\cdot R$ and \[AF^2 = \frac{225}{64}\cdot \frac{R^2}{u^2} = \frac{900}{19}.\] The answer is $900+19=\boxed{919}$ .
+-Solution by TheBoomBox77
+
+## Solution 4
+Use Law of Cosines in $\triangle ABC$ to get $\angle BAC=120^\circ$ . Because $AE$ bisects $\angle A$ , $E$ is the midpoint of major arc $BC$ so $BE=CE,$ and $\angle BEC=60^\circ.$ Thus $\triangle BEC$ is equilateral. Notice now that $\angle BFC=\angle BFE= 60^\circ.$ But $\angle DFE=90^\circ$ so $FD$ bisects $\angle BFC.$ Thus, \[\frac{BF}{CF}=\frac{BD}{CD}=\frac{BA}{CA}=\frac{5}{3}.\] Let $BF=5k, CF=3k.$ Use Law of Cosines on $\triangle BFC$ to get \[25k^2+9k^2-15k^2 = 49 \qquad \Longrightarrow\qquad k=\frac 7{\sqrt{19}}\] Use Ptolemy's Theorem on $BFCA$ , to get \[15k+15k=7\cdot AF, \qquad \Longrightarrow\qquad AF= \frac{30}{\sqrt{19}},\] so $AF^2=\frac{900}{19}$ and the answer is $900+19=919$
+~Shen Kislay Kai
+
+## Solution 5
+Denote $AB = c, BC = a, AC = b, \angle A = 2 \alpha.$ Let M be midpoint BC. Let $\theta$ be the circle centered at $A$ with radius $\sqrt{AB \cdot AC} =\sqrt{bc}.$
+We calculate the length of some segments. The median $AM = \sqrt{\frac {b^2}{2} + \frac {c^2}{2} - \frac {a^2}{4}}.$ The bisector $AD = \frac {2 b c \cos \alpha}{b+c}.$ One can use Stewart's Theorem in both cases.
+$AD$ is bisector of $\angle A \implies BD = \frac {a c}{b + c}, CD = \frac {a b}{b + c} \implies$ \[BD \cdot CD = \frac {a^2 bc }{(b+c)^2}.\] We use Power of Point $D$ and get $AD \cdot DE = BD \cdot CD.$ \[AE = AD + DE = AD + \frac {BD \cdot CD}{AD},\] \[AE =\frac {2 b c \cos \alpha}{b+c} + \frac {a^2 bc \cdot (b+c) }{(b+c)^2 \cdot 2 b c \cos \alpha} =\] \[= \frac {b c \cos^2 \alpha + a^2}{2(b+c)\cos \alpha} =\frac {4bc \cos^2 \alpha + b^2 +c^2 -2 b c \cos 2\alpha}{2(b+c) \cos \alpha} = \frac {b+c}{2} \implies AD \cdot AE = 2 bc \cos \alpha.\] We consider the inversion with respect $\theta.$
+$B$ swap $B' \implies AB' = AC, B' \in AB \implies B'$ is symmetric to $C$ with respect to $AE.$
+$C$ swap $C' \implies AC' = AB, C'$ lies on line $AC \implies C'$ is symmetric to $B$ with respect to $AE.$
+$BC^2 = AB^2 + AC^2 + AB \cdot BC \implies \alpha = 60^\circ \implies AD \cdot AE = bc \implies D$ swap $E.$
+Points $D$ and $E$ lies on $\Gamma \implies \Gamma$ swap $\Gamma.$
+$DE$ is diameter $\Gamma, \angle DME = 90^\circ \implies M \in \Gamma.$ Therefore $M$ is crosspoint of $BC$ and $\Gamma.$
+Let $\Omega$ be circumcircle $AB'C'. \Omega$ is image of line $BC.$ Point $M$ maps into $M' \implies M' = \Gamma \cap \Omega.$
+Points $A, B',$ and $C'$ are symmetric to $A, C,$ and $B,$ respectively.
+Point $M'$ lies on $\Gamma$ which is symmetric with respect to $AE$ and on $\Omega$ which is symmetric to $\omega$ with respect to $AE \implies$
+is symmetric with respect to
+We use Power of Point $A$ and get \[AF = AM' = \frac {AD \cdot AE}{AM} = \frac {4b c}{\sqrt{2 b^2 + 2 c^2 – a^2}} = \frac {4 \cdot 3 \cdot 5}{\sqrt{ 50 + 18 – 49}} = \frac {30}{\sqrt{19}} \implies \boxed{\textbf{919}}.\]
+vladimir.shelomovskii@gmail.com, vvsss
+
+## Solution 6:
+To do this, we first define the intersection of $EF$ and $BC$ to be $K$ .
+Lemma 1: $(K, C, D, B)$ are harmonic. First of all, define the midpoint of $BC$ to be $M$ . Then, we have that angle FMD is $90$ degrees, and as a result, $M$ lies on this circle. By Power of a Point , $(KD)(KM) = (KE)(KF) = (KB)(KC)$ . As a result, $(K, C, D, B)$ are harmonic from another famous harmonic lemma.
+As a result, since $\angle EFD = 90^{\circ}$ , by another Harmonic Lemma, $FD$ is the angle bisector of $BFC$ . Since $\frac{BD}{CD} = \frac{5}{3}$ by angle bisector theorem , $\frac{BF}{CF} = \frac{5}{3}$ . Since $\angle BAC$ is $120^{\circ}$ by Law of Cosines (LOC), we can use LOC to finish off. Call $BF = 5a$ , and $CF = 3a$ , $(5a)^2+(3a)^2-15a^2 = 49$ , so $a = \frac{7}{\sqrt{19}}$ . We do Ptolemy's Theorem on $ABFC$ . Our answer is: \[\frac{(3)(35)+(5)(21)}{7\sqrt{19}} = \frac{30}{\sqrt{19}}.\] As a result, the final answer is $\boxed{919}$ .
+-sepehr2010
+Minor edits ~ Zhenghua
+
+## Video Solution by mop 2024
+https://youtu.be/mIFUuY4ybeg
+~r00tsOfUnity
+### See Also
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America .

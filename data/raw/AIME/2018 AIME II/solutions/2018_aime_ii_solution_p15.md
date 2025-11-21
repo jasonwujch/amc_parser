@@ -1,0 +1,39 @@
+# 2018 AIME II Problem 15
+
+## Problem
+
+Find the number of functions $f$ from $\{0, 1, 2, 3, 4, 5, 6\}$ to the integers such that $f(0) = 0$ , $f(6) = 12$ , and \[|x - y| \leq |f(x) - f(y)| \leq 3|x - y|\] for all $x$ and $y$ in $\{0, 1, 2, 3, 4, 5, 6\}$ .
+
+## Official Solution (MAA)
+Because $f(n)$ and $f(n+1)$ can differ by at most 3 for $n=0,1,2,3,4,5$ , $f$ can decrease at most once. This is because if $f$ decreases $2$ times (or more) then we get a contradiction: $12 = f(6) \le 3\cdot 4 + (-1)\cdot 2 = 10$ .
+If $f$ never decreases, then $f(n+1)-f(n)\in \{1,2,3\}$ for all $n$ . Let $a, b$ , and $c$ denote the number of times this difference is $1, 2$ , and $3$ , respectively. Then $a+b+c=6$ and $a+2b+3c = 12$ . Subtracting the first equation from the second yields $b+2c=6$ , so $(b,c)=(6,0), (4,1), (2,2)$ , or $(0,3)$ . These yield $a=0,1,2$ , or $3$ , respectively, so the number of possibilities in this case is \[\binom{6}{0,6,0}+\binom{6}{1,4,1}+\binom{6}{2,2,2}+\binom{6}{3,0,3}=141.\] If $f$ decreases from $f(0)$ to $f(1)$ or from $f(5)$ to $f(6)$ , then $f(2)$ or $f(4)$ , respectively, is determined. The only solutions to $a+b+c=4$ and $a+2b+3c=10$ are $(a,b,c)=(1,0,3)$ and $(a,b,c)=(0,2,2)$ , so the number of functions is \[2\left[\binom{4}{1,0,3}+\binom{4}{0,2,2}\right]=20.\] Finally, suppose that $f(n+1)<f(n)$ for some $n=1,2,3,4$ . Note that the condition $|(n+1)-(n-1)|\le |f(n+1)-f(n-1)|$ implies that $f(n+1)-f(n-1)\ge 2$ , so it must be that $f(n)-f(n+1)=1$ and \[f(n+2)-f(n+1)=f(n)-f(n-1)=3.\] This means that $f(n-1)$ and $f(n+2)$ are uniquely determined by the value of $f(n)$ , and, in particular, that $f(n+2)-f(n-1)=5$ . As a result, there are three more values of $f$ to determine, and they must provide a total increase of $7$ . The only ways to do this are either to have two differences of $3$ and one difference of $1$ , which can be arranged in $3$ ways, or to have one difference of $3$ and two differences of $2$ , which can be arranged in $3$ ways. Thus for each of the $4$ possibilities for $n$ , there are $6$ ways to arrange the increases, giving a total of $24$ ways.
+The total number of functions is $141+20+24=\boxed{185}$ .
+
+## Solution 1
+First, suppose $x = y + 1$ . Then, the inequality becomes $1 \leq |f(y + 1) - f(y)| \leq 3$ . In other words, the (positive) difference between consecutive function values is $1$ , $2$ , or $3$ . Let $d_k := f(k) - f(k - 1)$ . Note that
+$f(x) - f(y) = \sum_{k=y+1}^{x} d_k.$
+Thus, $\sum_{k=1}^{6} d_k = f(6) - f(0) = 12$ . Note that at most one value of $d_k$ in $\left\{d_1, d_2, d_3, d_4, d_5, d_6\right\}$ can be negative. This is because the maximum value of $d_1 + d_2 + d_3 + d_4 + d_5 + d_6$ would be $3 + 3 + 3 + 3 - 1 - 1 = 10$ if more than one value of $d_k$ is negative. Plugging $x = y + 2$ into the original inequality yields $2 \leq |f(y + 2) - f(y)| \leq 6$ , which becomes $2 \leq \left|d_{y+2} + d_{y+1}\right| \leq 6$ . The only way for $d_{y+2} + d_{y+1}$ to be negative while satisfying this inequality is for $\left(d_{y+2}, d_{y+1}\right)$ to equal $(1, -3)$ or $(-3, 1)$ . However, this forces $d_1 + d_2 + d_3 + d_4 + d_5 + d_6 \leq 3 + 3 + 3 + 3 + 1 - 3 = 10 < 12$ , which is disallowed. Hence, we conclude that the following stronger inequality,
+$2 \leq d_{y + 2} + d_{y + 1} \leq 6,$
+is always true. We now have two cases of functions to count. For future reference let $D$ be the (ordered) sequence $\left\{d_1, d_2, d_3, d_4, d_5, d_6\right\}$ .
+Case 1: There is exactly one instance of $d_k = -1$ .
+By the "stronger" inequality above, $d_{k-1} = 3$ if $k > 1$ , and $d_{k+1} = 3$ if $k < 6$ . If $2 \leq k \leq 5$ , then $D$ contains the subsequence $\left\{3, -1, 3\right\}$ , and the other three $d$ -values sum to $7$ , so they are either $3$ , $3$ , and $1$ in some order, or they are $2$ , $2$ , and $3$ in some order. Thus, each $k \in \{2, 3, 4, 5\}$ for which $d_k = -1$ produces $6$ sequences $D$ . If $k = 1$ or $k = 6$ , then $D$ begins with $\{-1, 3\}$ or ends with $\{3, -1\}$ , respectively. Either way, the remaining four $d$ -values sum to $10$ , so they can be any permutation of $\{3, 3, 2, 2\}$ (six permutations) or $\{3, 3, 3, 1\}$ (four permutations). Each of these vaues of $k$ yields $6 + 4 = 10$ sequences, so our total count for Case 1 is $4 \cdot 6 + 2 \cdot 10 = 44$ .
+Case 2: All values of $d$ are positive.
+Then, $D$ is a permutation of $\{3, 3, 3, 1, 1, 1\}$ , $\{3, 3, 2, 2, 1, 1\}$ , $\{3, 2, 2, 2, 2, 1\}$ , or $\{2, 2, 2, 2, 2, 2\}$ . The number of ways to permute three $3$ s and three $1$ s is $\frac{6!}{3! \cdot 3!} = 20$ . The number of ways to permute two $3$ s, two $2$ s, and two $1$ s is $\frac{6!}{2! \cdot 2! \cdot 2!} = 90$ . The number of ways to permute one $3$ , four $2$ s, and one $1$ is $\frac{6!}{1! \cdot 4! \cdot 1!} = 30$ . Finally, there is obviously only $1$ way to permute six $2$ s. Our total count for Case 2 is $20 + 90 + 30 + 1 = 141$ .
+To complete the justification that all of these $44 + 141 = \boxed{185}$ cases satisfy the original inequality, we leverage the fact that $\{f(x)\}_{x=0}^{6}$ is either monotonically increasing (Case 2) or the union of two monotonically increasing subsequences (Case 1). Consider any monotonically increasing subsequence that starts at $x = a$ and ends at $x = b$ . For $a < k \leq b$ , $d_k$ will be positive, allowing us to remove the absolute value bars from the original inequality:
+$x - y \leq f(x) - f(y) \leq 3(x - y).$
+Now, the inequality is transitive; supposing $a \leq x_3 < x_2 < x_1 \leq b$ , if the inequality is satisfied at $(x, y) = \left(x_1, x_2\right)$ and at $(x, y) = \left(x_2, x_3\right)$ , then it is also satisfied at $(x, y) = \left(x_1, x_3\right)$ . If we ever have a decreasing part where $f(x + 1) < f(x)$ , then we can use some variant of the inequality $2 \leq f(x + 1) - f(x - 1) \leq 6$ , which we derived earlier. This is a specific case of $x - y \leq f(x) - f(y) \leq 3(x - y)$ , so we can finish off the argument by invoking transitivity.
+-kgator
+
+## Solution 2
+Based on the conditions for $d_k$ obtained in Solution 1, followed by some well-known stars & bars techniques to reduce the case work. To recap, the conditions for $d_k = f(k) - f(k-1)$ are: \[\sum_{k=1}^6 d_k = 12\] \[d_k = -1, \hspace{0.1cm} \mbox{or} \hspace{0.2cm} 1 \leq d_k \leq 3\] \[d_k + d_{k+1} \geq 2\]
+Case 1: $d_k = -1$ for some $k$ . Since $d_i + d_{i+1} \geq 2$ , $d_{k+1}$ and $d_{k-1}$ must both be 3.
+Case 1a: $d_1 = -1$ or $d_6 = -1$ . In this case, we have $d_2=3$ or $d_5=3$ , respectively. So the remaining four $d_i$ values add up to 10 with each value ranging between 1 and 3. This stars and bars problem is equivalent to $a+b+c+d =2$ with $a,b,c,d$ between 0 and 2, so the number of possibilities is ${5 \choose 3}$ each.
+Case 1b: $d_k = -1$ for $k=2,3,4,5$ . In this case, $d_{k+1}=d_{k-1} =3$ . So the remaining 3 $d_i$ values add up to 7 with each value ranging between 1 and 3. This stars and bars problem is equivalent to $a+b+c =2$ with $a,b,c,d$ between 0 and 2, so the number of possibilities is ${4 \choose 2}$ each.
+So the total for Case 1 is $2{5 \choose 3} + 4 {4 \choose 2} = 44$ .
+Case 2: $1 \leq d_k \leq 3$ for all $k$ . $\sum_{k=1}^{6} d_k = 12$ . Let $g_k = 3-d_k$ we get $\sum_{k=1}^{6} g_k = 6$ for $0 \leq g_k \leq 2$ . This is a stars and bars problem with maximum capacity and the solution is given by applying PIE: \[{11 \choose 5} - 6{8 \choose 5} + {6 \choose 2} = 141\] . Now the final answer is $44 + 141 = 185$ .
+-mathdummy
+### See Also
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America .

@@ -1,0 +1,55 @@
+# 2022 AIME I Problem 8
+
+## Problem
+
+Equilateral triangle $\triangle ABC$ is inscribed in circle $\omega$ with radius $18.$ Circle $\omega_A$ is tangent to sides $\overline{AB}$ and $\overline{AC}$ and is internally tangent to $\omega.$ Circles $\omega_B$ and $\omega_C$ are defined analogously. Circles $\omega_A,$ $\omega_B,$ and $\omega_C$ meet in six points---two points for each pair of circles. The three intersection points closest to the vertices of $\triangle ABC$ are the vertices of a large equilateral triangle in the interior of $\triangle ABC,$ and the other three intersection points are the vertices of a smaller equilateral triangle in the interior of $\triangle ABC.$ The side length of the smaller equilateral triangle can be written as $\sqrt{a} - \sqrt{b},$ where $a$ and $b$ are positive integers. Find $a+b.$
+
+### Diagram
+
+[asy] /* Made by MRENTHUSIASM */ size(250); pair A, B, C, W, WA, WB, WC, X, Y, Z; A = 18*dir(90); B = 18*dir(210); C = 18*dir(330); W = (0,0); WA = 6*dir(270); WB = 6*dir(30); WC = 6*dir(150); X = (sqrt(117)-3)*dir(270); Y = (sqrt(117)-3)*dir(30); Z = (sqrt(117)-3)*dir(150); filldraw(X--Y--Z--cycle,green,dashed); draw(Circle(WA,12)^^Circle(WB,12)^^Circle(WC,12),blue); draw(Circle(W,18)^^A--B--C--cycle); dot("$A$",A,1.5*dir(A),linewidth(4)); dot("$B$",B,1.5*dir(B),linewidth(4)); dot("$C$",C,1.5*dir(C),linewidth(4)); dot("$\omega$",W,1.5*dir(270),linewidth(4)); dot("$\omega_A$",WA,1.5*dir(-WA),linewidth(4)); dot("$\omega_B$",WB,1.5*dir(-WB),linewidth(4)); dot("$\omega_C$",WC,1.5*dir(-WC),linewidth(4)); [/asy] ~MRENTHUSIASM ~ihatemath123
+
+## Solution 1 (Coordinate Geometry)
+We can extend $AB$ and $AC$ to $B'$ and $C'$ respectively such that circle $\omega_A$ is the incircle of $\triangle AB'C'$ . [asy] /* Made by MRENTHUSIASM */ size(300); pair A, B, C, B1, C1, W, WA, WB, WC, X, Y, Z; A = 18*dir(90); B = 18*dir(210); C = 18*dir(330); B1 = A+24*sqrt(3)*dir(B-A); C1 = A+24*sqrt(3)*dir(C-A); W = (0,0); WA = 6*dir(270); WB = 6*dir(30); WC = 6*dir(150); X = (sqrt(117)-3)*dir(270); Y = (sqrt(117)-3)*dir(30); Z = (sqrt(117)-3)*dir(150); filldraw(X--Y--Z--cycle,green,dashed); draw(Circle(WA,12)^^Circle(WB,12)^^Circle(WC,12),blue); draw(Circle(W,18)^^A--B--C--cycle); draw(B--B1--C1--C,dashed); dot("$A$",A,1.5*dir(A),linewidth(4)); dot("$B$",B,1.5*(-1,0),linewidth(4)); dot("$C$",C,1.5*(1,0),linewidth(4)); dot("$B'$",B1,1.5*dir(B1),linewidth(4)); dot("$C'$",C1,1.5*dir(C1),linewidth(4)); dot("$O$",W,1.5*dir(90),linewidth(4)); dot("$X$",X,1.5*dir(X),linewidth(4)); dot("$Y$",Y,1.5*dir(Y),linewidth(4)); dot("$Z$",Z,1.5*dir(Z),linewidth(4)); [/asy] Since the diameter of the circle is the height of this triangle, the height of this triangle is $36$ . We can use inradius or equilateral triangle properties to get the inradius of this triangle is $12$ (The incenter is also a centroid in an equilateral triangle, and the distance from a side to the centroid is a third of the height). Therefore, the radius of each of the smaller circles is $12$ .
+Let $O=\omega$ be the center of the largest circle. We will set up a coordinate system with $O$ as the origin. The center of $\omega_A$ will be at $(0,-6)$ because it is directly beneath $O$ and is the length of the larger radius minus the smaller radius, or $18-12 = 6$ . By rotating this point $120^{\circ}$ around $O$ , we get the center of $\omega_B$ . This means that the magnitude of vector $\overrightarrow{O\omega_B}$ is $6$ and is at a $30$ degree angle from the horizontal. Therefore, the coordinates of this point are $(3\sqrt{3},3)$ and by symmetry the coordinates of the center of $\omega_C$ is $(-3\sqrt{3},3)$ .
+The upper left and right circles intersect at two points, the lower of which is $X$ . The equations of these two circles are: \begin{align*} (x+3\sqrt3)^2 + (y-3)^2 &= 12^2, \\ (x-3\sqrt3)^2 + (y-3)^2 &= 12^2. \end{align*} We solve this system by subtracting to get $x = 0$ . Plugging back in to the first equation, we have $(3\sqrt{3})^2 + (y-3)^2 = 144 \implies (y-3)^2 = 117 \implies y-3 = \pm \sqrt{117} \implies y = 3 \pm \sqrt{117}$ . Since we know $X$ is the lower solution, we take the negative value to get $X = (0,3-\sqrt{117})$ .
+We can solve the problem two ways from here. We can find $Y$ by rotation and use the distance formula to find the length, or we can be somewhat more clever. We notice that it is easier to find $OX$ as they lie on the same vertical, $\angle XOY$ is $120$ degrees so we can make use of $30-60-90$ triangles, and $OX = OY$ because $O$ is the center of triangle $XYZ$ . We can draw the diagram as such: [asy] /* Made by MRENTHUSIASM */ size(300); pair A, B, C, B1, C1, W, WA, WB, WC, X, Y, Z; A = 18*dir(90); B = 18*dir(210); C = 18*dir(330); B1 = A+24*sqrt(3)*dir(B-A); C1 = A+24*sqrt(3)*dir(C-A); W = (0,0); WA = 6*dir(270); WB = 6*dir(30); WC = 6*dir(150); X = (sqrt(117)-3)*dir(270); Y = (sqrt(117)-3)*dir(30); Z = (sqrt(117)-3)*dir(150); filldraw(X--Y--Z--cycle,green,dashed); draw(Circle(WA,12)^^Circle(WB,12)^^Circle(WC,12),blue); draw(Circle(W,18)^^A--B--C--cycle); draw(B--B1--C1--C^^W--X^^W--Y^^W--midpoint(X--Y),dashed); dot("$A$",A,1.5*dir(A),linewidth(4)); dot("$B$",B,1.5*(-1,0),linewidth(4)); dot("$C$",C,1.5*(1,0),linewidth(4)); dot("$B'$",B1,1.5*dir(B1),linewidth(4)); dot("$C'$",C1,1.5*dir(C1),linewidth(4)); dot("$O$",W,1.5*dir(90),linewidth(4)); dot("$X$",X,1.5*dir(X),linewidth(4)); dot("$Y$",Y,1.5*dir(Y),linewidth(4)); dot("$Z$",Z,1.5*dir(Z),linewidth(4)); [/asy] Note that $OX = OY = \sqrt{117} - 3$ . It follows that \begin{align*} XY &= 2 \cdot \frac{OX\cdot\sqrt{3}}{2} \\ &= OX \cdot \sqrt{3} \\ &= (\sqrt{117}-3) \cdot \sqrt{3} \\ &= \sqrt{351}-\sqrt{27}. \end{align*} Finally, the answer is $351+27 = \boxed{378}$ .
+~KingRavi
+
+## Solution 2 (Euclidean Geometry)
+[asy] /* Made by MRENTHUSIASM */ /* Modified by isabelchen */ size(250); pair A, B, C, W, WA, WB, WC, X, Y, Z, D, E; A = 18*dir(90); B = 18*dir(210); C = 18*dir(330); W = (0,0); WA = 6*dir(270); WB = 6*dir(30); WC = 6*dir(150); X = (sqrt(117)-3)*dir(270); Y = (sqrt(117)-3)*dir(30); Z = (sqrt(117)-3)*dir(150); D = intersectionpoint(Circle(WA,12),A--C); E = intersectionpoints(Circle(WB,12),Circle(WC,12))[0]; filldraw(X--Y--Z--cycle,green,dashed); draw(Circle(WA,12)^^Circle(WB,12)^^Circle(WC,12),blue); draw(Circle(W,18)^^A--B--C--cycle); dot("$A$",A,1.5*dir(A),linewidth(4)); dot("$B$",B,1.5*dir(B),linewidth(4)); dot("$C$",C,1.5*dir(C),linewidth(4)); dot("$\omega$",W,1.5*dir(270),linewidth(4)); dot("$\omega_A$",WA,1.5*dir(-WA),linewidth(4)); dot("$\omega_B$",WB,1.5*dir(-WB),linewidth(4)); dot("$\omega_C$",WC,1.5*dir(-WC),linewidth(4)); dot("$X$",X,1.5*dir(X),linewidth(4)); dot("$Y$",Y,1.5*dir(Y),linewidth(4)); dot("$Z$",Z,1.5*dir(Z),linewidth(4)); dot("$E$",E,1.5*dir(E),linewidth(4)); dot("$D$",D,1.5*dir(D),linewidth(4)); draw(WC--WB^^WC--X^^WC--E^^WA--D^^A--X); [/asy] For equilateral triangle with side length $l$ , height $h$ , and circumradius $r$ , there are relationships: $h = \frac{\sqrt{3}}{2} l$ , $r = \frac{2}{3} h = \frac{\sqrt{3}}{3} l$ , and $l = \sqrt{3}r$ .
+There is a lot of symmetry in the figure. The radius of the big circle $\odot \omega$ is $R = 18$ , let the radius of the small circles $\odot \omega_A$ , $\odot \omega_B$ , $\odot \omega_C$ be $r$ .
+We are going to solve this problem in $3$ steps:
+$\textbf{Step 1:}$
+We have $\triangle A \omega_A D$ is a $30-60-90$ triangle, and $A \omega_A = 2 \cdot \omega_A D$ , $A \omega_A = 2R-r$ ( $\odot \omega$ and $\odot \omega_A$ are tangent), and $\omega_A D = r$ . So, we get $2R-r = 2r$ and $r = \frac{2}{3} \cdot R = 12$ .
+Since $\odot \omega$ and $\odot \omega_A$ are tangent, we get $\omega \omega_A = R - r = \frac{1}{3} \cdot R = 6$ .
+Note that $\triangle \omega_A \omega_B \omega_C$ is an equilateral triangle, and $\omega$ is its center, so $\omega_B \omega_C = \sqrt{3} \cdot \omega \omega_A = 6 \sqrt{3}$ .
+$\textbf{Step 2:}$
+Note that $\triangle \omega_C E X$ is an isosceles triangle, so \[EX = 2 \sqrt{(\omega_C E)^2 - \left(\frac{\omega_B \omega_C}{2}\right)^2} = 2 \sqrt{r^2 - \left(\frac{\omega_B \omega_C}{2}\right)^2} = 2 \sqrt{12^2 - (3 \sqrt{3})^2} = 2 \sqrt{117}.\]
+$\textbf{Step 3:}$
+In $\odot \omega_C$ , Power of a Point gives $\omega X \cdot \omega E = r^2 - (\omega_C \omega)^2$ and $\omega E = EX - \omega X = 2\sqrt{117} - \omega X$ .
+It follows that $\omega X \cdot (2\sqrt{117} - \omega X) = 12^2 - 6^2$ . We solve this quadratic equation: $\omega X = \sqrt{117} - 3$ .
+Since $\omega X$ is the circumradius of equilateral $\triangle XYZ$ , we have $XY = \sqrt{3} \cdot \omega X = \sqrt{3} \cdot (\sqrt{117} - 3) = \sqrt{351}-\sqrt{27}$ .
+Therefore, the answer is $351+27 = \boxed{378}$ .
+~ isabelchen
+
+## Solution 3 (Simple Geometry)
+Let $O$ be the center, $R = 18$ be the radius, and $CC'$ be the diameter of $\omega.$ Let $r$ be the radius, $E,D,F$ are the centers of $\omega_A, \omega_B,\omega_C.$ Let $KGH$ be the desired triangle with side $x.$ We find $r$ using \[CC' = 2R = C'K + KC = r + \frac{r}{\sin 30^\circ} = 3r.\] \[r = \frac{2R}{3} = 12.\] \[OE = R – r = 6.\] Triangles $\triangle DEF$ and $\triangle KGH$ – are equilateral triangles with a common center $O,$ therefore in the triangle $OEH$ $OE = 6, \angle EOH = 120^\circ, OH = \frac{x}{\sqrt3}.$
+We apply the Law of Cosines to $\triangle OEH$ and get \[OE^2 + OH^2 + OE \cdot OH = EH^2.\] \[6^2 + \frac{x^2}{3} + \frac{6x}{\sqrt3} = 12^2.\] \[x^2 + 6x \sqrt{3} = 324\] \[x= \sqrt{351} - \sqrt{27} \implies 351 + 27 = \boxed {378}\]
+vladimir.shelomovskii@gmail.com, vvsss
+
+## Solution 4 (Mixtilinear Incircles)
+Let $O$ be the center of $\omega$ , $X$ be the intersection of $\omega_B,\omega_C$ further from $A$ , and $O_A$ be the center of $\omega_A$ . Define $Y, Z, O_B, O_C$ similarly. It is well-known that the $A$ -mixtilinear inradius $R_A$ is $\tfrac{r}{\cos^2\left(\frac{\angle A}{2}\right)} = \tfrac{9}{\cos^2\left(30^{\circ}\right)} = 12$ , so in particular this means that $OO_B = 18 - R_B = 6 = OO_C$ . Since $\angle O_BOO_C = \angle BOC = 120^\circ$ , it follows by Law of Cosines on $\triangle OO_BO_C$ that $O_BO_C = 6\sqrt{3}$ . Then the Pythagorean theorem gives that the altitude of $O_BO_CX$ is $\sqrt{117}$ , so $OY = OX = \text{dist}(X, YZ) - \text{dist}(O, YZ) = \sqrt{117} - 3$ and $YZ = \tfrac{O_BO_C\cdot OY}{OO_B} = \tfrac{6\sqrt{3}(\sqrt{117} - 3)}{6}=\sqrt{351} - \sqrt{27}$ so the answer is $351 + 27 = \boxed{378}$ .
+~Kagebaka
+
+## Video Solution
+https://youtu.be/q6_LslAfFpI
+~MathProblemSolvingSkills.com
+
+## Video Solution
+https://youtu.be/NTbdG4IiCRY
+~AMC & AIME Training
+### See Also
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America .
