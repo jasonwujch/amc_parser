@@ -1,0 +1,17 @@
+# 2001 AIME I Problem 11
+
+## Problem
+
+In a rectangular array of points, with 5 rows and $N$ columns, the points are numbered consecutively from left to right beginning with the top row. Thus the top row is numbered 1 through $N,$ the second row is numbered $N + 1$ through $2N,$ and so forth. Five points, $P_1, P_2, P_3, P_4,$ and $P_5,$ are selected so that each $P_i$ is in row $i.$ Let $x_i$ be the number associated with $P_i.$ Now renumber the array consecutively from top to bottom, beginning with the first column. Let $y_i$ be the number associated with $P_i$ after the renumbering. It is found that $x_1 = y_2,$ $x_2 = y_1,$ $x_3 = y_4,$ $x_4 = y_5,$ and $x_5 = y_3.$ Find the smallest possible value of $N.$
+
+## Solution
+Let each point $P_i$ be in column $c_i$ . The numberings for $P_i$ can now be defined as follows. \begin{align*}x_i &= (i - 1)N + c_i\\ y_i &= (c_i - 1)5 + i \end{align*}
+We can now convert the five given equalities. \begin{align}x_1&=y_2 & \Longrightarrow & & c_1 &= 5 c_2-3\\ x_2&=y_1 & \Longrightarrow & & N+c_2 &= 5 c_1-4\\ x_3&=y_4 & \Longrightarrow & & 2 N+c_3 &= 5 c_4-1\\ x_4&=y_5 & \Longrightarrow & & 3 N+c_4 &= 5 c_5\\ x_5&=y_3 & \Longrightarrow & & 4 N+c_5 &= 5 c_3-2 \end{align} Equations $(1)$ and $(2)$ combine to form \[N = 24c_2 - 19\] Similarly equations $(3)$ , $(4)$ , and $(5)$ combine to form \[117N +51 = 124c_3\] Take this equation modulo 31 \[24N+20\equiv 0 \pmod{31}\] And substitute for N \[24 \cdot 24 c_2 - 24 \cdot 19 +20\equiv 0 \pmod{31}\] \[18 c_2 \equiv 2 \pmod{31}\]
+Thus the smallest $c_2$ might be is $7$ and by substitution $N = 24 \cdot 7 - 19 = 149$
+The column values can also easily be found by substitution \begin{align*}c_1&=32\\ c_2&=7\\ c_3&=141\\ c_4&=88\\ c_5&=107 \end{align*} As these are all positive and less than $N$ , $\boxed{149}$ is the solution.
+### Sidenote
+If we express all the $c_i$ in terms of $N$ , we have \[24c_1=5N+23\] \[24c_2=N+19\] \[124c_3=117N+51\] \[124c_4=73N+35\] \[124c_5=89N+7\]
+It turns out that there exists such an array satisfying the problem conditions if and only if \[N\equiv 149 \pmod{744}\]
+In addition, the first two equation can be written $n = 5mod24$ , and chasing variables in the last three equation gives us $89n + 7 = 124e$ . With these two equations you may skip a lot of rewriting and testing. $\boxed{149}$ still appears as our answer.
+-jackshi2006
+These problems are copyrighted © by the Mathematical Association of America.

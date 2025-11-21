@@ -1,0 +1,26 @@
+# 2002 AIME I Problem 15
+
+## Problem
+
+Polyhedron $ABCDEFG$ has six faces. Face $ABCD$ is a square with $AB = 12;$ face $ABFG$ is a trapezoid with $\overline{AB}$ parallel to $\overline{GF},$ $BF = AG = 8,$ and $GF = 6;$ and face $CDE$ has $CE = DE = 14.$ The other three faces are $ADEG, BCEF,$ and $EFG.$ The distance from $E$ to face $ABCD$ is 12. Given that $EG^2 = p - q\sqrt {r},$ where $p, q,$ and $r$ are positive integers and $r$ is not divisible by the square of any prime, find $p + q + r.$
+
+## Solution 1
+Let's put the polyhedron onto a coordinate plane. For simplicity, let the origin be the center of the square: $A(-6,6,0)$ , $B(-6,-6,0)$ , $C(6,-6,0)$ and $D(6,6,0)$ . Since $ABFG$ is an isosceles trapezoid and $CDE$ is an isosceles triangle, we have symmetry about the $xz$ -plane.
+Therefore, the $y$ -component of $E$ is 0. We are given that the $z$ component is 12, and it lies over the square, so we must have $E(2,0,12)$ so $CE=\sqrt{4^2+6^2+12^2}=\sqrt{196}=14$ (the other solution, $E(10,0,12)$ does not lie over the square). Now let $F(a,-3,b)$ and $G(a,3,b)$ , so $FG=6$ is parallel to $\overline{AB}$ . We must have $BF=8$ , so $(a+6)^2+b^2=8^2-3^2=55$ .
+The last piece of information we have is that $ADEG$ (and its reflection, $BCEF$ ) are faces of the polyhedron, so they must all lie in the same plane. Since we have $A$ , $D$ , and $E$ , we can derive this plane.* Let $H$ be the extension of the intersection of the lines containing $\overline{AG}, \overline{BF}$ . It follows that the projection of $\triangle AHB$ onto the plane $x = 6$ must coincide with the $\triangle CDE'$ , where $E'$ is the projection of $E$ onto the plane $x = 6$ . $\triangle GHF \sim \triangle AHB$ by a ratio of $1/2$ , so the distance from $H$ to the plane $x = -6$ is \[\sqrt{\left(\sqrt{(2 \times 8)^2 - 6^2}\right)^2 - 12^2} = 2\sqrt{19};\] and by the similarity, the distance from $G$ to the plane $x = -6$ is $\sqrt{19}$ . The altitude from $G$ to $ABCD$ has height $12/2 = 6$ . By similarity, the x-coordinate of $G$ is $-6/2 = -3$ . Then $G = (-6 \pm \sqrt{19}, -3, 6)$ .
+Now that we have located $G$ , we can calculate $EG^2$ : \[EG^2=(8\pm\sqrt{19})^2+3^2+6^2=64\pm16\sqrt{19}+19+9+36=128\pm16\sqrt{19}.\] Taking the negative root because the answer form asks for it, we get $128-16\sqrt{19}$ , and $128+16+19=\fbox{163}$ .
+- One may also do this by vectors; $\overrightarrow{AD}\times\overrightarrow{DE}=(12,0,0)\times(-4,-6,12)=(0,-144,-72)=-72(0,2,1)$ , so the plane is $2y+z=2\cdot6=12$ . Since $G$ lies on this plane, we must have $2\cdot3+b=12$ , so $b=6$ . Therefore, $a=-6\pm\sqrt{55-6^2}=-6\pm\sqrt{19}$ . So $G(-6\pm\sqrt{19},-3,6)$ .
+
+## Solution 2
+We let $A$ be the origin, or $(0,0,0)$ , $B = (0,0,12)$ , and $D = (12,0,0)$ . Draw the perpendiculars from F and G to AB, and let their intersections be X and Y, respectively. By symmetry, $FX = GY = \frac{12-6}2 = 3$ , so $G = (a,b,3)$ , where a and b are variables.
+We can now calculate the coordinates of E. Drawing the perpendicular from E to CD and letting the intersection be Z, we have $CZ = DZ = 6$ and $EZ = 4\sqrt{10}$ . Therefore, the x coordinate of $E$ is $12-\sqrt{(4\sqrt{10})^2-12^2}=12-\sqrt{16}=12-4=8$ , so $E = (8,12,6)$ .
+We also know that $A,D,E,$ and $G$ are coplanar, so they all lie on the plane $z = Ax+By+C$ . Since $(0,0,0)$ is on it, then $C = 0$ . Also, since $(12,0,0)$ is contained, then $A = 0$ . Finally, since $(8,12,6)$ is on the plane, then $B = \frac 12$ . Therefore, $b = 6$ . Since $GA = 8$ , then $a^2+6^2+3^2=8^2$ , or $a = \pm \sqrt{19}$ . Therefore, the two permissible values of $EG^2$ are $(8 \pm \sqrt{19})^2+6^2+3^2 = 128 \pm 16\sqrt{19}$ . The only one that satisfies the conditions of the problem is $128 - 16\sqrt{19}$ , from which the answer is $128+16+19=\boxed{163}$ .
+
+## Solution 3 (minimal coordinates, Apollonius)
+Denote the foot of the altitude from $E$ to $ABCD$ be $X$ . Let the projection of $X$ onto $AD$ be $Y$ . We seek $YD=a$ . Let $E=(0, 0, 0)$ . Then we get $X=(0, 0, -12)$ . Because the diagram is symmetrical, $Y=(a, -6, -12)$ . So, $a^2+6^2+12^2=14^2 \rightarrow a=4$ . We find $EA=2\sqrt{61}$ .
+Extend $EG$ and $FE$ to meet the plane $z=0$ . Since $EGAD$ is a quadrilateral and all on a plane, then the extension of $EG$ and $FE$ will meet the lines $AD$ and $BC$ , respectively. Call these intersections $A'$ and $B'$ . Let $EA'=a, AA'=b$ .
+Using the Law of Cosines on $\triangle EAD$ gives $\cos(\angle EAD)=\frac{4}{\sqrt{61}}$ . Using Law of Cosines on $\triangle EA'D$ gives the equation $a^2=b^2+244+16b$ . Now, using Apollonius' Theorem on the same triangle gives $a^2=2b^2+232$ . Equating the two gives $b^2-16b-12=0$ . Solving gives us $b=8-2\sqrt{19}, b^2=140-32\sqrt{19}$ .
+Finally, plugging into either expression for $a$ gives $a^2=512-64\sqrt{19}$ . Since $FG=\frac{1}{2}A'B'$ and is parallel to $A'B'$ , by the midpoint theorem, \[EG=\frac{1}{2} A'B' \rightarrow EG^2=\frac{1}{4}A'B'^2 \rightarrow = 128-16\sqrt{19}\] .
+Then $128+16+19=163$ .
+-RyanZhu817
+These problems are copyrighted © by the Mathematical Association of America.

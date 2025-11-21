@@ -1,0 +1,26 @@
+# 2009 AIME I Problem 10
+
+## Problem
+
+The Annual Interplanetary Mathematics Examination (AIME) is written by a committee of five Martians, five Venusians, and five Earthlings. At meetings, committee members sit at a round table with chairs numbered from $1$ to $15$ in clockwise order. Committee rules state that a Martian must occupy chair $1$ and an Earthling must occupy chair $15$ , Furthermore, no Earthling can sit immediately to the left of a Martian, no Martian can sit immediately to the left of a Venusian, and no Venusian can sit immediately to the left of an Earthling. The number of possible seating arrangements for the committee is $N \cdot (5!)^3$ . Find $N$ .
+
+## Solution 1
+Since the 5 members of each planet committee are distinct we get that the number of arrangement of sittings is in the form $N*(5!)^3$ because for each $M, V, E$ sequence we have $5!$ arrangements within the Ms, Vs, and Es.
+Pretend the table only seats $3$ "people", with $1$ "person" from each planet. Counting clockwise, only the arrangement M, V, E satisfies the given constraints. Therefore, in the actual problem, the members must sit in cycles of M, V, E, but not necessarily with one M, one V, and one E in each cycle(for example, MMVVVE, MVVVEEE, MMMVVVEE all count as cycles). These cycles of MVE must start at seat $1$ , since an M is at seat $1$ . We simply count the number of arrangements through casework.
+1. The entire arrangement is one cycle- There is only one way to arrange this, MMMMMVVVVVEEEEE
+2. Two cycles - There are 3 Ms, Vs and Es left to distribute among the existing MVEMVE. Using stars and bars, we get $\binom{4}{1}=4$ ways for the members of each planet. Therefore, there are $4^3=64$ ways in total.
+3. Three cycles - 2 Ms, Vs, Es left, so $\binom{4}{2}=6$ , making there $6^3=216$ ways total.
+4. Four cycles - 1 M, V, E left, each M can go to any of the four MVE cycles and likewise for V and E, $4^3=64$ ways total
+5. Five cycles - MVEMVEMVEMVEMVE is the only possibility, so there is just $1$ way.
+Combining all these cases, we get $1+1+64+64+216= \boxed{346}$
+
+## Solution 2
+The arrangements must follow the pattern MVEMVE....... where each MVE consists of some Martians followed by some Venusians followed by some Earthlings, for $1, 2, 3, 4,$ or $5$ MVE's. If there are $k$ MVE's, then by stars and bars, there are ${4 \choose k-1}$ choices for the Martians in each block, and the same goes for the Venusians and the Earthlings. Thus, we have $N = 1^3+4^3+6^3+4^3+1^3 = \boxed{346}$ - aops5234
+### Note
+You are probably confused by the solutions. I was too when I first read them. Here is the intuition: Consider the the arrangement of the $M$ 's $V$ 's and $E$ 's: $MMMMM$ | $VVVVV$ | $EEEEE$ . Now, we can place a bar in the first Martian's section in $4$ spots, and same with the Venusians and Earthlings. Now for instance, $MM|M|MM$ || $V|V|VVV$ || $EEE|E|E$ would represent the table ordering MMVEEE MVE MMVVVE, which is a valid ordering. Hence we proceed with the solution and we are done.
+~th1nq3r
+
+## Video Solution
+https://youtu.be/fNtw1PKE67w?si=6N8_pWHWnURgxkGv
+~MathProblemSolvingSkills
+These problems are copyrighted © by the Mathematical Association of America.

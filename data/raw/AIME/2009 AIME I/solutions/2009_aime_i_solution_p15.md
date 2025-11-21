@@ -1,0 +1,21 @@
+# 2009 AIME I Problem 15
+
+## Problem
+
+In triangle $ABC$ , $AB = 10$ , $BC = 14$ , and $CA = 16$ . Let $D$ be a point in the interior of $\overline{BC}$ . Let points $I_B$ and $I_C$ denote the incenters of triangles $ABD$ and $ACD$ , respectively. The circumcircles of triangles $BI_BD$ and $CI_CD$ meet at distinct points $P$ and $D$ . The maximum possible area of $\triangle BPC$ can be expressed in the form $a - b\sqrt {c}$ , where $a$ , $b$ , and $c$ are positive integers and $c$ is not divisible by the square of any prime. Find $a + b + c$ .
+
+### Diagram
+
+## Solution 1
+First, by the Law of Cosines , we have \[\cos BAC = \frac {16^2 + 10^2 - 14^2}{2\cdot 10 \cdot 16} = \frac {256+100-196}{320} = \frac {1}{2},\] so $\angle BAC = 60^\circ$ .
+Let $O_1$ and $O_2$ be the circumcenters of triangles $BI_BD$ and $CI_CD$ , respectively. We first compute \[\angle BO_1D = \angle BO_1I_B + \angle I_BO_1D = 2\angle BDI_B + 2\angle I_BBD.\] Because $\angle BDI_B$ and $\angle I_BBD$ are half of $\angle BDA$ and $\angle ABD$ , respectively, the above expression can be simplified to \[\angle BO_1D = \angle BO_1I_B + \angle I_BO_1D = 2\angle BDI_B + 2\angle I_BBD = \angle ABD + \angle BDA.\] Similarly, $\angle CO_2D = \angle ACD + \angle CDA$ . As a result
+\begin{align*}\angle CPB &= \angle CPD + \angle BPD \\&= \frac {1}{2} \cdot \angle CO_2D + \frac {1}{2} \cdot \angle BO_1D \\&= \frac {1}{2}(\angle ABD + \angle BDA + \angle ACD + \angle CDA) \\&= \frac {1}{2} (2 \cdot 180^\circ - \angle BAC) \\&= \frac {1}{2} \cdot 300^\circ = 150^\circ.\end{align*}
+Therefore $\angle CPB$ is constant ( $150^\circ$ ). Also, $P$ is $B$ or $C$ when $D$ is $B$ or $C$ . Let point $L$ be on the same side of $\overline{BC}$ as $A$ with $LC = LB = BC = 14$ ; $P$ is on the circle with $L$ as the center and $\overline{LC}$ as the radius, which is $14$ . The shortest (and only) distance from $L$ to $\overline{BC}$ is $7\sqrt {3}$ .
+When the area of $\triangle BPC$ is the maximum, the distance from $P$ to $\overline{BC}$ has to be the greatest. In this case, it's $14 - 7\sqrt {3}$ . The maximum area of $\triangle BPC$ is \[\frac {1}{2} \cdot 14 \cdot (14 - 7\sqrt {3}) = 98 - 49 \sqrt {3}\] and the requested answer is $98 + 49 + 3 = \boxed{150}$ .
+
+## Solution 2
+From Law of Cosines on $\triangle{ABC}$ , \[\cos{A}=\frac{16^2+10^2-14^2}{2\cdot 10\cdot 16}=\frac{1}{2}\implies\angle{A}=60^\circ.\] Now, \[\angle{CI_CD}+\angle{BI_BD}=180^\circ+\frac{\angle{A}}{2}=210^\circ.\] Since $CI_CDP$ and $BI_BDP$ are cyclic quadrilaterals, it follows that \[\angle{BPC}=\angle{CPD}+\angle{DPB}=(180^\circ-\angle{CI_CD})+(180^\circ-\angle{BI_BD})=360^\circ-210^\circ=150^\circ.\] Next, applying Law of Cosines on $\triangle{CPB}$ , \begin{align*} & BC^2=14^2=PC^2+PB^2+2\cdot PB\cdot PC\cdot\frac{\sqrt{3}}{2} \\ & \implies \frac{PC^2+PB^2-196}{PC\cdot PB}=-\sqrt{3} \\ & \implies \frac{PC}{PB}+\frac{PB}{PC}-\frac{196}{PC\cdot PB}=-\sqrt{3} \\ & \implies PC\cdot PB = 196\left(\frac{1}{\frac{PC}{PB}+\frac{PB}{PC}+\sqrt{3}}\right). \end{align*} By AM-GM, $\frac{PC}{PB}+\frac{PB}{PC}\geq{2}$ , so \[PB\cdot PC\leq 196\left(\frac{1}{2+\sqrt{3}}\right)=196(2-\sqrt{3}).\] Finally, \[[\triangle{BPC}]=\frac12 \cdot PB\cdot PC\cdot\sin{150^\circ}=\frac14 \cdot PB\cdot PC,\] and the maximum area would be $49(2-\sqrt{3})=98-49\sqrt{3},$ so the answer is $\boxed{150}$ .
+
+## Solution 3
+Proceed as in Solution 2 until you find $\angle CPB = 150$ . The locus of points $P$ that give $\angle CPB = 150$ is a fixed arc from $B$ to $C$ ( $P$ will move along this arc as $D$ moves along $BC$ ) and we want to maximise the area of [ $\triangle BPC$ ]. This means we want $P$ to be farthest distance away from $BC$ as possible, so we put $P$ in the middle of the arc (making $\triangle BPC$ isosceles). We know that $BC=14$ and $\angle CPB = 150$ , so $\angle PBC = \angle PCB = 15$ . Let $O$ be the foot of the perpendicular from $P$ to line $BC$ . Then the area of [ $\triangle BPC$ ] is the same as $7OP$ because base $BC$ has length $14$ . We can split $\triangle BPC$ into two $15-75-90$ triangles $BOP$ and $COP$ , with $BO=CO=7$ and $OP=7 \tan 15=7(2-\sqrt{3})=14-7\sqrt3$ . Then, the area of [ $\triangle BPC$ ] is equal to $7 \cdot OP=98-49\sqrt{3}$ , and so the answer is $98+49+3=\boxed{150}$ .
+These problems are copyrighted © by the Mathematical Association of America.

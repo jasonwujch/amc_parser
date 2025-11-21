@@ -1,0 +1,9 @@
+# 2005 AIME I Problem 1
+
+## Problem
+
+Six congruent circles form a ring with each circle externally tangent to two circles adjacent to it. All circles are internally tangent to a circle $C$ with radius 30. Let $K$ be the area of the region inside circle $C$ and outside of the six circles in the ring. Find $\lfloor K \rfloor$ (the floor function ).
+
+## Solution
+Define the radii of the six congruent circles as $r$ . If we draw all of the radii to the points of external tangency, we get a regular hexagon . If we connect the vertices of the hexagon to the center of the circle $C$ , we form several equilateral triangles . The length of each side of the triangle is $2r$ . Notice that the radius of circle $C$ is equal to the length of the side of the triangle plus $r$ . Thus, the radius of $C$ has a length of $3r = 30$ , and so $r = 10$ . $K = 30^2\pi - 6(10^2\pi) = 300\pi$ , so $\lfloor 300\pi \rfloor = \boxed{942}$ .
+These problems are copyrighted © by the Mathematical Association of America.

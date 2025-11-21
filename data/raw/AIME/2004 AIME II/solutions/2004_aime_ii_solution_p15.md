@@ -1,0 +1,26 @@
+# 2004 AIME II Problem 15
+
+## Problem
+
+A long thin strip of paper is $1024$ units in length, $1$ unit in width, and is divided into $1024$ unit squares. The paper is folded in half repeatedly. For the first fold, the right end of the paper is folded over to coincide with and lie on top of the left end. The result is a $512$ by $1$ strip of double thickness. Next, the right end of this strip is folded over to coincide with and lie on top of the left end, resulting in a $256$ by $1$ strip of quadruple thickness. This process is repeated $8$ more times. After the last fold, the strip has become a stack of $1024$ unit squares. How many of these squares lie below the square that was originally the $942$ nd square counting from the left?
+
+## Solution 1
+Number the squares $0, 1, 2, 3, ... 2^{k} - 1$ . In this case $k = 10$ , but we will consider more generally to find an inductive solution. Call $s_{n, k}$ the number of squares below the $n$ square after the final fold in a strip of length $2^{k}$ .
+Now, consider the strip of length $1024$ . The problem asks for $s_{941, 10}$ . We can derive some useful recurrences for $s_{n, k}$ as follows: Consider the first fold. Each square $s$ is now paired with the square $2^{k} - s - 1$ . Now, imagine that we relabel these pairs with the indices $0, 1, 2, 3... 2^{k - 1} - 1$ - then the $s_{n, k}$ value of the pairs correspond with the $s_{n, k - 1}$ values - specifically, double, and maybe $+ 1$ (if the member of the pair that you're looking for is the top one at the final step).
+So, after the first fold on the strip of length $1024$ , the $941$ square is on top of the $82$ square. We can then write
+\[s_{941, 10} = 2s_{82, 9} + 1\]
+(We add one because $941$ is the odd member of the pair, and it will be on top. This is more easily visually demonstrated than proven.) We can repeat this recurrence, adding one every time we pair an odd to an even (but ignoring the pairing if our current square is the smaller of the two):
+\[s_{82, 9} = 2s_{82, 8} = 4s_{82, 7} = 8s_{127 - 82, 6} = 8s_{45, 6}\]
+\[s_{45, 6} = 2s_{63 - 45, 5} + 1 = 2s_{18, 5} + 1 = 4s_{31 - 18, 4} + 1 = 4s_{13, 4} + 1\]
+\[s_{13, 4} = 2s_{15 - 13, 3} + 1 = 2s_{2, 3}+1\]
+We can easily calculate $s_{2, 3} = 4$ from a diagram. Plugging back in,
+\begin{align*} s_{13, 4} &= 9 \\ s_{45, 6} &= 37 \\ s_{82, 9} &= 296 \\ s_{941, 10} &= \boxed{593}\end{align*}
+
+## Solution 2
+More brute force / thinking about the question logically. If the number doesn't change position, then the number of squares below it does not change. Otherwise, it changes position ( $p\mapsto 2^k+1-p$ for the $k$ -th fold). We just take the number of squares under it before we folded and now these are above the square.
+Initially it is in position $942$ with $0$ squares below it.
+\[\begin{array}{llll} \text{\bf Fold 1.} & 942 \text{ is to the right.} & 942 \mapsto 83 & \text{There is } 2^1 - 1 - 0=\boxed{1} \text{ square below it.} \\ &&& \\ \textbf{Fold 2.} & 83 \text{ is to the left.} & 83 \mapsto 83 & \text{There is } \boxed{1} \text{ square below it.} \\ &&& \\ \textbf{Fold 3.} & 83 \text{ is to the left.} & 83 \mapsto 83 & \text{There is } \boxed{1} \text{ square below it.} \\ &&& \\ \text{\bf Fold 4.} & 83 \text{ is to the right.} & 83 \mapsto 46 & \text{There are } 2^4 - 1 - 1 = \boxed{14} \text{ squares below it.}\\ &&& \\ \text{\bf Fold 5.} & 46 \text{ is to the right.} & 46 \mapsto 19 & \text{There are } 2^5 - 1 - 14 = \boxed{17} \text{ squares below it.}\\ &&& \\ \text{\bf Fold 6.} & 19 \text{ is to the right.} & 19 \mapsto 14 & \text{There are } 2^6 - 1 - 17 = \boxed{46} \text{ squares below it.}\\ &&& \\ \text{\bf Fold 7.} & 14 \text{ is to the right.} & 14 \mapsto 3 & \text{There are } 2^7 - 1 - 46 = \boxed{81} \text{ squares below it.}\\ &&& \\ \textbf{Fold 8.} & 3 \text{ is to the left.} & 3 \mapsto 3 & \text{There are } \boxed{81} \text{ squares below it.} \\ &&& \\ \text{\bf Fold 9.} & 3 \text{ is to the right.} & 3 \mapsto 2 & \text{There are } 2^9 - 1 - 81 = \boxed{430} \text{ squares below it.}\\ &&& \\ \text{\bf Fold 10.} & 2 \text{ is to the right.} & 2 \mapsto 1 & \text{There are } 2^{10} - 1 - 430 = \boxed{593} \text{ squares below it.}\\ \end{array}\]
+
+## Solution 3
+We can keep track of the position of the square labeled 942 in each step. We use an $(x,y)$ coordinate system, so originally the 942 square is in the position $(942,1)$ . In general, suppose that we've folded the strip into an array $r=2^k$ squares wide and $c=1024/r=2^{10-k}$ squares tall (so we've made $10-k$ folds). Then if a square occupies the location $(x,y)$ , we find that after the next fold, it will be in the location described by the procedure \[(x,y)\to\begin{cases}(x,y)&\text{if }x\le 2^{k-1}\\ (r+1-x,2c+1-y)&\text{otherwise}.\end{cases}\] Therefore, we can keep track of the square's location in the following table. \[\begin{array}{c|c|c} (x,y)&\text{rows}&\text{columns}\\\hline (942,1)&1024&1\\ (83,2)&512&2\\ (83,2)&256&4\\ (83,2)&128&8\\ (46,15)&64&16\\ (19,18)&32&32\\ (14,47)&16&64\\ (3,82)&8&128\\ (3,82)&4&256\\ (2,431)&2&512\\ (1,594)&1&1024.\\ \end{array}\] Therefore, at the end of the process, the square labeled 942 will be in the position $(1,594)$ , i.e., it will be above $\boxed{593}$ squares.
+These problems are copyrighted © by the Mathematical Association of America.
