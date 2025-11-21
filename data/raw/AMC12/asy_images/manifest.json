@@ -1,0 +1,1060 @@
+{
+  "2025_AMC_12A": {
+    "images": [
+      {
+        "filename": "p05_asy1.png",
+        "problem": 5,
+        "asy_index": 1,
+        "asy_hash": "f2b8c705",
+        "url": "https://latex.artofproblemsolving.com/3/3/9/3392e6bfecea1f87a1d14a4ee83d0d9d96bca345.png"
+      },
+      {
+        "filename": "p10_asy1.png",
+        "problem": 10,
+        "asy_index": 1,
+        "asy_hash": "b7678f37",
+        "url": "https://latex.artofproblemsolving.com/c/d/1/cd1ee80ffe3e3a92272f5af195c15051ea556aca.png"
+      },
+      {
+        "filename": "p14_asy1.png",
+        "problem": 14,
+        "asy_index": 1,
+        "asy_hash": "6eff6c0e",
+        "url": "https://latex.artofproblemsolving.com/9/5/9/9591158444479c1553373fc77296be2d8062c570.png"
+      },
+      {
+        "filename": "p20_asy1.png",
+        "problem": 20,
+        "asy_index": 1,
+        "asy_hash": "232c939d",
+        "url": "https://latex.artofproblemsolving.com/8/8/2/8824cb37bb277d8d2ff6886c4aa3231a372317a3.png"
+      },
+      {
+        "filename": "p24_asy1.png",
+        "problem": 24,
+        "asy_index": 1,
+        "asy_hash": "84a91470",
+        "url": "https://latex.artofproblemsolving.com/6/4/2/642e91c6a60e30080021d4023563463cf3026b32.png"
+      }
+    ],
+    "count": 5,
+    "complete": true
+  },
+  "2025_AMC_12B": {
+    "images": [
+      {
+        "filename": "p12_asy1.png",
+        "problem": 12,
+        "asy_index": 1,
+        "asy_hash": "ec786708",
+        "url": "https://latex.artofproblemsolving.com/6/c/b/6cb45a8dfdc9692582ee7ea480308e7d0b88be43.png"
+      },
+      {
+        "filename": "p13_asy1.png",
+        "problem": 13,
+        "asy_index": 1,
+        "asy_hash": "3a78760d",
+        "url": "https://latex.artofproblemsolving.com/e/9/8/e98fe7b8cda6b1001808f80cef8dc251c65b6691.png"
+      },
+      {
+        "filename": "p15_asy1.png",
+        "problem": 15,
+        "asy_index": 1,
+        "asy_hash": "77c79b08",
+        "url": "https://latex.artofproblemsolving.com/c/d/b/cdb9ac6f58025e389fb6367673d69b0cd873cba5.png"
+      }
+    ],
+    "count": 3,
+    "complete": true
+  },
+  "2024_AMC_12A": {
+    "images": [
+      {
+        "filename": "p18_asy1.png",
+        "problem": 18,
+        "asy_index": 1,
+        "asy_hash": "c27668aa",
+        "url": "https://latex.artofproblemsolving.com/d/d/a/dda885930cd3186b8d96963e23845157ee148669.png"
+      },
+      {
+        "filename": "p22_asy1.png",
+        "problem": 22,
+        "asy_index": 1,
+        "asy_hash": "f784b662",
+        "url": "https://latex.artofproblemsolving.com/9/d/1/9d176dfd41e3e8e875c6b5d84fdb4f5e4f7d43a6.png"
+      }
+    ],
+    "count": 2,
+    "complete": true
+  },
+  "2024_AMC_12B": {
+    "images": [
+      {
+        "filename": "p07_asy1.png",
+        "problem": 7,
+        "asy_index": 1,
+        "asy_hash": "dd0cf867",
+        "url": "https://latex.artofproblemsolving.com/a/e/9/ae9f151d0a601f719d48015b0f36651f319802a3.png"
+      },
+      {
+        "filename": "p19_asy1.png",
+        "problem": 19,
+        "asy_index": 1,
+        "asy_hash": "4def7f10",
+        "url": "https://latex.artofproblemsolving.com/a/9/d/a9d645750e37e18e0d01d20d6cf515521b8b416d.png"
+      }
+    ],
+    "count": 2,
+    "complete": true
+  },
+  "2023_AMC_12A": {
+    "images": [
+      {
+        "filename": "p09_asy1.png",
+        "problem": 9,
+        "asy_index": 1,
+        "asy_hash": "5c3bc743",
+        "url": "https://latex.artofproblemsolving.com/7/6/3/763eea423cc19d0e0a602d3e907bd5edc03cc6b7.png"
+      },
+      {
+        "filename": "p15_asy1.png",
+        "problem": 15,
+        "asy_index": 1,
+        "asy_hash": "48c996e5",
+        "url": "https://latex.artofproblemsolving.com/3/2/f/32f79492cfd57de5bd7b5008d86027a497703c9a.png"
+      },
+      {
+        "filename": "p18_asy1.png",
+        "problem": 18,
+        "asy_index": 1,
+        "asy_hash": "2e0931c6",
+        "url": "https://latex.artofproblemsolving.com/4/0/6/406135ba18fccc6f68ffce10d698ac01c265ec90.png"
+      },
+      {
+        "filename": "p20_asy1.png",
+        "problem": 20,
+        "asy_index": 1,
+        "asy_hash": "ea60875c",
+        "url": "https://latex.artofproblemsolving.com/6/6/a/66a74e42d004740860a7d1c7d4eff043a98233ca.png"
+      }
+    ],
+    "count": 4,
+    "complete": true
+  },
+  "2023_AMC_12B": {
+    "images": [],
+    "count": 0,
+    "complete": true
+  },
+  "2022_AMC_12A": {
+    "images": [
+      {
+        "filename": "p03_asy1.png",
+        "problem": 3,
+        "asy_index": 1,
+        "asy_hash": "52eef7c8",
+        "url": "https://latex.artofproblemsolving.com/3/f/6/3f67c7fb5ddb746c008fafce34c6a4a2635b1237.png"
+      },
+      {
+        "filename": "p07_asy1.png",
+        "problem": 7,
+        "asy_index": 1,
+        "asy_hash": "fea3faf5",
+        "url": "https://latex.artofproblemsolving.com/c/5/3/c53adae322a3fcf0e0d1d0d2aa43ce0ad69527c9.png"
+      },
+      {
+        "filename": "p19_asy1.png",
+        "problem": 19,
+        "asy_index": 1,
+        "asy_hash": "7964f44e",
+        "url": "https://latex.artofproblemsolving.com/6/e/9/6e932ec00fe0f762da98425d4ce220c09f53bc99.png"
+      }
+    ],
+    "count": 3,
+    "complete": true
+  },
+  "2022_AMC_12B": {
+    "images": [
+      {
+        "filename": "p02_asy1.png",
+        "problem": 2,
+        "asy_index": 1,
+        "asy_hash": "7c9d4603",
+        "url": "https://latex.artofproblemsolving.com/1/5/0/150aeac95fbc38e4ea6602817ade871e681d99e3.png"
+      },
+      {
+        "filename": "p13_asy1.png",
+        "problem": 13,
+        "asy_index": 1,
+        "asy_hash": "6fbdf3bc",
+        "url": "https://latex.artofproblemsolving.com/6/4/5/645fb1f79da2019263c13108f385196fb1b0a8bd.png"
+      },
+      {
+        "filename": "p18_asy1.png",
+        "problem": 18,
+        "asy_index": 1,
+        "asy_hash": "ba02a592",
+        "url": "https://latex.artofproblemsolving.com/0/0/3/00333423a7ddd483233c145023df02bdb469a3b9.png"
+      },
+      {
+        "filename": "p18_asy2.png",
+        "problem": 18,
+        "asy_index": 2,
+        "asy_hash": "c9ccbd86",
+        "url": "https://latex.artofproblemsolving.com/2/5/3/253c2691ed603d5d600e2b1becee941d5268c900.png"
+      },
+      {
+        "filename": "p24_asy1.png",
+        "problem": 24,
+        "asy_index": 1,
+        "asy_hash": "86acdc95",
+        "url": "https://latex.artofproblemsolving.com/9/2/e/92ecdecb16bc7556a4fcda2df737b19e1d80013e.png"
+      },
+      {
+        "filename": "p25_asy1.png",
+        "problem": 25,
+        "asy_index": 1,
+        "asy_hash": "6e80f656",
+        "url": "https://latex.artofproblemsolving.com/c/c/f/ccfd1265c72b286aa453b9ee0080021d484e6d25.png"
+      }
+    ],
+    "count": 6,
+    "complete": true
+  },
+  "2021_AMC_12A": {
+    "images": [
+      {
+        "filename": "p10_asy1.png",
+        "problem": 10,
+        "asy_index": 1,
+        "asy_hash": "7e8df9ad",
+        "url": "https://latex.artofproblemsolving.com/8/1/d/81d626eb47050e0f212495e407860357b3a98a6c.png"
+      }
+    ],
+    "count": 1,
+    "complete": true
+  },
+  "2021_AMC_12B": {
+    "images": [
+      {
+        "filename": "p15_asy1.png",
+        "problem": 15,
+        "asy_index": 1,
+        "asy_hash": "2d138e2f",
+        "url": "https://latex.artofproblemsolving.com/5/6/4/564949713e329da34ac3b0a72e466b002d37a3ec.png"
+      },
+      {
+        "filename": "p17_asy1.png",
+        "problem": 17,
+        "asy_index": 1,
+        "asy_hash": "25ff4be7",
+        "url": "https://latex.artofproblemsolving.com/2/9/c/29c42141e2c79d3a16294b55a9be52158c6f9681.png"
+      },
+      {
+        "filename": "p22_asy1.png",
+        "problem": 22,
+        "asy_index": 1,
+        "asy_hash": "b7f3e03c",
+        "url": "https://latex.artofproblemsolving.com/1/a/5/1a5938c90db67cc867d798bb9693e149b9438071.png"
+      },
+      {
+        "filename": "p24_asy1.png",
+        "problem": 24,
+        "asy_index": 1,
+        "asy_hash": "2f8b79bf",
+        "url": "https://latex.artofproblemsolving.com/1/4/6/146f1376f1f3d196ea8f9f85dbc4decfcac840b9.png"
+      }
+    ],
+    "count": 4,
+    "complete": true
+  },
+  "2020_AMC_12A": {
+    "images": [
+      {
+        "filename": "p02_asy1.png",
+        "problem": 2,
+        "asy_index": 1,
+        "asy_hash": "14a5cf82",
+        "url": "https://latex.artofproblemsolving.com/6/6/4/6649eb6b62018218d4086bde7597f2da9b4b10e3.png"
+      },
+      {
+        "filename": "p06_asy1.png",
+        "problem": 6,
+        "asy_index": 1,
+        "asy_hash": "93b11726",
+        "url": "https://latex.artofproblemsolving.com/0/9/8/098f8098c7103b004757d1977d2bd6d459831eb3.png"
+      }
+    ],
+    "count": 2,
+    "complete": true
+  },
+  "2020_AMC_12B": {
+    "images": [
+      {
+        "filename": "p09_asy1.png",
+        "problem": 9,
+        "asy_index": 1,
+        "asy_hash": "6cf6655a",
+        "url": "https://latex.artofproblemsolving.com/3/2/6/32649d4753b5a48a0eba47330652ed5fc5a401a7.png"
+      },
+      {
+        "filename": "p11_asy1.png",
+        "problem": 11,
+        "asy_index": 1,
+        "asy_hash": "3a5fc6e3",
+        "url": "https://latex.artofproblemsolving.com/c/c/4/cc4a8eea36390b30289f00cdba179c25b9ee3543.png"
+      },
+      {
+        "filename": "p18_asy1.png",
+        "problem": 18,
+        "asy_index": 1,
+        "asy_hash": "7e936f37",
+        "url": "https://latex.artofproblemsolving.com/a/c/4/ac47564570513f62f8cc67de3e870e4c9e1995ba.png"
+      }
+    ],
+    "count": 3,
+    "complete": true
+  },
+  "2019_AMC_12A": {
+    "images": [
+      {
+        "filename": "p06_asy1.png",
+        "problem": 6,
+        "asy_index": 1,
+        "asy_hash": "a42e7172",
+        "url": "https://latex.artofproblemsolving.com/c/6/6/c66986a019a481aa0dad6c2a690111ffd5a52014.png"
+      },
+      {
+        "filename": "p10_asy1.png",
+        "problem": 10,
+        "asy_index": 1,
+        "asy_hash": "aad72b78",
+        "url": "https://latex.artofproblemsolving.com/f/c/4/fc485e1337895925d85375cce1a9d3908ca8b7e3.png"
+      }
+    ],
+    "count": 2,
+    "complete": true
+  },
+  "2019_AMC_12B": {
+    "images": [
+      {
+        "filename": "p10_asy1.png",
+        "problem": 10,
+        "asy_index": 1,
+        "asy_hash": "64bcf88e",
+        "url": "https://latex.artofproblemsolving.com/2/6/8/268cd67d45f5b55a849d4cc611db555eb4e89633.png"
+      },
+      {
+        "filename": "p12_asy1.png",
+        "problem": 12,
+        "asy_index": 1,
+        "asy_hash": "8858526a",
+        "url": "https://latex.artofproblemsolving.com/e/9/1/e9154dcee5b662add15f00ec3aa10f8e25240c0d.png"
+      },
+      {
+        "filename": "p15_asy1.png",
+        "problem": 15,
+        "asy_index": 1,
+        "asy_hash": "c7b6f7cb",
+        "url": "https://latex.artofproblemsolving.com/b/e/5/be5538c17cf2af3d37027f4996d5a8ae5cd4aef1.png"
+      }
+    ],
+    "count": 3,
+    "complete": true
+  },
+  "2018_AMC_12A": {
+    "images": [
+      {
+        "filename": "p08_asy1.png",
+        "problem": 8,
+        "asy_index": 1,
+        "asy_hash": "5ff011aa",
+        "url": "https://latex.artofproblemsolving.com/d/1/3/d13adfd6d388ea5d30660f97f3b425db198e8093.png"
+      },
+      {
+        "filename": "p11_asy1.png",
+        "problem": 11,
+        "asy_index": 1,
+        "asy_hash": "5dbfb507",
+        "url": "https://latex.artofproblemsolving.com/2/1/1/21145c9f39a3f3cd34317f8b1f8e3f3541c3c477.png"
+      },
+      {
+        "filename": "p17_asy1.png",
+        "problem": 17,
+        "asy_index": 1,
+        "asy_hash": "74f3a776",
+        "url": "https://latex.artofproblemsolving.com/6/b/5/6b5bfa5f42fc9840c0ffe1710ea05baf44b0dfbc.png"
+      }
+    ],
+    "count": 3,
+    "complete": true
+  },
+  "2018_AMC_12B": {
+    "images": [
+      {
+        "filename": "p11_asy1.png",
+        "problem": 11,
+        "asy_index": 1,
+        "asy_hash": "27545765",
+        "url": "https://latex.artofproblemsolving.com/d/b/9/db9c5fcb99a9df45b2598f29922e31ed17e25f0d.png"
+      },
+      {
+        "filename": "p13_asy1.png",
+        "problem": 13,
+        "asy_index": 1,
+        "asy_hash": "5de123df",
+        "url": "https://latex.artofproblemsolving.com/4/a/7/4a7552d7af26cb2be88658376dd5934a70ef16c6.png"
+      },
+      {
+        "filename": "p25_asy1.png",
+        "problem": 25,
+        "asy_index": 1,
+        "asy_hash": "4a6b86af",
+        "url": "https://latex.artofproblemsolving.com/b/d/1/bd1c789af733f623292d1d6f274069746386bcdc.png"
+      }
+    ],
+    "count": 3,
+    "complete": true
+  },
+  "2017_AMC_12A": {
+    "images": [
+      {
+        "filename": "p16_asy1.png",
+        "problem": 16,
+        "asy_index": 1,
+        "asy_hash": "bc0281f7",
+        "url": "https://latex.artofproblemsolving.com/c/7/0/c70afdd05a6954478364e08a7b13089dc5022e4a.png"
+      }
+    ],
+    "count": 1,
+    "complete": true
+  },
+  "2017_AMC_12B": {
+    "images": [
+      {
+        "filename": "p13_asy1.png",
+        "problem": 13,
+        "asy_index": 1,
+        "asy_hash": "a041afc3",
+        "url": "https://latex.artofproblemsolving.com/e/b/a/eba8bbf32167d960fbb94db72325cb3a2f89c234.png"
+      }
+    ],
+    "count": 1,
+    "complete": true
+  },
+  "2016_AMC_12A": {
+    "images": [
+      {
+        "filename": "p08_asy1.png",
+        "problem": 8,
+        "asy_index": 1,
+        "asy_hash": "54170cab",
+        "url": "https://latex.artofproblemsolving.com/9/5/f/95f8b885091c3cb0d7a2cb9325def6a059bfb982.png"
+      },
+      {
+        "filename": "p09_asy1.png",
+        "problem": 9,
+        "asy_index": 1,
+        "asy_hash": "07dd0bc3",
+        "url": "https://latex.artofproblemsolving.com/8/2/2/822d7c29853b8e549e65edc3bf9cf6445b799d11.png"
+      },
+      {
+        "filename": "p12_asy1.png",
+        "problem": 12,
+        "asy_index": 1,
+        "asy_hash": "e449712c",
+        "url": "https://latex.artofproblemsolving.com/1/2/c/12c07d5196a535b4a24e2a21ab6acf7b5be5c91d.png"
+      }
+    ],
+    "count": 3,
+    "complete": true
+  },
+  "2016_AMC_12B": {
+    "images": [
+      {
+        "filename": "p17_asy1.png",
+        "problem": 17,
+        "asy_index": 1,
+        "asy_hash": "d088d31b",
+        "url": "https://latex.artofproblemsolving.com/c/7/7/c77d6149eac683a6a20552ee73fb3c8fe5638b07.png"
+      }
+    ],
+    "count": 1,
+    "complete": true
+  },
+  "2015_AMC_12A": {
+    "images": [
+      {
+        "filename": "p25_asy1.png",
+        "problem": 25,
+        "asy_index": 1,
+        "asy_hash": "0114ded2",
+        "url": "https://latex.artofproblemsolving.com/4/4/b/44baa4ca6b766bcdb4182c8761117884a2ad2cbd.png"
+      }
+    ],
+    "count": 1,
+    "complete": true
+  },
+  "2015_AMC_12B": {
+    "images": [],
+    "count": 0,
+    "complete": true
+  },
+  "2014_AMC_12A": {
+    "images": [
+      {
+        "filename": "p17_asy1.png",
+        "problem": 17,
+        "asy_index": 1,
+        "asy_hash": "c17d8024",
+        "url": "https://latex.artofproblemsolving.com/9/d/8/9d894dbf42883508d51bf4973c78d1368570c6fa.png"
+      }
+    ],
+    "count": 1,
+    "complete": true
+  },
+  "2014_AMC_12B": {
+    "images": [
+      {
+        "filename": "p05_asy1.png",
+        "problem": 5,
+        "asy_index": 1,
+        "asy_hash": "29647259",
+        "url": "https://latex.artofproblemsolving.com/4/a/4/4a4bd527ea5f7e41a6d5541d0fc5b06615b22b69.png"
+      },
+      {
+        "filename": "p09_asy1.png",
+        "problem": 9,
+        "asy_index": 1,
+        "asy_hash": "75b03ca1",
+        "url": "https://latex.artofproblemsolving.com/e/d/6/ed685cbdb58e7beeff868e0123c51cd79633def7.png"
+      },
+      {
+        "filename": "p19_asy1.png",
+        "problem": 19,
+        "asy_index": 1,
+        "asy_hash": "5f402529",
+        "url": "https://latex.artofproblemsolving.com/d/0/7/d07f08e4aea2e999536cab8632cc10fb0282d034.png"
+      },
+      {
+        "filename": "p21_asy1.png",
+        "problem": 21,
+        "asy_index": 1,
+        "asy_hash": "a503e529",
+        "url": "https://latex.artofproblemsolving.com/2/b/c/2bcdf33d78300cd05d4666fa9c8ae141650dd693.png"
+      }
+    ],
+    "count": 4,
+    "complete": true
+  },
+  "2013_AMC_12A": {
+    "images": [
+      {
+        "filename": "p01_asy1.png",
+        "problem": 1,
+        "asy_index": 1,
+        "asy_hash": "38b1a359",
+        "url": "https://latex.artofproblemsolving.com/5/2/4/5248fb68fc33a850c01f84e04c91998e90cce194.png"
+      },
+      {
+        "filename": "p09_asy1.png",
+        "problem": 9,
+        "asy_index": 1,
+        "asy_hash": "2c89a8c6",
+        "url": "https://latex.artofproblemsolving.com/e/c/4/ec45f0635e288a5e5da73a19319f4eb7045b5eab.png"
+      },
+      {
+        "filename": "p11_asy1.png",
+        "problem": 11,
+        "asy_index": 1,
+        "asy_hash": "77c9dabf",
+        "url": "https://latex.artofproblemsolving.com/d/2/e/d2eb992c9eae1b2af8bec0d92f03bde1e1e8b647.png"
+      }
+    ],
+    "count": 3,
+    "complete": true
+  },
+  "2013_AMC_12B": {
+    "images": [
+      {
+        "filename": "p12_asy1.png",
+        "problem": 12,
+        "asy_index": 1,
+        "asy_hash": "c3f7ea42",
+        "url": "https://latex.artofproblemsolving.com/c/a/c/cac293a82b8e86665148f7b48284aa26ff4a80c8.png"
+      }
+    ],
+    "count": 1,
+    "complete": true
+  },
+  "2012_AMC_12A": {
+    "images": [
+      {
+        "filename": "p14_asy1.png",
+        "problem": 14,
+        "asy_index": 1,
+        "asy_hash": "5f1ac3cb",
+        "url": "https://latex.artofproblemsolving.com/b/8/8/b887867827b6b53efb70abc6807aa51c7a2287fe.png"
+      }
+    ],
+    "count": 1,
+    "complete": true
+  },
+  "2012_AMC_12B": {
+    "images": [
+      {
+        "filename": "p02_asy1.png",
+        "problem": 2,
+        "asy_index": 1,
+        "asy_hash": "a3b7f774",
+        "url": "https://latex.artofproblemsolving.com/1/c/1/1c19b6dc0eb24a92fe2b043bf705f662d97486a2.png"
+      },
+      {
+        "filename": "p19_asy1.png",
+        "problem": 19,
+        "asy_index": 1,
+        "asy_hash": "1325f543",
+        "url": "https://latex.artofproblemsolving.com/5/9/d/59d2570727a6deab28e0d8d2be5154efc56b50ca.png"
+      },
+      {
+        "filename": "p21_asy1.png",
+        "problem": 21,
+        "asy_index": 1,
+        "asy_hash": "1bf65a08",
+        "url": "https://latex.artofproblemsolving.com/2/9/f/29fd640711a70115cf67481ab55a4be235902efc.png"
+      },
+      {
+        "filename": "p22_asy1.png",
+        "problem": 22,
+        "asy_index": 1,
+        "asy_hash": "08bd5262",
+        "url": "https://latex.artofproblemsolving.com/3/c/2/3c208832b26b520d3585031acd75a37563652720.png"
+      }
+    ],
+    "count": 4,
+    "complete": true
+  },
+  "2011_AMC_12A": {
+    "images": [
+      {
+        "filename": "p02_asy1.png",
+        "problem": 2,
+        "asy_index": 1,
+        "asy_hash": "8d566112",
+        "url": "https://latex.artofproblemsolving.com/2/9/9/29934055ac865974a1057696167fb8e5b4110477.png"
+      }
+    ],
+    "count": 1,
+    "complete": true
+  },
+  "2011_AMC_12B": {
+    "images": [
+      {
+        "filename": "p12_asy1.png",
+        "problem": 12,
+        "asy_index": 1,
+        "asy_hash": "b1781797",
+        "url": "https://latex.artofproblemsolving.com/7/2/7/7274a387184a2ce0dc35e8ecaac8b5da8b052e4c.png"
+      }
+    ],
+    "count": 1,
+    "complete": true
+  },
+  "2010_AMC_12A": {
+    "images": [
+      {
+        "filename": "p03_asy1.png",
+        "problem": 3,
+        "asy_index": 1,
+        "asy_hash": "cd439971",
+        "url": "https://latex.artofproblemsolving.com/5/4/3/54371c10b04c0bcf5a86491a02c9b7ecf851cb2d.png"
+      }
+    ],
+    "count": 1,
+    "complete": true
+  },
+  "2010_AMC_12B": {
+    "images": [
+      {
+        "filename": "p02_asy1.png",
+        "problem": 2,
+        "asy_index": 1,
+        "asy_hash": "f615a233",
+        "url": "https://latex.artofproblemsolving.com/1/2/2/122a4290575eda1b63a0b302c47384ced6bb393e.png"
+      }
+    ],
+    "count": 1,
+    "complete": true
+  },
+  "2009_AMC_12A": {
+    "images": [
+      {
+        "filename": "p08_asy1.png",
+        "problem": 8,
+        "asy_index": 1,
+        "asy_hash": "93c7b4a2",
+        "url": "https://latex.artofproblemsolving.com/4/f/8/4f8d08abd119d663ad6630516ebc1b3bd784727e.png"
+      },
+      {
+        "filename": "p10_asy1.png",
+        "problem": 10,
+        "asy_index": 1,
+        "asy_hash": "a32cd2f5",
+        "url": "https://latex.artofproblemsolving.com/5/7/0/570b698fea7c6d66beab04dd6aee44dd24f2b6c1.png"
+      },
+      {
+        "filename": "p11_asy1.png",
+        "problem": 11,
+        "asy_index": 1,
+        "asy_hash": "3865654e",
+        "url": "https://latex.artofproblemsolving.com/d/2/4/d24a6830ee3382e3945990d8af2e9e00ba14c85e.png"
+      },
+      {
+        "filename": "p13_asy1.png",
+        "problem": 13,
+        "asy_index": 1,
+        "asy_hash": "48da4487",
+        "url": "https://latex.artofproblemsolving.com/4/2/b/42be593c3f7699bcb004014182d54b6832e3e173.png"
+      }
+    ],
+    "count": 4,
+    "complete": true
+  },
+  "2009_AMC_12B": {
+    "images": [
+      {
+        "filename": "p04_asy1.png",
+        "problem": 4,
+        "asy_index": 1,
+        "asy_hash": "adbaabaf",
+        "url": "https://latex.artofproblemsolving.com/3/e/e/3ee29f78e4a8eecdb8faec4092f2f1c361a869e4.png"
+      },
+      {
+        "filename": "p14_asy1.png",
+        "problem": 14,
+        "asy_index": 1,
+        "asy_hash": "a9efe55f",
+        "url": "https://latex.artofproblemsolving.com/2/b/0/2b0022514dd2d967d050f7b2a106f25522fe5adf.png"
+      },
+      {
+        "filename": "p25_asy1.png",
+        "problem": 25,
+        "asy_index": 1,
+        "asy_hash": "b448657e",
+        "url": "https://latex.artofproblemsolving.com/6/9/9/6992511f7ecca62a842cd810c131a3730f9032a8.png"
+      }
+    ],
+    "count": 3,
+    "complete": true
+  },
+  "2008_AMC_12A": {
+    "images": [
+      {
+        "filename": "p09_asy1.png",
+        "problem": 9,
+        "asy_index": 1,
+        "asy_hash": "aebc3043",
+        "url": "https://latex.artofproblemsolving.com/4/9/9/4994e8ffcb62ccc25ab593f3852cfd9b2fb7ba26.png"
+      },
+      {
+        "filename": "p11_asy1.png",
+        "problem": 11,
+        "asy_index": 1,
+        "asy_hash": "572d1fcd",
+        "url": "https://latex.artofproblemsolving.com/a/3/2/a32f7c9839807c1cb204fd5a2f87f33747244a18.png"
+      },
+      {
+        "filename": "p22_asy1.png",
+        "problem": 22,
+        "asy_index": 1,
+        "asy_hash": "5992bb3a",
+        "url": "https://latex.artofproblemsolving.com/4/5/5/455ee9e9f5150b8651dd85c1adc2f62d3193a852.png"
+      }
+    ],
+    "count": 3,
+    "complete": true
+  },
+  "2008_AMC_12B": {
+    "images": [
+      {
+        "filename": "p04_asy1.png",
+        "problem": 4,
+        "asy_index": 1,
+        "asy_hash": "e733b53c",
+        "url": "https://latex.artofproblemsolving.com/6/e/f/6ef568ce45b5abd28fca3d7565af0a5d7af4c6f2.png"
+      }
+    ],
+    "count": 1,
+    "complete": true
+  },
+  "2007_AMC_12A": {
+    "images": [],
+    "count": 0,
+    "complete": true
+  },
+  "2007_AMC_12B": {
+    "images": [],
+    "count": 0,
+    "complete": true
+  },
+  "2006_AMC_12A": {
+    "images": [
+      {
+        "filename": "p06_asy1.png",
+        "problem": 6,
+        "asy_index": 1,
+        "asy_hash": "b2567c17",
+        "url": "https://latex.artofproblemsolving.com/6/6/a/66a524a2244d311dbe57cc4d9aaffc1b5e83bb03.png"
+      },
+      {
+        "filename": "p12_asy1.png",
+        "problem": 12,
+        "asy_index": 1,
+        "asy_hash": "6717bbd7",
+        "url": "https://latex.artofproblemsolving.com/c/7/5/c7566eb2ca9233305be8873b125b5e186a871287.png"
+      },
+      {
+        "filename": "p13_asy1.png",
+        "problem": 13,
+        "asy_index": 1,
+        "asy_hash": "3be6a2b7",
+        "url": "https://latex.artofproblemsolving.com/c/d/7/cd70a3d199aac3650e14fb5d9e5786581c4fa2ba.png"
+      },
+      {
+        "filename": "p16_asy1.png",
+        "problem": 16,
+        "asy_index": 1,
+        "asy_hash": "d5728524",
+        "url": "https://latex.artofproblemsolving.com/b/b/4/bb4378a1b69a2fbdd9aadc5253c2e199d58719e9.png"
+      },
+      {
+        "filename": "p17_asy1.png",
+        "problem": 17,
+        "asy_index": 1,
+        "asy_hash": "b550f654",
+        "url": "https://latex.artofproblemsolving.com/5/0/7/5070473f4545f2932e536bc27857a5203bfe5458.png"
+      },
+      {
+        "filename": "p19_asy1.png",
+        "problem": 19,
+        "asy_index": 1,
+        "asy_hash": "3937a415",
+        "url": "https://latex.artofproblemsolving.com/e/e/c/eec9e573082823c38ceb230bca0dbe46393fdbfe.png"
+      }
+    ],
+    "count": 6,
+    "complete": true
+  },
+  "2006_AMC_12B": {
+    "images": [
+      {
+        "filename": "p13_asy1.png",
+        "problem": 13,
+        "asy_index": 1,
+        "asy_hash": "56640b98",
+        "url": "https://latex.artofproblemsolving.com/c/3/d/c3d990aac766fab2d5d1c6e730777e0c93cde34e.png"
+      },
+      {
+        "filename": "p15_asy1.png",
+        "problem": 15,
+        "asy_index": 1,
+        "asy_hash": "7756f480",
+        "url": "https://latex.artofproblemsolving.com/d/8/8/d88efb6880a2e704b5d45bd37acbda99709c7e82.png"
+      },
+      {
+        "filename": "p23_asy1.png",
+        "problem": 23,
+        "asy_index": 1,
+        "asy_hash": "bbe4e450",
+        "url": "https://latex.artofproblemsolving.com/2/c/3/2c392d8d139c6322173e1707cb47c2895ac6f36a.png"
+      }
+    ],
+    "count": 3,
+    "complete": true
+  },
+  "2005_AMC_12A": {
+    "images": [
+      {
+        "filename": "p07_asy1.png",
+        "problem": 7,
+        "asy_index": 1,
+        "asy_hash": "8c10d45e",
+        "url": "https://latex.artofproblemsolving.com/b/6/7/b67d246a0ea0a1efc85e8d70586644afa3a3d2ad.png"
+      },
+      {
+        "filename": "p13_asy1.png",
+        "problem": 13,
+        "asy_index": 1,
+        "asy_hash": "7209f0d1",
+        "url": "https://latex.artofproblemsolving.com/e/7/c/e7ccece18535f75fcce290018f4a4aecbfa38461.png"
+      },
+      {
+        "filename": "p15_asy1.png",
+        "problem": 15,
+        "asy_index": 1,
+        "asy_hash": "0c70e822",
+        "url": "https://latex.artofproblemsolving.com/a/8/0/a805b2766042251797b5817c889a0fb79a637874.png"
+      },
+      {
+        "filename": "p16_asy1.png",
+        "problem": 16,
+        "asy_index": 1,
+        "asy_hash": "90e048a5",
+        "url": "https://latex.artofproblemsolving.com/4/9/6/4967d5a2daac64647e471b55c1508bbf1d113eff.png"
+      }
+    ],
+    "count": 4,
+    "complete": true
+  },
+  "2005_AMC_12B": {
+    "images": [
+      {
+        "filename": "p05_asy1.png",
+        "problem": 5,
+        "asy_index": 1,
+        "asy_hash": "46792600",
+        "url": "https://latex.artofproblemsolving.com/c/b/e/cbe2bb4966beb1c1cbc889938c8e120b7d80639b.png"
+      }
+    ],
+    "count": 1,
+    "complete": true
+  },
+  "2004_AMC_12A": {
+    "images": [
+      {
+        "filename": "p08_asy1.png",
+        "problem": 8,
+        "asy_index": 1,
+        "asy_hash": "6341c043",
+        "url": "https://latex.artofproblemsolving.com/3/7/d/37d48968371e6d998d5b4c40c47c99005f414ab9.png"
+      },
+      {
+        "filename": "p18_asy1.png",
+        "problem": 18,
+        "asy_index": 1,
+        "asy_hash": "002082c7",
+        "url": "https://latex.artofproblemsolving.com/d/a/e/daef6f3ebe3e1fc6cfacd8611db1d6d449c8d2d4.png"
+      },
+      {
+        "filename": "p19_asy1.png",
+        "problem": 19,
+        "asy_index": 1,
+        "asy_hash": "c5304ad8",
+        "url": "https://latex.artofproblemsolving.com/6/9/6/69677da9f9025d93eca8bc2a4d63d4a3b5b11c9c.png"
+      }
+    ],
+    "count": 3,
+    "complete": true
+  },
+  "2004_AMC_12B": {
+    "images": [
+      {
+        "filename": "p10_asy1.png",
+        "problem": 10,
+        "asy_index": 1,
+        "asy_hash": "88463e44",
+        "url": "https://latex.artofproblemsolving.com/e/8/1/e810cc7b6572d11a1cb77c70ea93bf73a9411484.png"
+      },
+      {
+        "filename": "p14_asy1.png",
+        "problem": 14,
+        "asy_index": 1,
+        "asy_hash": "97d11a90",
+        "url": "https://latex.artofproblemsolving.com/a/0/5/a0578d737aee0aa9a0c6e400c18538bade106520.png"
+      },
+      {
+        "filename": "p24_asy1.png",
+        "problem": 24,
+        "asy_index": 1,
+        "asy_hash": "a1cdf70e",
+        "url": "https://latex.artofproblemsolving.com/c/5/a/c5ae6e04f0710cb08f0e10ffc47a0f257844910e.png"
+      }
+    ],
+    "count": 3,
+    "complete": true
+  },
+  "2003_AMC_12A": {
+    "images": [
+      {
+        "filename": "p14_asy1.png",
+        "problem": 14,
+        "asy_index": 1,
+        "asy_hash": "86d2f9fe",
+        "url": "https://latex.artofproblemsolving.com/1/4/0/14057a8f4f08bad17471fdaed56a758f1e2fcea7.png"
+      },
+      {
+        "filename": "p17_asy1.png",
+        "problem": 17,
+        "asy_index": 1,
+        "asy_hash": "f8779517",
+        "url": "https://latex.artofproblemsolving.com/b/1/f/b1f5dc5a294bcfb2e9f16e90d2d7b6f5843d52e1.png"
+      }
+    ],
+    "count": 2,
+    "complete": true
+  },
+  "2003_AMC_12B": {
+    "images": [
+      {
+        "filename": "p10_asy1.png",
+        "problem": 10,
+        "asy_index": 1,
+        "asy_hash": "ab4f9c8f",
+        "url": "https://latex.artofproblemsolving.com/a/3/b/a3b1113e62996ab9b1c6c83bc4836bbb32070801.png"
+      },
+      {
+        "filename": "p16_asy1.png",
+        "problem": 16,
+        "asy_index": 1,
+        "asy_hash": "c63ccd03",
+        "url": "https://latex.artofproblemsolving.com/b/c/6/bc697df5c9078d8ccf0708f353185c707d3275d4.png"
+      },
+      {
+        "filename": "p22_asy1.png",
+        "problem": 22,
+        "asy_index": 1,
+        "asy_hash": "242b7851",
+        "url": "https://latex.artofproblemsolving.com/c/2/2/c22d4d20155faaf8bd0cf51f26a5795d14b32322.png"
+      }
+    ],
+    "count": 3,
+    "complete": true
+  },
+  "2002_AMC_12A": {
+    "images": [
+      {
+        "filename": "p05_asy1.png",
+        "problem": 5,
+        "asy_index": 1,
+        "asy_hash": "edc06fe2",
+        "url": "https://latex.artofproblemsolving.com/e/f/2/ef247dc86b9efff9368a791035527f5c512d1db8.png"
+      },
+      {
+        "filename": "p08_asy1.png",
+        "problem": 8,
+        "asy_index": 1,
+        "asy_hash": "44068c4d",
+        "url": "https://latex.artofproblemsolving.com/a/0/b/a0b90bdab50e7b1984850bd644f9291ddc2de34e.png"
+      },
+      {
+        "filename": "p19_asy1.png",
+        "problem": 19,
+        "asy_index": 1,
+        "asy_hash": "dc37aede",
+        "url": "https://latex.artofproblemsolving.com/3/6/2/362b0483980187e4b1323e15d697b44643a97cf5.png"
+      }
+    ],
+    "count": 3,
+    "complete": true
+  },
+  "2002_AMC_12B": {
+    "images": [],
+    "count": 0,
+    "complete": true
+  },
+  "2002_AMC_12P": {
+    "images": [],
+    "count": 0,
+    "complete": true
+  }
+}
