@@ -166,10 +166,20 @@ def extract_answers(html_content):
     return None
 
 
-def parse_amc12_answers(year, variant):
-    """Parse AMC12 answer key for a specific year and variant (A or B)."""
-    url = f"https://artofproblemsolving.com/wiki/index.php/{year}_AMC_12{variant}_Answer_Key"
-    name = f"{year} AMC 12{variant}"
+def parse_amc12_answers(year, variant, season=None):
+    """Parse AMC12 answer key for a specific year and variant (A or B).
+
+    Args:
+        year: Contest year
+        variant: A, B, or P
+        season: Optional season like "Fall" for 2021 Fall variants
+    """
+    if season:
+        url = f"https://artofproblemsolving.com/wiki/index.php/{year}_{season}_AMC_12{variant}_Answer_Key"
+        name = f"{year} {season} AMC 12{variant}"
+    else:
+        url = f"https://artofproblemsolving.com/wiki/index.php/{year}_AMC_12{variant}_Answer_Key"
+        name = f"{year} AMC 12{variant}"
 
     print(f"\nFetching {name} answer key...")
     html_content = fetch_page_content(url)
@@ -186,7 +196,7 @@ def parse_amc12_answers(year, variant):
         return None
 
     print(f"  Found {len(answers)} answers: {', '.join(answers[:5])}...")
-    return answers
+    return answers, name
 
 
 def main():
@@ -194,44 +204,50 @@ def main():
     print("=" * 60)
     print("AMC12 Answer Key Parser")
     print(f"Parsing AMC 12A and AMC 12B answer keys from {START_YEAR} to {END_YEAR}")
-    print("Note: 2002 also includes AMC 12P variant")
+    print("Note: Includes 2002P and 2021 Fall A/B variants")
     print("=" * 60)
 
     all_answers = {}
     success_count = 0
     failed_items = []
 
-    # Build list of contests
+    # Build list of contests: (year, variant, season)
     contests = []
     for year in range(START_YEAR, END_YEAR + 1):
         variants = SPECIAL_VARIANTS.get(year, VARIANTS)
         for variant in variants:
-            contests.append((year, variant))
+            contests.append((year, variant, None))
+
+    # Add 2021 Fall AMC 12A and 12B
+    contests.append((2021, 'A', 'Fall'))
+    contests.append((2021, 'B', 'Fall'))
 
     # Wait for any rate limiting to clear
     print("\nWaiting 10s for rate limit to clear...")
     time.sleep(10)
 
     # Parse all contests
-    for year, variant in contests:
+    for year, variant, season in contests:
         try:
             # Delays to avoid rate limiting
             delay = random.uniform(5, 10)
             print(f"  Waiting {delay:.1f}s before next request...")
             time.sleep(delay)
 
-            answers = parse_amc12_answers(year, variant)
+            result = parse_amc12_answers(year, variant, season)
 
-            if answers:
-                key = f"{year} AMC 12{variant}"
-                all_answers[key] = answers
+            if result:
+                answers, name = result
+                all_answers[name] = answers
                 success_count += 1
             else:
-                failed_items.append(f"{year} AMC 12{variant}")
+                name = f"{year} {season + ' ' if season else ''}AMC 12{variant}"
+                failed_items.append(name)
 
         except Exception as e:
-            print(f"  Error parsing {year} AMC 12{variant}: {e}")
-            failed_items.append(f"{year} AMC 12{variant}")
+            name = f"{year} {season + ' ' if season else ''}AMC 12{variant}"
+            print(f"  Error parsing {name}: {e}")
+            failed_items.append(name)
 
     # Save all answers to a JSON file
     output_dir = Path("data/raw/AMC12_Answers")

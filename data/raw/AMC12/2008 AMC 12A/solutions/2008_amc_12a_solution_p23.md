@@ -1,0 +1,19 @@
+# 2008 AMC 12A Problem 23
+
+## Problem
+
+The solutions of the equation $z^4+4z^3i-6z^2-4zi-i=0$ are the vertices of a convex polygon in the complex plane. What is the area of the polygon?
+
+$\mathrm{(A)}\ 2^{\frac{5}{8}}\qquad\mathrm{(B)}\ 2^{\frac{3}{4}}\qquad\mathrm{(C)}\ 2\qquad\mathrm{(D)}\ 2^{\frac{5}{4}}\qquad\mathrm{(E)}\ 2^{\frac{3}{2}}$
+
+## Solution
+Looking at the coefficients, we are immediately reminded of the binomial expansion of ${\left(x+1\right)}^{4}$ .
+Modifying this slightly, we can write the given equation as: \[{\left(z+i\right)}^{4}=1+i=2^{\frac{1}{2}}\cos \frac {\pi}{4} + 2^{\frac{1}{2}}i\sin \frac {\pi}{4}\] We can apply a translation of $-i$ and a rotation of $-\frac{\pi}{4}$ (both operations preserve area) to simplify the problem: \[z^{4}=2^{\frac{1}{2}}\]
+Because the roots of this equation are created by rotating $\frac{\pi}{2}$ radians successively about the origin, the quadrilateral is a square.
+We know that half the diagonal length of the square is ${\left(2^{\frac{1}{2}}\right)}^{\frac{1}{4}}=2^{\frac{1}{8}}$
+Therefore, the area of the square is $\frac{{\left( 2 \cdot 2^{\frac{1}{8}}\right)}^2}{2}=\frac{2^{\frac{9}{4}}}{2}=2^{\frac{5}{4}} \Rightarrow D.$
+### See Also
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America .

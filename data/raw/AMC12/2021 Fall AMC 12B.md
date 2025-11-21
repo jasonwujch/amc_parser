@@ -1,0 +1,166 @@
+Problem 1
+What is the value of $1234+2341+3412+4123?$
+
+$\textbf{(A)}\: 10{,}000\qquad\textbf{(B)} \: 10{,}010\qquad\textbf{(C)} \: 10{,}110\qquad\textbf{(D)} \: 11{,}000\qquad\textbf{(E)} \: 11{,}110$
+
+Solution
+
+Problem 2
+[asy] size(200); defaultpen(linewidth(0.4)+fontsize(12)); pen s = linewidth(0.8)+fontsize(8); pair O,X,Y; O = origin; X = (6,0); Y = (0,5); fill((1,0)--(3,5)--(5,0)--(3,2)--cycle, palegray+opacity(0.2)); for (int i=1; i<7; ++i) { draw((i,0)--(i,5), gray+dashed); label("${"+string(i)+"}$", (i,0), 2*S); if (i<6) { draw((0,i)--(6,i), gray+dashed); label("${"+string(i)+"}$", (0,i), 2*W); } } label("$0$", O, 2*SW); draw(O--X+(0.35,0), black+1.5, EndArrow(10)); draw(O--Y+(0,0.35), black+1.5, EndArrow(10)); draw((1,0)--(3,5)--(5,0)--(3,2)--(1,0), black+1.5); [/asy]
+
+$\textbf{(A)}\: 4\qquad\textbf{(B)} \: 6\qquad\textbf{(C)} \: 8\qquad\textbf{(D)} \: 10\qquad\textbf{(E)} \: 12$
+
+Solution
+
+Problem 3
+At noon on a certain day, Minneapolis is $N$ degrees warmer than St. Louis. At $4{:}00$ the temperature in Minneapolis has fallen by $5$ degrees while the temperature in St. Louis has risen by $3$ degrees, at which time the temperatures in the two cities differ by $2$ degrees. What is the product of all possible values of $N?$
+
+$\textbf{(A)}\: 10\qquad\textbf{(B)} \: 30\qquad\textbf{(C)} \: 60\qquad\textbf{(D)} \: 100\qquad\textbf{(E)} \: 120$
+
+Solution
+
+Problem 4
+Let $n=8^{2022}$ . Which of the following is equal to $\frac{n}{4}?$
+
+$\textbf{(A)}\: 4^{1010}\qquad\textbf{(B)} \: 2^{2022}\qquad\textbf{(C)} \: 8^{2018}\qquad\textbf{(D)} \: 4^{3031}\qquad\textbf{(E)} \: 4^{3032}$
+
+Solution
+
+Problem 5
+Call a fraction $\frac{a}{b}$ , not necessarily in the simplest form, special if $a$ and $b$ are positive integers whose sum is $15$ . How many distinct integers can be written as the sum of two, not necessarily different, special fractions?
+
+$\textbf{(A)}\ 9 \qquad\textbf{(B)}\ 10 \qquad\textbf{(C)}\ 11 \qquad\textbf{(D)}\ 12 \qquad\textbf{(E)}\ 13$
+
+Solution
+
+Problem 6
+The greatest prime number that is a divisor of $16{,}384$ is $2$ because $16{,}384 = 2^{14}$ . What is the sum of the digits of the greatest prime number that is a divisor of $16{,}383$ ?
+
+$\textbf{(A)} \: 3\qquad\textbf{(B)} \: 7\qquad\textbf{(C)} \: 10\qquad\textbf{(D)} \: 16\qquad\textbf{(E)} \: 22$
+
+Solution
+
+Problem 7
+Which of the following conditions is sufficient to guarantee that integers $x$ , $y$ , and $z$ satisfy the equation \[x(x-y)+y(y-z)+z(z-x) = 1?\] $\textbf{(A)} \: x>y$ and $y=z$ $\textbf{(B)} \: x=y-1$ and $y=z-1$ $\textbf{(C)} \: x=z+1$ and $y=x+1$ $\textbf{(D)} \: x=z$ and $y-1=x$ $\textbf{(E)} \: x+y+z=1$
+
+Solution
+
+Problem 8
+The product of the lengths of the two congruent sides of an obtuse isosceles triangle is equal to the product of the base and twice the triangle's height to the base. What is the measure, in degrees, of the vertex angle of this triangle?
+
+$\textbf{(A)} \: 105 \qquad\textbf{(B)} \: 120 \qquad\textbf{(C)} \: 135 \qquad\textbf{(D)} \: 150 \qquad\textbf{(E)} \: 165$
+
+Solution
+
+Problem 9
+Triangle $ABC$ is equilateral with side length $6$ . Suppose that $O$ is the center of the inscribed circle of this triangle. What is the area of the circle passing through $A$ , $O$ , and $C$ ?
+
+$\textbf{(A)} \: 9\pi \qquad\textbf{(B)} \: 12\pi \qquad\textbf{(C)} \: 18\pi \qquad\textbf{(D)} \: 24\pi \qquad\textbf{(E)} \: 27\pi$
+
+Solution
+
+Problem 10
+What is the sum of all possible values of $t$ between $0$ and $360$ such that the triangle in the coordinate plane whose vertices are \[(\cos 40^\circ,\sin 40^\circ), (\cos 60^\circ,\sin 60^\circ), \text{ and } (\cos t^\circ,\sin t^\circ)\] is isosceles?
+
+$\textbf{(A)} \: 100 \qquad\textbf{(B)} \: 150 \qquad\textbf{(C)} \: 330 \qquad\textbf{(D)} \: 360 \qquad\textbf{(E)} \: 380$
+
+Solution
+
+Problem 11
+Una rolls $6$ standard $6$ -sided dice simultaneously and calculates the product of the $6{ }$ numbers obtained. What is the probability that the product is divisible by $4?$
+
+$\textbf{(A)}\: \frac34\qquad\textbf{(B)} \: \frac{57}{64}\qquad\textbf{(C)} \: \frac{59}{64}\qquad\textbf{(D)} \: \frac{187}{192}\qquad\textbf{(E)} \: \frac{63}{64}$
+
+Solution
+
+Problem 12
+For $n$ a positive integer, let $f(n)$ be the quotient obtained when the sum of all positive divisors of $n$ is divided by $n.$ For example, \[f(14)=(1+2+7+14)\div 14=\frac{12}{7}\] What is $f(768)-f(384)?$
+
+$\textbf{(A)}\ \frac{1}{768} \qquad\textbf{(B)}\ \frac{1}{192} \qquad\textbf{(C)}\ 1 \qquad\textbf{(D)}\ \frac{4}{3} \qquad\textbf{(E)}\ \frac{8}{3}$
+
+Solution
+
+Problem 13
+Let $c = \frac{2\pi}{11}.$ What is the value of \[\frac{\sin 3c \cdot \sin 6c \cdot \sin 9c \cdot \sin 12c \cdot \sin 15c}{\sin c \cdot \sin 2c \cdot \sin 3c \cdot \sin 4c \cdot \sin 5c}?\]
+
+$\textbf{(A)}\ {-}1 \qquad\textbf{(B)}\ {-}\frac{\sqrt{11}}{5} \qquad\textbf{(C)}\ \frac{\sqrt{11}}{5} \qquad\textbf{(D)}\ \frac{10}{11} \qquad\textbf{(E)}\ 1$
+
+Solution
+
+Problem 14
+Suppose that $P(z), Q(z)$ , and $R(z)$ are polynomials with real coefficients, having degrees $2$ , $3$ , and $6$ , respectively, and constant terms $1$ , $2$ , and $3$ , respectively. Let $N$ be the number of distinct complex numbers $z$ that satisfy the equation $P(z) \cdot Q(z)=R(z)$ . What is the minimum possible value of $N$ ?
+
+$\textbf{(A)}\: 0\qquad\textbf{(B)} \: 1\qquad\textbf{(C)} \: 2\qquad\textbf{(D)} \: 3\qquad\textbf{(E)} \: 5$
+
+Solution
+
+Problem 15
+Three identical square sheets of paper each with side length $6$ are stacked on top of each other. The middle sheet is rotated clockwise $30^\circ$ about its center and the top sheet is rotated clockwise $60^\circ$ about its center, resulting in the $24$ -sided polygon shown in the figure below. The area of this polygon can be expressed in the form $a-b\sqrt{c}$ , where $a$ , $b$ , and $c$ are positive integers, and $c$ is not divisible by the square of any prime. What is $a+b+c$ ? $(\textbf{A})\: 75\qquad(\textbf{B}) \: 93\qquad(\textbf{C}) \: 96\qquad(\textbf{D}) \: 129\qquad(\textbf{E}) \: 147$
+
+Solution
+
+Problem 16
+Suppose $a$ , $b$ , $c$ are positive integers such that \[a+b+c=23\] and \[\gcd(a,b)+\gcd(b,c)+\gcd(c,a)=9.\] What is the sum of all possible distinct values of $a^2+b^2+c^2$ ?
+
+$\textbf{(A)}\: 259\qquad\textbf{(B)} \: 438\qquad\textbf{(C)} \: 516\qquad\textbf{(D)} \: 625\qquad\textbf{(E)} \: 687$
+
+Solution
+
+Problem 17
+A bug starts at a vertex of a grid made of equilateral triangles of side length $1$ . At each step the bug moves in one of the $6$ possible directions along the grid lines randomly and independently with equal probability. What is the probability that after $5$ moves the bug never will have been more than $1$ unit away from the starting position?
+
+$\textbf{(A)}\ \frac{13}{108} \qquad\textbf{(B)}\ \frac{7}{54} \qquad\textbf{(C)}\ \frac{29}{216} \qquad\textbf{(D)}\ \frac{4}{27} \qquad\textbf{(E)}\ \frac{1}{16}$
+
+Solution
+
+Problem 18
+Set $u_0 = \frac{1}{4}$ , and for $k \ge 0$ let $u_{k+1}$ be determined by the recurrence \[u_{k+1} = 2u_k - 2u_k^2.\] This sequence tends to a limit; call it $L$ . What is the least value of $k$ such that \[|u_k-L| \le \frac{1}{2^{1000}}?\]
+
+$\textbf{(A)}\: 10\qquad\textbf{(B)}\: 87\qquad\textbf{(C)}\: 123\qquad\textbf{(D)}\: 329\qquad\textbf{(E)}\: 401$
+
+Solution
+
+Problem 19
+Regular polygons with $5,6,7,$ and $8$ sides are inscribed in the same circle. No two of the polygons share a vertex, and no three of their sides intersect at a common point. At how many points inside the circle do two of their sides intersect? $(\textbf{A})\: 52\qquad(\textbf{B}) \: 56\qquad(\textbf{C}) \: 60\qquad(\textbf{D}) \: 64\qquad(\textbf{E}) \: 68$
+
+Solution
+
+Problem 20
+A cube is constructed from $4$ white unit cubes and $4$ blue unit cubes. How many different ways are there to construct the $2 \times 2 \times 2$ cube using these smaller cubes? (Two constructions are considered the same if one can be rotated to match the other.) $(\textbf{A})\: 7\qquad(\textbf{B}) \: 8\qquad(\textbf{C}) \: 9\qquad(\textbf{D}) \: 10\qquad(\textbf{E}) \: 11$
+
+Solution
+
+Problem 21
+For real numbers $x$ , let \[P(x)=1+\cos(x)+i\sin(x)-\cos(2x)-i\sin(2x)+\cos(3x)+i\sin(3x)\] where $i = \sqrt{-1}$ . For how many values of $x$ with $0\leq x<2\pi$ does \[P(x)=0?\]
+
+$\textbf{(A)}\ 0 \qquad\textbf{(B)}\ 1 \qquad\textbf{(C)}\ 2 \qquad\textbf{(D)}\ 3 \qquad\textbf{(E)}\ 4$
+
+Solution
+
+Problem 22
+Right triangle $ABC$ has side lengths $BC=6$ , $AC=8$ , and $AB=10$ . A circle centered at $O$ is tangent to line $BC$ at $B$ and passes through $A$ . A circle centered at $P$ is tangent to line $AC$ at $A$ and passes through $B$ . What is $OP$ ?
+
+$\textbf{(A)}\ \frac{23}{8} \qquad\textbf{(B)}\ \frac{29}{10} \qquad\textbf{(C)}\ \frac{35}{12} \qquad\textbf{(D)}\ \frac{73}{25} \qquad\textbf{(E)}\ 3$
+
+Solution
+
+Problem 23
+What is the average number of pairs of consecutive integers in a randomly selected subset of $5$ distinct integers chosen from the set $\{ 1, 2, 3, …, 30\}$ ? (For example the set $\{1, 17, 18, 19, 30\}$ has $2$ pairs of consecutive integers.)
+
+$\textbf{(A)}\ \frac{2}{3} \qquad\textbf{(B)}\ \frac{29}{36} \qquad\textbf{(C)}\ \frac{5}{6} \qquad\textbf{(D)}\ \frac{29}{30} \qquad\textbf{(E)}\ 1$
+
+Solution
+
+Problem 24
+Triangle $ABC$ has side lengths $AB = 11, BC=24$ , and $CA = 20$ . The bisector of $\angle{BAC}$ intersects $\overline{BC}$ in point $D$ , and intersects the circumcircle of $\triangle{ABC}$ in point $E \ne A$ . The circumcircle of $\triangle{BED}$ intersects the line $AB$ in points $B$ and $F \ne B$ . What is $CF$ ?
+
+$\textbf{(A) } 28 \qquad \textbf{(B) } 20\sqrt{2} \qquad \textbf{(C) } 30 \qquad \textbf{(D) } 32 \qquad \textbf{(E) } 20\sqrt{3}$
+
+Solution
+
+Problem 25
+For $n$ a positive integer, let $R(n)$ be the sum of the remainders when $n$ is divided by $2$ , $3$ , $4$ , $5$ , $6$ , $7$ , $8$ , $9$ , and $10$ . For example, $R(15) = 1+0+3+0+3+1+7+6+5=26$ . How many two-digit positive integers $n$ satisfy $R(n) = R(n+1)\,?$
+
+$\textbf{(A) }0\qquad\textbf{(B) }1\qquad\textbf{(C) }2\qquad\textbf{(D) }3\qquad\textbf{(E) }4$
+
+Solution

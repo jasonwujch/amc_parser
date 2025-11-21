@@ -20,6 +20,8 @@ PROBLEMS_PER_CONTEST = 25
 VARIANTS = ['A', 'B']
 # 2002 has an extra P variant
 SPECIAL_VARIANTS = {2002: ['A', 'B', 'P']}
+# 2021 has Fall variants in addition to regular
+FALL_VARIANTS = {2021: ['A', 'B']}
 
 def fetch_page_content(url, max_retries=3):
     """Fetch the webpage content with retry logic."""
@@ -144,7 +146,7 @@ def extract_solution_content(paragraph):
     content = re.sub(r'\s+', ' ', content)
     return content.strip()
 
-def parse_solution_page(html_content, problem_num, year, variant):
+def parse_solution_page(html_content, problem_num, year, variant, season=None):
     """Parse a solution page and extract all solution content."""
     soup = BeautifulSoup(html_content, 'html.parser')
 
@@ -155,7 +157,10 @@ def parse_solution_page(html_content, problem_num, year, variant):
         return None
 
     solution_content = []
-    solution_content.append(f"# {year} AMC 12{variant} Problem {problem_num}\n")
+    if season:
+        solution_content.append(f"# {year} {season} AMC 12{variant} Problem {problem_num}\n")
+    else:
+        solution_content.append(f"# {year} AMC 12{variant} Problem {problem_num}\n")
 
     # First add the Problem section
     solution_content.append("## Problem")
@@ -275,9 +280,12 @@ def clean_solution_content(content):
 
     return result
 
-def create_directory_structure(base_path, year, variant):
+def create_directory_structure(base_path, year, variant, season=None):
     """Create the directory structure for solutions."""
-    solutions_dir = Path(base_path) / f"AMC12/{year} AMC 12{variant}/solutions"
+    if season:
+        solutions_dir = Path(base_path) / f"AMC12/{year} {season} AMC 12{variant}/solutions"
+    else:
+        solutions_dir = Path(base_path) / f"AMC12/{year} AMC 12{variant}/solutions"
     solutions_dir.mkdir(parents=True, exist_ok=True)
     return solutions_dir
 
@@ -291,19 +299,24 @@ def check_existing_files(base_path):
 
     for year_dir in amc12_dir.iterdir():
         if year_dir.is_dir() and "AMC 12" in year_dir.name:
-            # Extract year and variant from directory name like "2024 AMC 12A"
-            match = re.match(r'(\d{4}) AMC 12([ABP])', year_dir.name)
+            # Extract year, optional season, and variant from directory name
+            # e.g., "2024 AMC 12A" or "2021 Fall AMC 12A"
+            match = re.match(r'(\d{4})(?: (Fall))? AMC 12([ABP])', year_dir.name)
             if match:
                 year = int(match.group(1))
-                variant = match.group(2)
-                key = (year, variant)
+                season = match.group(2)  # None or "Fall"
+                variant = match.group(3)
+                key = (year, variant, season)
 
                 solutions_dir = year_dir / "solutions"
 
                 if solutions_dir.exists():
                     existing_files[key] = set()
-                    for solution_file in solutions_dir.glob(f"{year}_amc_12{variant.lower()}_solution_p*.md"):
-                        # Extract problem number from filename
+                    # Match both regular and Fall solution files
+                    season_prefix = f"{season.lower()}_" if season else ""
+                    pattern = f"{year}_{season_prefix}amc_12{variant.lower()}_solution_p*.md"
+                    # Also try without season prefix for backward compatibility
+                    for solution_file in solutions_dir.glob(f"*_solution_p*.md"):
                         problem_match = re.search(r'p(\d+)\.md$', solution_file.name)
                         if problem_match:
                             problem_num = int(problem_match.group(1))
@@ -320,33 +333,47 @@ def analyze_progress(existing_files):
     incomplete_contests = []
     missing_contests = []
 
+    # Build list of all contests: (year, variant, season)
+    all_contests = []
     for year in range(START_YEAR, END_YEAR + 1):
         variants = SPECIAL_VARIANTS.get(year, VARIANTS)
         for variant in variants:
-            key = (year, variant)
+            all_contests.append((year, variant, None))
+
+    # Add Fall variants
+    for year, variants in FALL_VARIANTS.items():
+        for variant in variants:
+            all_contests.append((year, variant, 'Fall'))
+
+    for year, variant, season in all_contests:
+        key = (year, variant, season)
+        if season:
+            contest_name = f"{year} {season} AMC 12{variant}"
+        else:
             contest_name = f"{year} AMC 12{variant}"
 
-            if key in existing_files:
-                existing_count = len(existing_files[key])
-                missing_count = PROBLEMS_PER_CONTEST - existing_count
-                total_existing += existing_count
-                total_missing += missing_count
+        if key in existing_files:
+            existing_count = len(existing_files[key])
+            missing_count = PROBLEMS_PER_CONTEST - existing_count
+            total_existing += existing_count
+            total_missing += missing_count
 
-                if existing_count == PROBLEMS_PER_CONTEST:
-                    print(f"  {contest_name}: Complete ({PROBLEMS_PER_CONTEST}/{PROBLEMS_PER_CONTEST})")
-                else:
-                    print(f"  {contest_name}: Incomplete ({existing_count}/{PROBLEMS_PER_CONTEST})")
-                    missing_problems = set(range(1, PROBLEMS_PER_CONTEST + 1)) - existing_files[key]
-                    incomplete_contests.append((year, variant, missing_problems))
+            if existing_count == PROBLEMS_PER_CONTEST:
+                print(f"  {contest_name}: Complete ({PROBLEMS_PER_CONTEST}/{PROBLEMS_PER_CONTEST})")
             else:
-                print(f"  {contest_name}: Not started (0/{PROBLEMS_PER_CONTEST})")
-                total_missing += PROBLEMS_PER_CONTEST
-                missing_contests.append((year, variant))
+                print(f"  {contest_name}: Incomplete ({existing_count}/{PROBLEMS_PER_CONTEST})")
+                missing_problems = set(range(1, PROBLEMS_PER_CONTEST + 1)) - existing_files[key]
+                incomplete_contests.append((year, variant, season, missing_problems))
+        else:
+            print(f"  {contest_name}: Not started (0/{PROBLEMS_PER_CONTEST})")
+            total_missing += PROBLEMS_PER_CONTEST
+            missing_contests.append((year, variant, season))
 
     # Calculate total
-    total_contests = sum(len(SPECIAL_VARIANTS.get(y, VARIANTS)) for y in range(START_YEAR, END_YEAR + 1))
+    total_contests = len(all_contests)
     total_problems = total_contests * PROBLEMS_PER_CONTEST
     print(f"\nOVERALL SUMMARY:")
+    print(f"  Total contests: {total_contests}")
     print(f"  Total existing: {total_existing}/{total_problems}")
     print(f"  Total missing: {total_missing}")
     if total_existing + total_missing > 0:
@@ -354,18 +381,26 @@ def analyze_progress(existing_files):
 
     return incomplete_contests, missing_contests
 
-def parse_missing_problems(year, variant, missing_problems, base_path):
+def parse_missing_problems(year, variant, season, missing_problems, base_path):
     """Parse only the missing problems for a given contest."""
-    base_url = f"https://artofproblemsolving.com/wiki/index.php/{year}_AMC_12{variant}_Problems/Problem_"
-    solutions_dir = create_directory_structure(base_path, year, variant)
+    if season:
+        base_url = f"https://artofproblemsolving.com/wiki/index.php/{year}_{season}_AMC_12{variant}_Problems/Problem_"
+        contest_name = f"{year} {season} AMC 12{variant}"
+    else:
+        base_url = f"https://artofproblemsolving.com/wiki/index.php/{year}_AMC_12{variant}_Problems/Problem_"
+        contest_name = f"{year} AMC 12{variant}"
+    solutions_dir = create_directory_structure(base_path, year, variant, season)
 
-    print(f"\nParsing {year} AMC 12{variant} ({len(missing_problems)} problems)")
+    print(f"\nParsing {contest_name} ({len(missing_problems)} problems)")
 
     success_count = 0
     failed_problems = []
 
     for problem_num in sorted(missing_problems):
-        solution_file = solutions_dir / f"{year}_amc_12{variant.lower()}_solution_p{problem_num}.md"
+        if season:
+            solution_file = solutions_dir / f"{year}_{season.lower()}_amc_12{variant.lower()}_solution_p{problem_num}.md"
+        else:
+            solution_file = solutions_dir / f"{year}_amc_12{variant.lower()}_solution_p{problem_num}.md"
 
         # Double check if file exists
         if solution_file.exists():
@@ -383,7 +418,7 @@ def parse_missing_problems(year, variant, missing_problems, base_path):
             continue
 
         # Parse solution content
-        solution_content = parse_solution_page(html_content, problem_num, year, variant)
+        solution_content = parse_solution_page(html_content, problem_num, year, variant, season)
         if not solution_content:
             print(f"  Failed to parse Problem {problem_num}")
             failed_problems.append(problem_num)
@@ -408,17 +443,18 @@ def parse_missing_problems(year, variant, missing_problems, base_path):
 
     return success_count, failed_problems
 
-def parse_complete_contest(year, variant, base_path):
+def parse_complete_contest(year, variant, season, base_path):
     """Parse all 25 problems for a contest that hasn't been started."""
-    return parse_missing_problems(year, variant, set(range(1, PROBLEMS_PER_CONTEST + 1)), base_path)
+    return parse_missing_problems(year, variant, season, set(range(1, PROBLEMS_PER_CONTEST + 1)), base_path)
 
 def main():
     """Main function with smart resume capability."""
     print("AMC12 Solution Parser")
-    print(f"Years: {START_YEAR}-{END_YEAR} | Variants: A, B (+ 2002P)")
+    print(f"Years: {START_YEAR}-{END_YEAR} | Variants: A, B (+ 2002P, 2021 Fall A/B)")
 
-    # Count total contests
+    # Count total contests including Fall variants
     total_contests = sum(len(SPECIAL_VARIANTS.get(y, VARIANTS)) for y in range(START_YEAR, END_YEAR + 1))
+    total_contests += sum(len(v) for v in FALL_VARIANTS.values())
     total_problems = total_contests * PROBLEMS_PER_CONTEST
 
     print(f"Total contests: {total_contests}")
@@ -446,21 +482,23 @@ def main():
     all_failed = []
 
     # First, complete incomplete contests
-    for year, variant, missing_problems in incomplete_contests:
-        success_count, failed_problems = parse_missing_problems(year, variant, missing_problems, base_path)
+    for year, variant, season, missing_problems in incomplete_contests:
+        success_count, failed_problems = parse_missing_problems(year, variant, season, missing_problems, base_path)
         total_success += success_count
         total_attempted += len(missing_problems)
         if failed_problems:
-            all_failed.extend([(year, variant, p) for p in failed_problems])
+            contest_name = f"{year} {season + ' ' if season else ''}AMC 12{variant}"
+            all_failed.extend([(contest_name, p) for p in failed_problems])
         time.sleep(1)
 
     # Then, start missing contests
-    for year, variant in missing_contests:
-        success_count, failed_problems = parse_complete_contest(year, variant, base_path)
+    for year, variant, season in missing_contests:
+        success_count, failed_problems = parse_complete_contest(year, variant, season, base_path)
         total_success += success_count
         total_attempted += PROBLEMS_PER_CONTEST
         if failed_problems:
-            all_failed.extend([(year, variant, p) for p in failed_problems])
+            contest_name = f"{year} {season + ' ' if season else ''}AMC 12{variant}"
+            all_failed.extend([(contest_name, p) for p in failed_problems])
         time.sleep(1)
 
     print(f"\n{'='*60}")
@@ -473,8 +511,8 @@ def main():
 
     if all_failed:
         print(f"\nFailed problems ({len(all_failed)}):")
-        for year, variant, prob in all_failed:
-            print(f"  - {year} AMC 12{variant} Problem {prob}")
+        for contest_name, prob in all_failed:
+            print(f"  - {contest_name} Problem {prob}")
     else:
         print("\nAll AMC12 solutions parsed successfully!")
 

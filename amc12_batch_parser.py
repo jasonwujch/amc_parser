@@ -414,10 +414,19 @@ def clean_final_output(content):
     
     return result
 
-def parse_amc12_variant(year, variant=None):
-    """Parse AMC 12 problems for a specific year and variant (A or B)."""
-    # Construct URL based on year and variant
-    if variant:
+def parse_amc12_variant(year, variant=None, season=None):
+    """Parse AMC 12 problems for a specific year and variant (A or B).
+
+    Args:
+        year: Contest year
+        variant: A, B, or P
+        season: Optional season like "Fall" for 2021 Fall variants
+    """
+    # Construct URL based on year, season, and variant
+    if season:
+        url = f"https://artofproblemsolving.com/wiki/index.php/{year}_{season}_AMC_12{variant}_Problems"
+        name = f"{year} {season} AMC 12{variant}"
+    elif variant:
         url = f"https://artofproblemsolving.com/wiki/index.php/{year}_AMC_12{variant}_Problems"
         name = f"{year} AMC 12{variant}"
     else:
@@ -463,11 +472,11 @@ def parse_amc12_variant(year, variant=None):
     return True
 
 def main():
-    """Parse AMC 12 problems from 2002-2025 (all A and B variants, plus 2002P)."""
+    """Parse AMC 12 problems from 2002-2025 (all A and B variants, plus special variants)."""
     print("=" * 60)
     print("AMC 12 Batch Parser")
     print("Parsing AMC 12A and AMC 12B from 2002 to 2025")
-    print("Note: 2002 also includes AMC 12P variant")
+    print("Note: Includes 2002P and 2021 Fall A/B variants")
     print("=" * 60)
 
     success_count = 0
@@ -477,14 +486,18 @@ def main():
     start_year = 2002
     end_year = 2025
 
-    # Build list of contests to parse
+    # Build list of contests to parse: (year, variant, season)
     contests = []
     for year in range(start_year, end_year + 1):
-        contests.append((year, 'A'))
-        contests.append((year, 'B'))
+        contests.append((year, 'A', None))
+        contests.append((year, 'B', None))
 
     # Add 2002 AMC 12P (special variant)
-    contests.append((2002, 'P'))
+    contests.append((2002, 'P', None))
+
+    # Add 2021 Fall AMC 12A and 12B
+    contests.append((2021, 'A', 'Fall'))
+    contests.append((2021, 'B', 'Fall'))
 
     # Wait for any rate limiting to clear
     print("\nWaiting 15s for rate limit to clear...")
@@ -492,8 +505,8 @@ def main():
 
     # Test connection first
     print("\nTesting connection...")
-    test_year, test_variant = 2024, 'A'
-    if parse_amc12_variant(test_year, test_variant):
+    test_year, test_variant, test_season = 2024, 'A', None
+    if parse_amc12_variant(test_year, test_variant, test_season):
         success_count += 1
         print("  Connection successful!")
     else:
@@ -505,9 +518,9 @@ def main():
     print("-" * 40)
 
     # Parse all contests
-    for year, variant in contests:
+    for year, variant, season in contests:
         # Skip if already parsed in test
-        if year == test_year and variant == test_variant:
+        if year == test_year and variant == test_variant and season == test_season:
             continue
 
         try:
@@ -516,13 +529,15 @@ def main():
             print(f"  Waiting {delay:.1f}s before next request...")
             time.sleep(delay)
 
-            if parse_amc12_variant(year, variant):
+            if parse_amc12_variant(year, variant, season):
                 success_count += 1
             else:
-                failed_items.append(f"{year} AMC 12{variant}")
+                name = f"{year} {season + ' ' if season else ''}AMC 12{variant}"
+                failed_items.append(name)
         except Exception as e:
-            print(f"  Error parsing {year} AMC 12{variant}: {e}")
-            failed_items.append(f"{year} AMC 12{variant}")
+            name = f"{year} {season + ' ' if season else ''}AMC 12{variant}"
+            print(f"  Error parsing {name}: {e}")
+            failed_items.append(name)
 
     print("\n" + "=" * 60)
     print(f"Completed! Successfully parsed {success_count} AMC 12 exams.")

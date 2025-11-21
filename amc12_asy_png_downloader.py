@@ -20,6 +20,8 @@ END_YEAR = 2025
 VARIANTS = ['A', 'B']
 # 2002 has an extra P variant
 SPECIAL_VARIANTS = {2002: ['A', 'B', 'P']}
+# 2021 has Fall variants in addition to regular
+FALL_VARIANTS = {2021: ['A', 'B']}
 
 def fetch_page_content(url, retry_count=5):
     """Fetch the webpage content with retry logic."""
@@ -202,15 +204,20 @@ def extract_asy_images(html_content, year, variant):
     return asy_images
 
 
-def download_asy_images_for_contest(year, variant, output_base_dir, existing_manifest):
+def download_asy_images_for_contest(year, variant, output_base_dir, existing_manifest, season=None):
     """Download ASY PNG images for a specific AMC12 contest."""
-    url = f"https://artofproblemsolving.com/wiki/index.php/{year}_AMC_12{variant}_Problems"
-    contest_name = f"{year} AMC 12{variant}"
+    if season:
+        url = f"https://artofproblemsolving.com/wiki/index.php/{year}_{season}_AMC_12{variant}_Problems"
+        contest_name = f"{year} {season} AMC 12{variant}"
+        contest_key = f"{year}_{season}_AMC_12{variant}"
+    else:
+        url = f"https://artofproblemsolving.com/wiki/index.php/{year}_AMC_12{variant}_Problems"
+        contest_name = f"{year} AMC 12{variant}"
+        contest_key = f"{year}_AMC_12{variant}"
 
     print(f"\nProcessing {contest_name}...")
 
     # Check if we already have all images for this contest
-    contest_key = f"{year}_AMC_12{variant}"
     if contest_key in existing_manifest and existing_manifest[contest_key].get('complete', False):
         print(f"  Skipping - already downloaded")
         return existing_manifest.get(contest_key, {}).get('images', [])
@@ -231,7 +238,7 @@ def download_asy_images_for_contest(year, variant, output_base_dir, existing_man
     print(f"  Found {len(asy_images)} ASY images")
 
     # Create output directory
-    output_dir = output_base_dir / f"{year}_AMC_12{variant}"
+    output_dir = output_base_dir / contest_key
     output_dir.mkdir(parents=True, exist_ok=True)
 
     downloaded_images = []
@@ -289,6 +296,7 @@ def main():
     print("=" * 60)
     print("AMC12 ASY PNG Downloader")
     print(f"Downloading PNG images for ASY blocks from {START_YEAR}-{END_YEAR}")
+    print("Note: Includes 2021 Fall A/B variants")
     print("=" * 60)
 
     output_base_dir = Path("data/raw/AMC12/asy_images")
@@ -310,36 +318,50 @@ def main():
     total_images = 0
     results = {}
 
+    # Build list of contests: (year, variant, season)
+    contests = []
     for year in range(END_YEAR, START_YEAR - 1, -1):
         variants = SPECIAL_VARIANTS.get(year, VARIANTS)
         for variant in variants:
+            contests.append((year, variant, None))
+
+    # Add Fall variants
+    for year, variants in FALL_VARIANTS.items():
+        for variant in variants:
+            contests.append((year, variant, 'Fall'))
+
+    for year, variant, season in contests:
+        if season:
+            contest_key = f"{year}_{season}_AMC_12{variant}"
+        else:
             contest_key = f"{year}_AMC_12{variant}"
 
-            try:
-                # Delay between contests
-                delay = random.uniform(5, 10)
-                print(f"\n  Waiting {delay:.1f}s before next contest...")
-                time.sleep(delay)
+        try:
+            # Delay between contests
+            delay = random.uniform(5, 10)
+            print(f"\n  Waiting {delay:.1f}s before next contest...")
+            time.sleep(delay)
 
-                images = download_asy_images_for_contest(
-                    year, variant, output_base_dir, existing_manifest
-                )
+            images = download_asy_images_for_contest(
+                year, variant, output_base_dir, existing_manifest, season
+            )
 
-                results[contest_key] = {
-                    'images': images,
-                    'count': len(images),
-                    'complete': True
-                }
-                total_images += len(images)
+            results[contest_key] = {
+                'images': images,
+                'count': len(images),
+                'complete': True
+            }
+            total_images += len(images)
 
-            except Exception as e:
-                print(f"  Error processing {year} AMC 12{variant}: {e}")
-                results[contest_key] = {
-                    'images': [],
-                    'count': 0,
-                    'complete': False,
-                    'error': str(e)
-                }
+        except Exception as e:
+            contest_name = f"{year} {season + ' ' if season else ''}AMC 12{variant}"
+            print(f"  Error processing {contest_name}: {e}")
+            results[contest_key] = {
+                'images': [],
+                'count': 0,
+                'complete': False,
+                'error': str(e)
+            }
 
     # Save manifest
     with open(manifest_path, 'w') as f:
