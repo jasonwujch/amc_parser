@@ -1,0 +1,27 @@
+# 2012 AIME I Problem 1
+
+## Problem
+
+Find the number of positive integers with three not necessarily distinct digits, $abc$ , with $a \neq 0$ and $c \neq 0$ such that both $abc$ and $cba$ are multiples of $4$ .
+
+## Solution 1
+A positive integer is divisible by $4$ if and only if its last two digits are divisible by $4.$ For any value of $b$ , there are two possible values for $a$ and $c$ , since we find that if $b$ is even, $a$ and $c$ must be either $4$ or $8$ , and if $b$ is odd, $a$ and $c$ must be either $2$ or $6$ . There are thus $2 \cdot 2 = 4$ ways to choose $a$ and $c$ for each $b,$ and $10$ ways to choose $b$ since $b$ can be any digit. The final answer is then $4 \cdot 10 = \boxed{040}$ .
+
+## Solution 2
+A number is divisible by four if its last two digits are divisible by 4. Thus, we require that $10b + a$ and $10b + c$ are both divisible by $4$ . If $b$ is odd, then $a$ and $c$ must both be $2 \pmod 4$ meaning that $a$ and $c$ are $2$ or $6$ . If $b$ is even, then $a$ and $c$ must be $0 \pmod 4$ meaning that $a$ and $c$ are $4$ or $8$ . For each choice of $b$ there are $2$ choices for $a$ and $2$ for $c$ for a total of $10 \cdot 2 \cdot 2 = \boxed{040}$ numbers.
+
+## Solution 3
+For this number to fit the requirements $bc$ and $ba$ must be divisible by 4. So $bc = 00, 04, 08, 12, 16, ... , 92, 96$ and so must $ba$ for each two digits of $bc$ . There are two possibilities for $ba$ if $b$ is odd and three possibilities if $b$ is even. So there are $2^{2} \cdot 5+3^{2} \cdot 4 = 65$ possibilities but this overcounts when $a$ or $c = 0$ . So when $bc = 00, 20, 40, 60, 80$ and the corresponding $ba$ should be removed, so $65 - 5 \cdot 3 = 50$ . But we are still overcounting when $b$ is even because then $a$ can be 0. So the answer is $50 - 10 \cdot 1 = \boxed{040}$
+~LuisFonseca123
+
+## Video Solution by OmegaLearn
+https://youtu.be/ZhAZ1oPe5Ds?t=3235
+~ pi_is_3.14
+
+## Video Solutions
+https://artofproblemsolving.com/videos/amc/2012aimei/289
+https://www.youtube.com/watch?v=T8Ox412AkZc
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America .

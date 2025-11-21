@@ -1,0 +1,29 @@
+# 2016 AIME I Problem 14
+
+## Problem
+
+Centered at each lattice point in the coordinate plane are a circle radius $\frac{1}{10}$ and a square with sides of length $\frac{1}{5}$ whose sides are parallel to the coordinate axes. The line segment from $(0,0)$ to $(1001, 429)$ intersects $m$ of the squares and $n$ of the circles. Find $m + n$ .
+
+## Solution 1
+First note that $1001 = 143 \cdot 7$ and $429 = 143 \cdot 3$ so every point of the form $(7k, 3k)$ is on the line. Then consider the line $l$ from $(7k, 3k)$ to $(7(k + 1), 3(k + 1))$ . Translate the line $l$ so that $(7k, 3k)$ is now the origin. There is one square and one circle that intersect the line around $(0,0)$ . Then the points on $l$ with an integral $x$ -coordinate are, since $l$ has the equation $y = \frac{3x}{7}$ :
+\[(0,0), \left(1, \frac{3}{7}\right), \left(2, \frac{6}{7}\right), \left(3, 1 + \frac{2}{7}\right), \left(4, 1 + \frac{5}{7}\right), \left(5, 2 + \frac{1}{7}\right), \left(6, 2 + \frac{4}{7}\right), (7,3).\]
+We claim that the lower right vertex of the square centered at $(2,1)$ lies on $l$ . Since the square has side length $\frac{1}{5}$ , the lower right vertex of this square has coordinates $\left(2 + \frac{1}{10}, 1 - \frac{1}{10}\right) = \left(\frac{21}{10}, \frac{9}{10}\right)$ . Because $\frac{9}{10} = \frac{3}{7} \cdot \frac{21}{10}$ , $\left(\frac{21}{10}, \frac{9}{10}\right)$ lies on $l$ . Since the circle centered at $(2,1)$ is contained inside the square, this circle does not intersect $l$ . Similarly the upper left vertex of the square centered at $(5,2)$ is on $l$ . Since every other point listed above is farther away from a lattice point (excluding (0,0) and (7,3)) and there are two squares with centers strictly between $(0,0)$ and $(7,3)$ that intersect $l$ . Since there are $\frac{1001}{7} = \frac{429}{3} = 143$ segments from $(7k, 3k)$ to $(7(k + 1), 3(k + 1))$ , the above count is yields $143 \cdot 2 = 286$ squares. Since every lattice point on $l$ is of the form $(3k, 7k)$ where $0 \le k \le 143$ , there are $144$ lattice points on $l$ . Centered at each lattice point, there is one square and one circle, hence this counts $288$ squares and circles. Thus $m + n = 286 + 288 = \boxed{574}$ .
+(Solution by gundraja)
+
+## Solution 2
+See if you can solve the problem with the following.
+[asy]size(12cm);draw((0,0)--(7,3));draw(box((0,0),(7,3)),dotted); for(int i=0;i<8;++i)for(int j=0; j<4; ++j){dot((i,j),linewidth(1));draw(box((i-.1,j-.1),(i+.1,j+.1)),linewidth(.5));draw(circle((i,j),.1),linewidth(.5));} [/asy]
+
+## Solution to Solution 2
+This is mostly a clarification to Solution 1, but let's take the diagram for the origin to $(7,3)$ . We have the origin circle and square intersected, then two squares, then the circle and square at $(7,3)$ . If we take the circle and square at the origin out of the diagram, we will be able to repeat the resulting segment (with its circles and squares) end to end from $(0,0)$ to $(1001,429)$ , which forms the line we need without overlapping. Since $143$ of these segments are needed to do this, and $3$ squares and $1$ circle are intersected with each, there are $143 \cdot (3+1) = 572$ squares and circles intersected. Adding the circle and square that are intersected at the origin back into the picture, we get that there are $572+2=\boxed{574}$ squares and circles intersected in total.
+
+## Solution to Solution 2 without a diagram
+This solution is a more systematic approach for finding when the line intersects the squares and circles. Because $1001 = 7*11*13$ and $429=3*11*13$ , the slope of our line is $\frac{3}{7}$ , and we only need to consider the line in the rectangle from the origin to $(7,3)$ , and we can iterate the line $11*13=143$ times. First, we consider how to figure out if the line intersects a square. Given a lattice point $(x_1, y_1)$ , we can think of representing a square centered at that lattice point as all points equal to $(x_1 \pm a, y_1 \pm b)$ s.t. $0 \leq a,b \leq \frac{1}{10}$ . If the line $y = \frac{3}{7}x$ intersects the square, then we must have $\frac{y_1 + b}{x_1 + a} = \frac{3}{7}$ . The line with the least slope that intersects the square intersects at the bottom right corner and the line with the greatest slope that intersects the square intersects at the top left corner; thus we must have that $\frac{3}{7}$ lies in between these slopes, or that $\frac{y_1-\frac{1}{10}}{x_1+\frac{1}{10}} \leq \frac{3}{7} \leq \frac{y_1+\frac{1}{10}}{x_1-\frac{1}{10}}$ . Simplifying, $3x_1 - 1 \leq 7y_1 \leq 3x_1 + 1$ . Because $y$ can only equal $0, 1, 2, 3$ , we just do casework based on the values of $y$ and find that the points $(2, 1)$ and $(5, 2)$ are intersected just at the corner of the square and $(0, 0), (7, 3)$ are intersected through the center of the square. However, we disregard one of $(0, 0)$ and $(7, 3)$ , WLOG $(0, 0)$ , since we just use it in our count for the next of the 143 segments. Therefore, in one of our "segments", 3 squares are intersected and 1 circle is intersected giving 4 total. Thus our answer is $143*4 = 572$ . HOWEVER, we cannot forget that we ignored $(0, 0)$ , which contributes another square and circle to our count, making the final answer $572 + 2 = \boxed{574}$ .
+-Patrick4President
+
+## Video Solution
+https://youtu.be/diLCwN-358s
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America .

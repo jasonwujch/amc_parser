@@ -1,0 +1,42 @@
+# 2016 AIME I Problem 9
+
+## Problem
+
+Triangle $ABC$ has $AB=40,AC=31,$ and $\sin{A}=\frac{1}{5}$ . This triangle is inscribed in rectangle $AQRS$ with $B$ on $\overline{QR}$ and $C$ on $\overline{RS}$ . Find the maximum possible area of $AQRS$ .
+
+## Solution 1
+Note that if angle $BAC$ is obtuse, it would be impossible for the triangle to inscribed in a rectangle. This can easily be shown by drawing triangle ABC, where $A$ is obtuse. Therefore, angle A is acute. Let angle $CAS=n$ and angle $BAQ=m$ . Then, $\overline{AS}=31\cos(n)$ and $\overline{AQ}=40\cos(m)$ . Then the area of rectangle $AQRS$ is $1240\cos(m)\cos(n)$ . By product-to-sum, $\cos(m)\cos(n)=\frac{1}{2}(\cos(m+n)+\cos(m-n))$ . $\cos(m+n)=\sin(90-m-n)=\sin(BAC)=\frac{1}{5}$ . The maximum possible value of $\cos(m-n)$ is 1, which occurs when $m=n$ . Thus the maximum possible value of $\cos(m)\cos(n)$ is $\frac{1}{2}(\frac{1}{5}+1)=\frac{3}{5}$ so the maximum possible area of $AQRS$ is $1240\times{\frac{3}{5}}=\fbox{744}$ .
+
+## Solution 2
+We start by drawing a diagram;
+[asy] size(400); import olympiad; import geometry; pair A = (0, 20) ,B=(30,10) ,C=(15,0), Q=(30,20) ,R=(30,0), S=(0,0); draw(A--B--C--cycle); draw(A--Q); draw(Q--R); draw(R--S); draw(S--A); label("$A$", A, W); label("$B$", B, E); label("$C$", C, N); label("$Q$", Q, E); label("$R$", R, E); label("$S$", S, W); label("$w$", (-1,10)); label("$l$", (15,21)); label("$y$", (7.5,-1)); label("$x$", (31,15)); label("$31$",(7.5,10), E); label("$40$",(15,15), N); markangle(Label("$\alpha$", Relative(0.5)), n=1, C, A, B); markangle(Label("$\beta$", Relative(0.5)), n=1, B, A, Q); markangle(Label("$\gamma$", Relative(0.5)), n=1, S, A, C); [/asy]
+We know that $\sin \alpha = \frac{1}{5}$ . Since $\sin \alpha = \cos (90- \alpha)$ , \[\cos (90- \alpha) = \frac{1}{5} \implies \cos (\beta + \gamma) = \frac{1}{5}\]
+Using our angle sum identities, we expand this to $\cos \beta \cdot \cos \gamma - \sin \beta \cdot \sin \gamma = \frac{1}{5}$ . We can now use the right triangle definition of cosine and sine to rewrite this equation as;
+\[\frac{l}{40} \cdot \frac{w}{31} - \frac{x}{40} \cdot \frac{y}{31} = \frac{1}{5} \implies lw- xy = 8 \cdot 31 \implies lw = xy + 31 \cdot 8\]
+Hang on; $lw$ is the area we want to maximize! Therefore, to maximize this area we must maximize $xy = 40 \sin \beta \cdot 31 \sin \gamma = 31 \cdot 40 \cdot \frac{1}{2}( \cos (\beta - \gamma) - \cos ( \beta + \gamma)) = 31 \cdot 20 \cdot (\cos(\beta-\gamma)-\frac{1}{5})$ . Since $\cos(\beta-\gamma)$ is the only variable component of this expression, to maximize the expression we must maximize $\cos(\beta-\gamma)$ . The cosine function has a maximum value of 1, so our equation evaluates to $xy = 31 \cdot 20 \cdot (1-\frac{1}{5}) = 31 \cdot 20 \cdot \frac{4}{5} = 31 \cdot 16$ (Note that at this max value, since $\beta$ and $\gamma$ are both acute, $\beta-\gamma=0 \implies \beta=\gamma$ ).
+Finally, $lw = xy + 31 \cdot 8 = 31 \cdot 16 + 31\cdot 8 = 31 \cdot 24 = \boxed{744}$
+~KingRavi
+
+## Solution 3
+As above, we note that angle $A$ must be acute. Therefore, let $A$ be the origin, and suppose that $Q$ is on the positive $x$ axis and $S$ is on the positive $y$ axis. We approach this using complex numbers. Let $w=\text{cis} A$ , and let $z$ be a complex number with $|z|=1$ , $\text{Arg}(z)\ge 0^\circ$ and $\text{Arg}(zw)\le90^\circ$ . Then we represent $B$ by $40z$ and $C$ by $31zw$ . The coordinates of $Q$ and $S$ depend on the real part of $40z$ and the imaginary part of $31zw$ . Thus \[[AQRS]=\Re(40z)\cdot \Im(31zw)=1240\left(\frac{z+\overline{z}}{2}\right)\left(\frac{zw-\overline{zw}}{2i}\right).\] We can expand this, using the fact that $z\overline{z}=|z|^2$ , finding \[[AQRS]=620\left(\frac{z^2w-\overline{z^2w}+w-\overline{w}}{2i}\right)=620(\Im(z^2w)+\Im(w)).\] Now as $w=\text{cis}A$ , we know that $\Im(w)=\frac15$ . Also, $|z^2w|=1$ , so the maximum possible imaginary part of $z^2w$ is $1$ . This is clearly achievable under our conditions on $z$ . Therefore, the maximum possible area of $AQRS$ is $620(1+\tfrac15)=\boxed{744}$ .
+
+## Solution 4 (With Calculus)
+Let $\theta$ be the angle $\angle BAQ$ . The height of the rectangle then can be expressed as $h = 31 \sin (A+\theta)$ , and the length of the rectangle can be expressed as $l = 40\cos \theta$ . The area of the rectangle can then be written as a function of $\theta$ , $[AQRS] = a(\theta) = 31\sin (A+\theta)\cdot 40 \cos \theta = 1240 \sin (A+\theta) \cos \theta$ . For now, we will ignore the $1240$ and focus on the function $f(\theta) = \sin (A+\theta) \cos \theta = (\sin A \cos \theta + \cos A \sin \theta)(\cos \theta) = \sin A \cos^2 \theta + \cos A \sin \theta \cos \theta = \sin A \cos^2 \theta + \frac{1}{2} \cos A \sin 2\theta$ .
+Taking the derivative, $f'(\theta) = \sin A \cdot -2\cos \theta \sin \theta + \cos A \cos 2\theta = \cos A \cos 2\theta - \sin A \sin 2\theta = \cos(2\theta + A)$ . Setting this equal to $0$ , we get $\cos(2 \theta + A) = 0 \Rightarrow 2\theta +A = 90, 270 ^\circ$ . Since we know that $A+ \theta < 90$ , the $270^\circ$ solution is extraneous. Thus, we get that $\theta = \frac{90 - A}{2} = 45 - \frac{A}{2}$ .
+Plugging this value into the original area equation, $a(45 - \frac{A}{2}) = 1240 \sin (45 - \frac{A}{2} + A) \cos (45 - \frac{A}{2}) = 1240\sin( 45+ \frac{A}{2})\cos(45 - \frac{A}{2})$ . Using a product-to-sum formula, we get that: \[1240\sin( 45+ \frac{A}{2})\cos(45 - \frac{A}{2}) =\] \[1240\cdot \frac{1}{2}\cdot(\sin((45 + \frac{A}{2}) + (45 -\frac{A}{2}))+\sin((45 +\frac{A}{2})-(45 - \frac{A}{2})))=\] \[620 (\sin 90^\circ + \sin A) = 620 \cdot \frac{6}{5} = \boxed{744}\] .
+
+## Solution 5
+Let $\alpha$ be the angle $\angle CAS$ and $\beta$ be the angle $\angle BAQ$ . Then \[\alpha + \beta + \angle A = 90^\circ \Rightarrow \alpha + \beta = 90^\circ - \angle A\] \[\cos(\alpha + \beta) = \cos(90^\circ - \angle A)\] \[\cos(\alpha + \beta) = \sin(\angle A) = \frac{1}{5}\] \[\cos\alpha\cos\beta - \sin\alpha\sin\beta = \frac{1}{5}\] \[\cos\alpha\cos\beta - \sqrt{(1-\cos^2\alpha)(1-\cos^2\beta)} = \frac{1}{5}\] \[\cos\alpha\cos\beta - \sqrt{1-\cos^2\alpha-\cos^2\beta+\cos^2\alpha\cos^2\beta} = \frac{1}{5}\] However, by AM-GM: \[\cos^2\alpha+\cos^2\beta \ge 2\cos\alpha\beta\] Therefore, \[1-\cos^2\alpha-\cos^2\beta+\cos^2\alpha\cos^2\beta \le 1-2\cos\alpha\beta+\cos^2\alpha\cos^2\beta = (1-\cos\alpha\cos\beta)^2\] \[\sqrt{1-\cos^2\alpha-\cos^2\beta+\cos^2\alpha\cos^2\beta} \le 1-\cos\alpha\cos\beta\] So, \[\frac{1}{5} \ge \cos\alpha\cos\beta - (1-\cos\alpha\cos\beta) = 2\cos\alpha\cos\beta-1\] \[\frac{3}{5} \ge \cos\alpha\cos\beta\] . However, the area of the rectangle is just $AS \cdot AQ = 31\cos\alpha \cdot 40\cos\beta \le 31 \cdot 40 \cdot \frac{3}{5} = \boxed{744}$ .
+### Note on Problem Validity
+It has been noted that this answer won't actually work. Let angle $QAB = m$ and angle $CAS = n$ as in Solution 1. Since we know (through that solution) that $m = n$ , we can call them each $\theta$ . The height of the rectangle is $AS = 31\cos\theta$ , and the distance $BQ = 40\sin\theta$ . We know that, if the triangle is to be inscribed in a rectangle, $AS \geq BQ$ .
+\[AS \geq BQ\]
+\[31\cos\theta \geq 40\sin\theta\]
+\[\frac{31}{40} \geq \tan\theta\]
+However, $\tan\theta = \tan(\frac{90-A}{2}) = \frac{\sin(90-A)}{\cos(90-A)+1} = \frac{\cos A}{\sin A + 1} = \frac{\frac{2\sqrt6}{5}}{\frac{6}{5}} = \frac{\sqrt6}{3} > \frac{31}{40}$ , so the triangle does not actually fit in the rectangle: specifically, B is above R and thus in the line containing segment QR but not on the actual segment or in the rectangle.
+[asy] size(200); pair A,B,C,Q,R,S; real r = (pi/2 - asin(1/5))/2; A = (0,0); B = 40*dir(r*180/pi); C = 31*dir(90-r*180/pi); draw(A--B--C--cycle); Q = (40*cos(r),0); R = (40*cos(r),31*cos(r)); S = (0, 31*cos(r)); draw(A--Q--R--S--cycle); label("$A$",A,SW); label("$B$",B,NE); label("$C$",C,N); label("$Q$",Q,SE); label("$R$",R,E); label("$S$",S,NW); [/asy]
+The actual answer is a radical near $728$ (letting the triangle be inside the rectangle). The CAMC, however, has decided to accept only the answer $744$ despite the invalid problem statement.
+### See Also
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America.
+These problems are copyrighted © by the Mathematical Association of America .
