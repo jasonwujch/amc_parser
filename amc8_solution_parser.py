@@ -356,11 +356,11 @@ def parse_multiple_years(start_year, end_year):
             print(f"    Failed problems: {failed}")
 
 def main():
-    """Main function to parse AMC 8 solutions for all years 1999-2024."""
+    """Main function to parse AMC 8 solutions for all years 1999-2025."""
     print("AMC 8 Solution Parser - Multi-Year Edition")
-    print("This will parse solutions for AMC 8 from 1999 to 2024")
-    
-    parse_multiple_years(1999, 2024)
+    print("This will parse solutions for AMC 8 from 1999 to 2025")
+
+    parse_multiple_years(1999, 2025)
 
 if __name__ == "__main__":
     main()

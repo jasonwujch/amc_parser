@@ -440,14 +440,14 @@ def parse_year(year):
     return True
 
 def main():
-    """Parse AMC 8 problems from 2024 to 1999."""
-    print("Starting AMC 8 batch parsing from 2024 to 1999...")
-    
+    """Parse AMC 8 problems from 2025 to 1999."""
+    print("Starting AMC 8 batch parsing from 2025 to 1999...")
+
     success_count = 0
     failed_years = []
-    
-    # Parse from 2024 down to 1999
-    for year in range(2024, 1998, -1):
+
+    # Parse from 2025 down to 1999
+    for year in range(2025, 1998, -1):
         try:
             if parse_year(year):
                 success_count += 1
