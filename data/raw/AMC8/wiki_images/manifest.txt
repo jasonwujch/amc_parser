@@ -1,0 +1,21 @@
+AMC8 Wiki Images Manifest
+================================================================================
+
+Total images: 6
+Successful downloads: 2
+Failed downloads: 4
+
+================================================================================
+
+
+2004_AMC_8:
+  Problem 23: https://wiki-images.artofproblemsolving.com//f/f5/AMC8200423.gif
+
+2019_AMC_8:
+  Problem 05: https://wiki-images.artofproblemsolving.com//thumb/5/56/2019_AMC_8_-4_Image_1.png/900px-2019_AMC_8_-4_Image_1.png
+  Problem 05: https://wiki-images.artofproblemsolving.com//thumb/6/63/2019_AMC_8_-4_Image_2.png/600px-2019_AMC_8_-4_Image_2.png
+
+2025_AMC_8:
+  Problem 02: https://wiki-images.artofproblemsolving.com//3/38/Amc8_2025_prob_2_pic.PNG
+  Problem 02: https://wiki-images.artofproblemsolving.com//d/de/Mathh.PNG
+  Problem 08: https://wiki-images.artofproblemsolving.com//5/54/Amc8_2025_prob8.PNG
